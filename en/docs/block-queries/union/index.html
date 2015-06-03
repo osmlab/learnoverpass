@@ -1,0 +1,25 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us"><head><link href="http://gmpg.org/xfn/11" rel="profile"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1"><title>Union</title><link rel="stylesheet" href="http://localhost:1313//css/main.css"> <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png"><link href="/favicon.png" rel="icon"><link href="" rel="alternate" type="application/rss+xml" title="LearnOverpass &middot; " /><meta name="description" content=""><meta name="keywords" content=""> </head><body><div class="row"><div class="docs-list"> <header><a href="/"><h1 class="header-title"> LearnOverpass</h1></a></header><ul> <li class="docs-list-title"> <strong>Block Queries</strong></li> <li> <a href="http://localhost:1313/en/docs/block-queries/union/">Union</a></li> <li> <a href="http://localhost:1313/en/docs/block-queries/difference/">Difference</a></li> <li> <a href="http://localhost:1313/en/docs/block-queries/foreach/">For-each loop (foreach)</a></li>  </ul></div><div class="docs-content"><div class="content"><h1 id="post-title">Union</h1><p><p>The union block statement is written as a pair of parentheses. Inside the union, any sequence of statements can be placed, including nested union and foreach statements.</p>
+
+<pre><code>(statement_1; statement_2; …)[-&gt;.result_set];
+</code></pre>
+
+<p>It takes no input set. It produces a result set. Its result set is the union of the result sets of all sub-statements, regardless of whether a sub-statement has a redirected result set or not.</p>
+
+<p>Example:</p>
+
+<pre><code>(node[name=&quot;Foo&quot;];way[name=&quot;Foo&quot;];);
+</code></pre>
+
+<p>This collects in the first statement all nodes that have a name tag &ldquo;Foo&rdquo; and in the second statement all ways that have a name tag &ldquo;Foo&rdquo;. After the union statement, the result set is the union of the result sets of both statements.</p>
+
+<p>The result set of the union statement can be redirected with the usual postfix notation:</p>
+
+<p>Example:</p>
+
+<pre><code>(node[name=&quot;Foo&quot;];way[name=&quot;Foo&quot;];)-&gt;.a;
+</code></pre>
+
+<p>Same as the preceding example, but the result is written into the variable a.</p>
+
+<p>Note: foreach and print statements cannot be subelement of element union.</p>
+</p> <footer><p>Website released under MIT License. Documentation and Courses under GNU FDL. &copy; 2015</p> <small class="language-switch"><a lang='en' href="/en/">English</a> | <a lang='de' href="/de/">Deutsch</a></small></footer></div></div></div> </body></html>

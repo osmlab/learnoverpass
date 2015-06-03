@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ens on LearnOverpass</title>
+    <link>http://localhost:1313/en/</link>
+    <description>Recent content in Ens on LearnOverpass</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 07 May 2015 11:09:35 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/en/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Union</title>
+      <link>http://localhost:1313/en/docs/block-queries/union/</link>
+      <pubDate>Thu, 07 May 2015 11:09:35 +0000</pubDate>
+      
+      <guid>http://localhost:1313/en/docs/block-queries/union/</guid>
+      <description>&lt;p&gt;The union block statement is written as a pair of parentheses. Inside the union, any sequence of statements can be placed, including nested union and foreach statements.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(statement_1; statement_2; …)[-&amp;gt;.result_set];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It takes no input set. It produces a result set. Its result set is the union of the result sets of all sub-statements, regardless of whether a sub-statement has a redirected result set or not.&lt;/p&gt;
+
+&lt;p&gt;Example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(node[name=&amp;quot;Foo&amp;quot;];way[name=&amp;quot;Foo&amp;quot;];);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This collects in the first statement all nodes that have a name tag &amp;ldquo;Foo&amp;rdquo; and in the second statement all ways that have a name tag &amp;ldquo;Foo&amp;rdquo;. After the union statement, the result set is the union of the result sets of both statements.&lt;/p&gt;
+
+&lt;p&gt;The result set of the union statement can be redirected with the usual postfix notation:&lt;/p&gt;
+
+&lt;p&gt;Example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(node[name=&amp;quot;Foo&amp;quot;];way[name=&amp;quot;Foo&amp;quot;];)-&amp;gt;.a;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Same as the preceding example, but the result is written into the variable a.&lt;/p&gt;
+
+&lt;p&gt;Note: foreach and print statements cannot be subelement of element union.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Difference</title>
+      <link>http://localhost:1313/en/docs/block-queries/difference/</link>
+      <pubDate>Wed, 06 May 2015 11:09:35 +0000</pubDate>
+      
+      <guid>http://localhost:1313/en/docs/block-queries/difference/</guid>
+      <description>&lt;p&gt;The difference block statement is written as a pair of parentheses. Inside the difference statement, exactly two statements must be placed, and between them a minus sign.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(statement_1; - statement_2;)[-&amp;gt;.result_set];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It takes no input set. It produces a result set. Its result set contains all elements that are result of the first sub-statement and not contained in the result of the second sub-statement.&lt;/p&gt;
+
+&lt;p&gt;Example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(node[name=&amp;quot;Foo&amp;quot;]; - node(50.0,7.0,51.0,8.0););
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This collects all nodes that have a name tag &amp;ldquo;Foo&amp;rdquo; but are not inside the given bounding box.&lt;/p&gt;
+
+&lt;p&gt;The result set of the difference statement can be redirected with the usual postfix notation:&lt;/p&gt;
+
+&lt;p&gt;Example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(node[name=&amp;quot;Foo&amp;quot;]; - node(50.0,7.0,51.0,8.0);)-&amp;gt;.a;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Same as the preceding example, but the result is written into the variable a.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>For-each loop (foreach)</title>
+      <link>http://localhost:1313/en/docs/block-queries/foreach/</link>
+      <pubDate>Wed, 06 May 2015 11:09:35 +0000</pubDate>
+      
+      <guid>http://localhost:1313/en/docs/block-queries/foreach/</guid>
+      <description>&lt;p&gt;The foreach block statement is written as the keyword foreach, followed by a pair of parentheses. Inside these parentheses, any sequence of statements can be placed, including nested union and foreach statements.&lt;/p&gt;
+
+&lt;p&gt;It takes an input set. It produces no result set. The foreach statement loops over the content of the input set, once for every element in the input set.&lt;/p&gt;
+
+&lt;p&gt;Example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;way[name=&amp;quot;Foo&amp;quot;];
+foreach(
+  (
+    ._;
+    &amp;gt;;
+  );
+  out;
+);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For each way that has a name tag with value &amp;ldquo;Foo&amp;rdquo;, this prints the nodes that belong to this way immediately followed by the way itself. In detail, the result set of way[name=&amp;ldquo;Foo&amp;rdquo;] is taken as input set. Then, for each element in this input set the loop body is executed once. Inside the loop body the union of the element and its nodes is taken. Then this union is printed. Note that during execution, each printed subset in an iteration is independant of subsets printed in other iterations, possibly resulting in duplicate objects in the global output (no union is computed by the out statement within the loop).&lt;/p&gt;
+
+&lt;p&gt;The input set of the foreach statement can be taken from a variable with the usual postfix notation:&lt;/p&gt;
+
+&lt;p&gt;Example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;foreach.a(...);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This loops over the content of set a instead of the default set &amp;ldquo;_&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;The name of the variable to put the loop element into can also be chosen by adding a postfix immediately before the opening parenthese.&lt;/p&gt;
+
+&lt;p&gt;Example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;foreach-&amp;gt;.b(...);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This puts the element to loop over into the variable b. Without it, the foreach statement does not puts the elements into any set. Example for both input and loop set changed:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;foreach.a-&amp;gt;.b(...);
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Overpass API Documentation</title>
+      <link>http://localhost:1313/en/docs/</link>
+      <pubDate>Wed, 06 May 2015 11:09:35 +0000</pubDate>
+      
+      <guid>http://localhost:1313/en/docs/</guid>
+      <description>&lt;p&gt;Overpass QL is the second query language for the Overpass API and was designed as an alternative to Overpass XML. It has a C style syntax: The whole query source code is divided in statements, and every statement ends with a semicolon. It has imperative semantics: The statements are processed one after another and change the execution state according to their semantics.&lt;/p&gt;
+
+&lt;p&gt;The execution state consists of the default set, potentially other named sets, and for block statements a stack. A set can contain nodes, ways, relations and areas, also of mixed type and of any number. Sets are created as result sets of statements and are read by subsequent statements as input. Unless you specify a named set as input or result, all input is implicitly read from and all results are written to the default variable named _ (a single underscore). Names for sets may consist of letters, digits and the underscore but must not start with a digit. Once a new result is (implicitly or explicitly) assigned to an existing set, its previous contents will be replaced and are no longer available. Sets always have global visibility.&lt;/p&gt;
+
+&lt;p&gt;There are several different types of statement. You almost always need the print statement, which is called an action, because it has an effect outside the execution state (the output). The other statements are grouped into&lt;/p&gt;
+
+&lt;p&gt;Standalone queries: These are complete statements on their own.
+Filters: They are always part of a query statement and contain the interesting selectors and filters.
+Block statements: They group statements and enable disjunctions as well as loops.
+Settings: Things like output format that can be set once at the beginning.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Overpass API is a highly optimized, read-only API built for gathering OSM map data.</title>
+      <link>http://localhost:1313/en/</link>
+      <pubDate>Wed, 06 May 2015 11:09:35 +0000</pubDate>
+      
+      <guid>http://localhost:1313/en/</guid>
+      <description>&lt;p&gt;Whether you are a complete beginner or an established developer, you will find LearnOverpass as the most comprehensive resource to learn how to utilize the Overpass API. In short time, learn how to use the powerful Query language, and collect data of various criteria: from location, types of objects, tag properties to proximities.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

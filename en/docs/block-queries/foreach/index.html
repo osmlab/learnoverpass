@@ -1,0 +1,39 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us"><head><link href="http://gmpg.org/xfn/11" rel="profile"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1"><title>For-each loop (foreach)</title><link rel="stylesheet" href="http://localhost:1313//css/main.css"> <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png"><link href="/favicon.png" rel="icon"><link href="" rel="alternate" type="application/rss+xml" title="LearnOverpass &middot; " /><meta name="description" content=""><meta name="keywords" content=""> </head><body><div class="row"><div class="docs-list"> <header><a href="/"><h1 class="header-title"> LearnOverpass</h1></a></header><ul> <li class="docs-list-title"> <strong>Block Queries</strong></li> <li> <a href="http://localhost:1313/en/docs/block-queries/union/">Union</a></li> <li> <a href="http://localhost:1313/en/docs/block-queries/difference/">Difference</a></li> <li> <a href="http://localhost:1313/en/docs/block-queries/foreach/">For-each loop (foreach)</a></li>  </ul></div><div class="docs-content"><div class="content"><h1 id="post-title">For-each loop (foreach)</h1><p><p>The foreach block statement is written as the keyword foreach, followed by a pair of parentheses. Inside these parentheses, any sequence of statements can be placed, including nested union and foreach statements.</p>
+
+<p>It takes an input set. It produces no result set. The foreach statement loops over the content of the input set, once for every element in the input set.</p>
+
+<p>Example:</p>
+
+<pre><code>way[name=&quot;Foo&quot;];
+foreach(
+  (
+    ._;
+    &gt;;
+  );
+  out;
+);
+</code></pre>
+
+<p>For each way that has a name tag with value &ldquo;Foo&rdquo;, this prints the nodes that belong to this way immediately followed by the way itself. In detail, the result set of way[name=&ldquo;Foo&rdquo;] is taken as input set. Then, for each element in this input set the loop body is executed once. Inside the loop body the union of the element and its nodes is taken. Then this union is printed. Note that during execution, each printed subset in an iteration is independant of subsets printed in other iterations, possibly resulting in duplicate objects in the global output (no union is computed by the out statement within the loop).</p>
+
+<p>The input set of the foreach statement can be taken from a variable with the usual postfix notation:</p>
+
+<p>Example:</p>
+
+<pre><code>foreach.a(...);
+</code></pre>
+
+<p>This loops over the content of set a instead of the default set &ldquo;_&rdquo;.</p>
+
+<p>The name of the variable to put the loop element into can also be chosen by adding a postfix immediately before the opening parenthese.</p>
+
+<p>Example:</p>
+
+<pre><code>foreach-&gt;.b(...);
+</code></pre>
+
+<p>This puts the element to loop over into the variable b. Without it, the foreach statement does not puts the elements into any set. Example for both input and loop set changed:</p>
+
+<pre><code>foreach.a-&gt;.b(...);
+</code></pre>
+</p> <footer><p>Website released under MIT License. Documentation and Courses under GNU FDL. &copy; 2015</p> <small class="language-switch"><a lang='en' href="/en/">English</a> | <a lang='de' href="/de/">Deutsch</a></small></footer></div></div></div> </body></html>
