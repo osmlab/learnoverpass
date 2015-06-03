@@ -1,0 +1,10 @@
+{{ partial "head.html" . }}
+{{ partial "header.html" . }}
+<div class="front container content">
+  <h1 id="post-title">{{ .Title }}</h1>
+  <p>{{ .Content }}</p>
+  <a href="docs" class="button">{{ .Params.ref }}</a>
+  <a href="learn" class="button">{{ .Params.learn }}</a>
+</div>
+{{ partial "footer.html" . }}
+{{ partial "foot.html" . }}

@@ -1,0 +1,26 @@
+{{ partial "head.html" . }}
+<div class="row">
+  <div class="docs-list">
+    {{ partial "header.html" . }}
+    <ul>
+      {{ range $name, $taxonomy := .Site.Taxonomies.doctypes }}
+        <li class="docs-list-title">
+          <strong>{{ replace $name "-" " " | title }}</strong>
+        </li>
+        {{ range $taxonomy.Pages }}
+        <li>
+          <a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+        </li>
+        {{ end }}
+      {{ end }}
+    </ul>
+  </div>
+  <div class="docs-content">
+    <div class="content">
+      <h1 id="post-title">{{ .Title }}</h1>
+      <p>{{ .Content }}</p>
+      {{ partial "footer.html" . }}
+    </div>
+  </div>
+</div>
+{{ partial "foot.html" . }}

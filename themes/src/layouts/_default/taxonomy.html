@@ -1,0 +1,30 @@
+{{ partial "head.html" . }}
+<div class="content container">
+  {{ $root := .}}
+    {{ $page := (index .Data.Pages 0) }}
+    {{ range $taxonomy, $value := .Data }}
+      {{if ne $taxonomy "Pages"}}
+        {{ range (index $page.Params $taxonomy) }}
+          {{ if eq ($root.Title | urlize | title) (. | urlize | title) }}
+            <h1 class="title">{{ . }}</h1>
+            {{ $desc := printf "%s-desc" $taxonomy }}
+            {{ $desctax := index $root.Site.Taxonomies $desc }}
+            {{ $descpages := index $desctax (. | urlize) }}
+            {{ if len $descpages }}
+              {{ $descpage := index $descpages 0 }}
+              <span class="term-desc">{{ $descpage.Page.Content }}</span>
+            {{end}}
+
+          {{end}}
+        {{end}}
+      {{end}}
+    {{end}}
+
+    <ul>
+    {{ range .Data.Pages }}
+      <li><a href="{{.Permalink}}">{{ .LinkTitle }}</a></li>
+    {{end}}
+    </ul>
+
+</div>
+{{ partial "foot.html" . }}

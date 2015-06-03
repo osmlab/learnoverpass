@@ -1,0 +1,39 @@
+.docs-row
+  cf()
+
+.docs-list
+  background-color #f0f0f0
+  overflow auto
+  .docs-list-title
+    padding 1em
+    background-color white
+  ul 
+    display none
+    margin 0
+    padding 0
+    line-height 1em
+    list-style-type: none;
+    a
+      display block
+      color black
+      padding 0.75em 0.75em 0.75em 1.5em
+      text-decoration none
+      &:hover
+        color #79bc5f
+
+.docs-content
+  .content
+    @extend .container
+  
+@media (min-width sm_size)
+  .docs-list
+    height 100vh
+    ul 
+      display block 
+    column(1/4)
+  .docs-content
+    height 100vh
+    overflow auto
+    padding 0px
+    margin 0px
+    column(3/4)
