@@ -35,6 +35,12 @@ The theme/layout code can be found under the `themes/src` directory. Gulp is a t
 __Note on i18n:__
 Hugo does not natively support i18n/localization, and certain things have been worked around with to make it work. The site uses content sections to order the content by language (en/data, de/data etc.), and uses taxonomies to categorize the different content.
 
+### Deploy Script
+
+The project is deployed through the github pages service. The flat hugo files are pushed to the gh-pages branch.
+
+A `deploy.sh` script is included in the repo to push changes to gh-pages automatically.
+
 ## License
 
 The website's source is released under the MIT License.
