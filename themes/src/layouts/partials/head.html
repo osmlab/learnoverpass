@@ -10,9 +10,9 @@
   <title>{{ .Title }}</title>
 
   <!-- CSS -->
-  <link rel="stylesheet" href="{{ .Site.BaseUrl }}/css/main.css">
+  <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/main.css">
   {{ if isset .Site.Params "highlight" }}
-    <link rel="stylesheet" href="{{ .Site.BaseUrl }}/css/highlight/{{ .Site.Params.highlight }}.css">
+    <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/highlight/{{ .Site.Params.highlight }}.css">
   {{ end }}
 
   <!-- Icons -->
