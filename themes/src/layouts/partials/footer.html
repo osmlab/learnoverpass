@@ -1,8 +1,13 @@
 <footer>
-
   <p>Website released under MIT License. Documentation and Courses under GNU FDL. &copy; 2015</p> 
   <small class="language-switch">
-    <a lang='en' href="/en/">English</a> |
-    <a lang='de' href="/de/">Deutsch</a>
+    <!-- extract relative path (remove base and lang/section) -->
+    {{ $.Scratch.Set "path" (substr .Permalink (len .Site.BaseURL) (len .Permalink)) }} 
+    {{ if ge (len ($.Scratch.Get "path")) 3 }}
+      {{ $.Scratch.Set "path" (substr ($.Scratch.Get "path") (len "en/")) }} 
+    {{ end }}
+    {{ $cur_path := $.Scratch.Get "path" }}
+    <a lang='en' href="{{ .Site.BaseURL }}/en/{{ $cur_path }}">English</a> |
+    <a lang='de' href="{{ .Site.BaseURL }}/de/{{ $cur_path }}">Deutsch</a>
   </small>
 </footer>
