@@ -2,38 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://localhost:1313/</loc>
+    <loc>http://osmlab.github.io/learnoverpass/</loc>
     <lastmod>2015-05-07T11:09:35+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/en/docs/block-queries/union/</loc>
+    <loc>http://osmlab.github.io/learnoverpass/en/docs/block-queries/union/</loc>
     <lastmod>2015-05-07T11:09:35+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/de/</loc>
+    <loc>http://osmlab.github.io/learnoverpass/de/</loc>
     <lastmod>2015-05-06T11:09:35+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/en/docs/block-queries/foreach/</loc>
+    <loc>http://osmlab.github.io/learnoverpass/en/docs/block-queries/foreach/</loc>
     <lastmod>2015-05-06T11:09:35+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/en/docs/</loc>
+    <loc>http://osmlab.github.io/learnoverpass/en/docs/</loc>
     <lastmod>2015-05-06T11:09:35+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/en/docs/block-queries/difference/</loc>
+    <loc>http://osmlab.github.io/learnoverpass/en/</loc>
     <lastmod>2015-05-06T11:09:35+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/en/</loc>
+    <loc>http://osmlab.github.io/learnoverpass/en/docs/block-queries/difference/</loc>
     <lastmod>2015-05-06T11:09:35+00:00</lastmod>
   </url>
   

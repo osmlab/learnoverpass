@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Block Queries on LearnOverpass</title>
-    <link>http://localhost:1313/doctypes/block-queries/</link>
+    <link>http://osmlab.github.io/learnoverpass/doctypes/block-queries/</link>
     <description>Recent content in Block Queries on LearnOverpass</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 07 May 2015 11:09:35 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/doctypes/block-queries/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://osmlab.github.io/learnoverpass/doctypes/block-queries/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Union</title>
-      <link>http://localhost:1313/en/docs/block-queries/union/</link>
+      <link>http://osmlab.github.io/learnoverpass/en/docs/block-queries/union/</link>
       <pubDate>Thu, 07 May 2015 11:09:35 +0000</pubDate>
       
-      <guid>http://localhost:1313/en/docs/block-queries/union/</guid>
+      <guid>http://osmlab.github.io/learnoverpass/en/docs/block-queries/union/</guid>
       <description>&lt;p&gt;The union block statement is written as a pair of parentheses. Inside the union, any sequence of statements can be placed, including nested union and foreach statements.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;(statement_1; statement_2; …)[-&amp;gt;.result_set];
@@ -44,10 +44,10 @@
     
     <item>
       <title>Difference</title>
-      <link>http://localhost:1313/en/docs/block-queries/difference/</link>
+      <link>http://osmlab.github.io/learnoverpass/en/docs/block-queries/difference/</link>
       <pubDate>Wed, 06 May 2015 11:09:35 +0000</pubDate>
       
-      <guid>http://localhost:1313/en/docs/block-queries/difference/</guid>
+      <guid>http://osmlab.github.io/learnoverpass/en/docs/block-queries/difference/</guid>
       <description>&lt;p&gt;The difference block statement is written as a pair of parentheses. Inside the difference statement, exactly two statements must be placed, and between them a minus sign.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;(statement_1; - statement_2;)[-&amp;gt;.result_set];
@@ -75,10 +75,10 @@
     
     <item>
       <title>For-each loop (foreach)</title>
-      <link>http://localhost:1313/en/docs/block-queries/foreach/</link>
+      <link>http://osmlab.github.io/learnoverpass/en/docs/block-queries/foreach/</link>
       <pubDate>Wed, 06 May 2015 11:09:35 +0000</pubDate>
       
-      <guid>http://localhost:1313/en/docs/block-queries/foreach/</guid>
+      <guid>http://osmlab.github.io/learnoverpass/en/docs/block-queries/foreach/</guid>
       <description>&lt;p&gt;The foreach block statement is written as the keyword foreach, followed by a pair of parentheses. Inside these parentheses, any sequence of statements can be placed, including nested union and foreach statements.&lt;/p&gt;
 
 &lt;p&gt;It takes an input set. It produces no result set. The foreach statement loops over the content of the input set, once for every element in the input set.&lt;/p&gt;
