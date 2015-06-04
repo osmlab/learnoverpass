@@ -53,6 +53,53 @@
     </item>
     
     <item>
+      <title>For-each loop (foreach)</title>
+      <link>http://localhost:1313/en/docs/block-queries/foreach/</link>
+      <pubDate>Wed, 06 May 2015 11:09:35 +0000</pubDate>
+      
+      <guid>http://localhost:1313/en/docs/block-queries/foreach/</guid>
+      <description>&lt;p&gt;The foreach block statement is written as the keyword foreach, followed by a pair of parentheses. Inside these parentheses, any sequence of statements can be placed, including nested union and foreach statements.&lt;/p&gt;
+
+&lt;p&gt;It takes an input set. It produces no result set. The foreach statement loops over the content of the input set, once for every element in the input set.&lt;/p&gt;
+
+&lt;p&gt;Example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;way[name=&amp;quot;Foo&amp;quot;];
+foreach(
+  (
+    ._;
+    &amp;gt;;
+  );
+  out;
+);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For each way that has a name tag with value &amp;ldquo;Foo&amp;rdquo;, this prints the nodes that belong to this way immediately followed by the way itself. In detail, the result set of way[name=&amp;ldquo;Foo&amp;rdquo;] is taken as input set. Then, for each element in this input set the loop body is executed once. Inside the loop body the union of the element and its nodes is taken. Then this union is printed. Note that during execution, each printed subset in an iteration is independant of subsets printed in other iterations, possibly resulting in duplicate objects in the global output (no union is computed by the out statement within the loop).&lt;/p&gt;
+
+&lt;p&gt;The input set of the foreach statement can be taken from a variable with the usual postfix notation:&lt;/p&gt;
+
+&lt;p&gt;Example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;foreach.a(...);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This loops over the content of set a instead of the default set &amp;ldquo;_&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;The name of the variable to put the loop element into can also be chosen by adding a postfix immediately before the opening parenthese.&lt;/p&gt;
+
+&lt;p&gt;Example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;foreach-&amp;gt;.b(...);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This puts the element to loop over into the variable b. Without it, the foreach statement does not puts the elements into any set. Example for both input and loop set changed:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;foreach.a-&amp;gt;.b(...);
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Overpass API Documentation</title>
       <link>http://localhost:1313/en/docs/</link>
       <pubDate>Wed, 06 May 2015 11:09:35 +0000</pubDate>
@@ -99,53 +146,6 @@ Settings: Things like output format that can be set once at the beginning.&lt;/p
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Same as the preceding example, but the result is written into the variable a.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>For-each loop (foreach)</title>
-      <link>http://localhost:1313/en/docs/block-queries/foreach/</link>
-      <pubDate>Wed, 06 May 2015 11:09:35 +0000</pubDate>
-      
-      <guid>http://localhost:1313/en/docs/block-queries/foreach/</guid>
-      <description>&lt;p&gt;The foreach block statement is written as the keyword foreach, followed by a pair of parentheses. Inside these parentheses, any sequence of statements can be placed, including nested union and foreach statements.&lt;/p&gt;
-
-&lt;p&gt;It takes an input set. It produces no result set. The foreach statement loops over the content of the input set, once for every element in the input set.&lt;/p&gt;
-
-&lt;p&gt;Example:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;way[name=&amp;quot;Foo&amp;quot;];
-foreach(
-  (
-    ._;
-    &amp;gt;;
-  );
-  out;
-);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;For each way that has a name tag with value &amp;ldquo;Foo&amp;rdquo;, this prints the nodes that belong to this way immediately followed by the way itself. In detail, the result set of way[name=&amp;ldquo;Foo&amp;rdquo;] is taken as input set. Then, for each element in this input set the loop body is executed once. Inside the loop body the union of the element and its nodes is taken. Then this union is printed. Note that during execution, each printed subset in an iteration is independant of subsets printed in other iterations, possibly resulting in duplicate objects in the global output (no union is computed by the out statement within the loop).&lt;/p&gt;
-
-&lt;p&gt;The input set of the foreach statement can be taken from a variable with the usual postfix notation:&lt;/p&gt;
-
-&lt;p&gt;Example:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;foreach.a(...);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This loops over the content of set a instead of the default set &amp;ldquo;_&amp;rdquo;.&lt;/p&gt;
-
-&lt;p&gt;The name of the variable to put the loop element into can also be chosen by adding a postfix immediately before the opening parenthese.&lt;/p&gt;
-
-&lt;p&gt;Example:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;foreach-&amp;gt;.b(...);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This puts the element to loop over into the variable b. Without it, the foreach statement does not puts the elements into any set. Example for both input and loop set changed:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;foreach.a-&amp;gt;.b(...);
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
