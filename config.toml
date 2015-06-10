@@ -1,4 +1,4 @@
-baseurl = "http://osmlab.github.io/learnoverpass/"
+baseurl = "//osmlab.github.io/learnoverpass/"
 languageCode = "en-us"
 title = "LearnOverpass"
 [taxonomies]
