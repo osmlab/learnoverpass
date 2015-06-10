@@ -25,3 +25,11 @@ Example:
     (node[name="Foo"]; - node(50.0,7.0,51.0,8.0);)->.a;
 
 Same as the preceding example, but the result is written into the variable a.
+
+{{< docs_repl >}}
+(
+node[amenity]( 47.06, 15.435,  47.07,  15.44);
+-node[amenity](47.064, 15.435, 47.066, 15.44);
+);
+out;
+{{< /docs_repl >}}

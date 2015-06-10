@@ -27,3 +27,15 @@ Example:
 Same as the preceding example, but the result is written into the variable a.
 
 Note: foreach and print statements cannot be subelement of element union.
+
+{{< docs_repl >}}
+(
+node
+  [amenity=drinking_water]
+  (47.06,15.42,47.09,15.48);
+node
+  [tourism=hotel]
+  (47.06,15.42,47.09,15.48);
+);
+out;
+{{< /docs_repl >}}
