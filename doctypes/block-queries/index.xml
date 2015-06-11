@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Block Queries on LearnOverpass</title>
-    <link>http://osmlab.github.io/learnoverpass/doctypes/block-queries/</link>
+    <link>//osmlab.github.io/learnoverpass/doctypes/block-queries/</link>
     <description>Recent content in Block Queries on LearnOverpass</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 07 May 2015 11:09:35 +0000</lastBuildDate>
-    <atom:link href="http://osmlab.github.io/learnoverpass/doctypes/block-queries/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//osmlab.github.io/learnoverpass/doctypes/block-queries/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Union</title>
-      <link>http://osmlab.github.io/learnoverpass/en/docs/block-queries/union/</link>
+      <link>//osmlab.github.io/learnoverpass/en/docs/block-queries/union/</link>
       <pubDate>Thu, 07 May 2015 11:09:35 +0000</pubDate>
       
-      <guid>http://osmlab.github.io/learnoverpass/en/docs/block-queries/union/</guid>
+      <guid>//osmlab.github.io/learnoverpass/en/docs/block-queries/union/</guid>
       <description>&lt;p&gt;The union block statement is written as a pair of parentheses. Inside the union, any sequence of statements can be placed, including nested union and foreach statements.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;(statement_1; statement_2; …)[-&amp;gt;.result_set];
@@ -39,15 +39,27 @@
 &lt;p&gt;Same as the preceding example, but the result is written into the variable a.&lt;/p&gt;
 
 &lt;p&gt;Note: foreach and print statements cannot be subelement of element union.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;docs-repl&#34;&gt; &lt;textarea&gt;
+(
+node
+  [amenity=drinking_water]
+  (47.06,15.42,47.09,15.48);
+node
+  [tourism=hotel]
+  (47.06,15.42,47.09,15.48);
+);
+out;
+&lt;/textarea&gt;&lt;iframe src=&#34;http://overpass-turbo.eu/map.html?Q=%0a%28%0anode%0a%20%20%5bamenity%3ddrinking_water%5d%0a%20%20%2847.06%2c15.42%2c47.09%2c15.48%29%3b%0anode%0a%20%20%5btourism%3dhotel%5d%0a%20%20%2847.06%2c15.42%2c47.09%2c15.48%29%3b%0a%29%3b%0aout%3b%0a&#34; seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34; style=&#34;height:50vh&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Difference</title>
-      <link>http://osmlab.github.io/learnoverpass/en/docs/block-queries/difference/</link>
+      <link>//osmlab.github.io/learnoverpass/en/docs/block-queries/difference/</link>
       <pubDate>Wed, 06 May 2015 11:09:35 +0000</pubDate>
       
-      <guid>http://osmlab.github.io/learnoverpass/en/docs/block-queries/difference/</guid>
+      <guid>//osmlab.github.io/learnoverpass/en/docs/block-queries/difference/</guid>
       <description>&lt;p&gt;The difference block statement is written as a pair of parentheses. Inside the difference statement, exactly two statements must be placed, and between them a minus sign.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;(statement_1; - statement_2;)[-&amp;gt;.result_set];
@@ -70,15 +82,23 @@
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Same as the preceding example, but the result is written into the variable a.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;docs-repl&#34;&gt; &lt;textarea&gt;
+(
+node[amenity]( 47.06, 15.435,  47.07,  15.44);
+-node[amenity](47.064, 15.435, 47.066, 15.44);
+);
+out;
+&lt;/textarea&gt;&lt;iframe src=&#34;http://overpass-turbo.eu/map.html?Q=%0a%28%0anode%5bamenity%5d%28%2047.06%2c%2015.435%2c%20%2047.07%2c%20%2015.44%29%3b%0a-node%5bamenity%5d%2847.064%2c%2015.435%2c%2047.066%2c%2015.44%29%3b%0a%29%3b%0aout%3b%0a&#34; seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34; style=&#34;height:50vh&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>For-each loop (foreach)</title>
-      <link>http://osmlab.github.io/learnoverpass/en/docs/block-queries/foreach/</link>
+      <link>//osmlab.github.io/learnoverpass/en/docs/block-queries/foreach/</link>
       <pubDate>Wed, 06 May 2015 11:09:35 +0000</pubDate>
       
-      <guid>http://osmlab.github.io/learnoverpass/en/docs/block-queries/foreach/</guid>
+      <guid>//osmlab.github.io/learnoverpass/en/docs/block-queries/foreach/</guid>
       <description>&lt;p&gt;The foreach block statement is written as the keyword foreach, followed by a pair of parentheses. Inside these parentheses, any sequence of statements can be placed, including nested union and foreach statements.&lt;/p&gt;
 
 &lt;p&gt;It takes an input set. It produces no result set. The foreach statement loops over the content of the input set, once for every element in the input set.&lt;/p&gt;
