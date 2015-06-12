@@ -3,8 +3,12 @@
 <div class="front container content">
   <h1 id="post-title">{{ .Title }}</h1>
   <p>{{ .Content }}</p>
-  <a href="docs" class="button">{{ .Params.ref }}</a>
-  <a href="learn" class="button">{{ .Params.learn }}</a>
+  <div>
+    <a href="docs" class="button">{{ .Params.ref }}</a>
+    <a href="learn" class="button">{{ .Params.learn }}</a>
+    <a href="//osmlab.github.com/learnoverpass" class="button">{{ .Params.github }}</a>
+    <iframe class="github-star" src="https://ghbtns.com/github-btn.html?user=osmlab&repo=learnoverpass&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
+  </div>
 </div>
 {{ partial "footer.html" . }}
 {{ partial "foot.html" . }}

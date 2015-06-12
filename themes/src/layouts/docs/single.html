@@ -17,7 +17,13 @@
   </div>
   <div class="docs-content">
     <div class="content">
-      <h1 id="post-title">{{ .Title }}</h1>
+      <h1 id="post-title">
+        {{ .Title }}
+        <small>
+          {{ $cur_path := trim (substr .Permalink (len .Site.BaseURL) (len .Permalink)) "/" }}
+          <a class="docs-improve" href="https://github.com/osmlab/learnoverpass/edit/master/content/{{ $cur_path }}.md">Improve page</a>
+        </small>
+      </h1>
       <p>{{ .Content }}</p>
       {{ partial "footer.html" . }}
     </div>
