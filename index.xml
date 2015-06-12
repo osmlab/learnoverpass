@@ -65,45 +65,6 @@ out;
     </item>
     
     <item>
-      <title>Difference</title>
-      <link>//osmlab.github.io/learnoverpass/en/docs/block-queries/difference/</link>
-      <pubDate>Wed, 06 May 2015 11:09:35 +0000</pubDate>
-      
-      <guid>//osmlab.github.io/learnoverpass/en/docs/block-queries/difference/</guid>
-      <description>&lt;p&gt;The difference block statement is written as a pair of parentheses. Inside the difference statement, exactly two statements must be placed, and between them a minus sign.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(statement_1; - statement_2;)[-&amp;gt;.result_set];
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;It takes no input set. It produces a result set. Its result set contains all elements that are result of the first sub-statement and not contained in the result of the second sub-statement.&lt;/p&gt;
-
-&lt;p&gt;Example:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(node[name=&amp;quot;Foo&amp;quot;]; - node(50.0,7.0,51.0,8.0););
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This collects all nodes that have a name tag &amp;ldquo;Foo&amp;rdquo; but are not inside the given bounding box.&lt;/p&gt;
-
-&lt;p&gt;The result set of the difference statement can be redirected with the usual postfix notation:&lt;/p&gt;
-
-&lt;p&gt;Example:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(node[name=&amp;quot;Foo&amp;quot;]; - node(50.0,7.0,51.0,8.0);)-&amp;gt;.a;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Same as the preceding example, but the result is written into the variable a.&lt;/p&gt;
-
-&lt;p&gt;&lt;div class=&#34;docs-repl&#34;&gt; &lt;textarea&gt;
-(
-node[amenity]( 47.06, 15.435,  47.07,  15.44);
--node[amenity](47.064, 15.435, 47.066, 15.44);
-);
-out;
-&lt;/textarea&gt;&lt;iframe src=&#34;http://overpass-turbo.eu/map.html?Q=%0a%28%0anode%5bamenity%5d%28%2047.06%2c%2015.435%2c%20%2047.07%2c%20%2015.44%29%3b%0a-node%5bamenity%5d%2847.064%2c%2015.435%2c%2047.066%2c%2015.44%29%3b%0a%29%3b%0aout%3b%0a&#34; seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34; style=&#34;height:50vh&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>For-each loop (foreach)</title>
       <link>//osmlab.github.io/learnoverpass/en/docs/block-queries/foreach/</link>
       <pubDate>Wed, 06 May 2015 11:09:35 +0000</pubDate>
@@ -147,6 +108,45 @@ foreach(
 
 &lt;pre&gt;&lt;code&gt;foreach.a-&amp;gt;.b(...);
 &lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Difference</title>
+      <link>//osmlab.github.io/learnoverpass/en/docs/block-queries/difference/</link>
+      <pubDate>Wed, 06 May 2015 11:09:35 +0000</pubDate>
+      
+      <guid>//osmlab.github.io/learnoverpass/en/docs/block-queries/difference/</guid>
+      <description>&lt;p&gt;The difference block statement is written as a pair of parentheses. Inside the difference statement, exactly two statements must be placed, and between them a minus sign.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(statement_1; - statement_2;)[-&amp;gt;.result_set];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It takes no input set. It produces a result set. Its result set contains all elements that are result of the first sub-statement and not contained in the result of the second sub-statement.&lt;/p&gt;
+
+&lt;p&gt;Example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(node[name=&amp;quot;Foo&amp;quot;]; - node(50.0,7.0,51.0,8.0););
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This collects all nodes that have a name tag &amp;ldquo;Foo&amp;rdquo; but are not inside the given bounding box.&lt;/p&gt;
+
+&lt;p&gt;The result set of the difference statement can be redirected with the usual postfix notation:&lt;/p&gt;
+
+&lt;p&gt;Example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(node[name=&amp;quot;Foo&amp;quot;]; - node(50.0,7.0,51.0,8.0);)-&amp;gt;.a;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Same as the preceding example, but the result is written into the variable a.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;docs-repl&#34;&gt; &lt;textarea&gt;
+(
+node[amenity]( 47.06, 15.435,  47.07,  15.44);
+-node[amenity](47.064, 15.435, 47.066, 15.44);
+);
+out;
+&lt;/textarea&gt;&lt;iframe src=&#34;http://overpass-turbo.eu/map.html?Q=%0a%28%0anode%5bamenity%5d%28%2047.06%2c%2015.435%2c%20%2047.07%2c%20%2015.44%29%3b%0a-node%5bamenity%5d%2847.064%2c%2015.435%2c%2047.066%2c%2015.44%29%3b%0a%29%3b%0aout%3b%0a&#34; seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34; style=&#34;height:50vh&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/p&gt;
 </description>
     </item>
     
