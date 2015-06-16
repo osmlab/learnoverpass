@@ -3,7 +3,7 @@ date = 2015-05-06T11:09:35Z
 title = "Difference"
 type = "docs"
 doctypes = ["block queries"]
-doctype_weight = 2
+doctypes_weight = 2
 +++
 
 The difference block statement is written as a pair of parentheses. Inside the difference statement, exactly two statements must be placed, and between them a minus sign.

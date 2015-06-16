@@ -3,7 +3,7 @@ date = 2015-05-06T11:09:35Z
 title = "For-each loop (foreach)"
 type = "docs"
 doctypes = ["block queries"]
-doctype_weight = 3
+doctypes_weight = 3
 +++
 
 The foreach block statement is written as the keyword foreach, followed by a pair of parentheses. Inside these parentheses, any sequence of statements can be placed, including nested union and foreach statements.
@@ -40,3 +40,18 @@ Example:
 This puts the element to loop over into the variable b. Without it, the foreach statement does not puts the elements into any set. Example for both input and loop set changed:
 
     foreach.a->.b(...);
+
+{{< docs_repl >}}
+// get all bank nodes in coordinates
+(
+  node[amenity=bank]
+  (47.0678,15.4401658,47.069,15.4501658);
+  >;
+);
+// foreach bank node, print out adjacent nodes
+foreach->.bank_set(
+  node(around.bank_set:15)->.adjacent_set;
+  (.adjacent_set);
+  out meta;
+);
+{{< /docs_repl >}}
