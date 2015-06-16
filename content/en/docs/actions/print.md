@@ -60,10 +60,18 @@ Example:
 
 Reads from variable a the data to output.
 
-{{< docs_repl >}}
+{{< docs_repl >}}===default===
 (
-node[amenity]( 47.06, 15.435,  47.07,  15.44);
--node[amenity](47.064, 15.435, 47.066, 15.44);
+  // Rio de Janeiro's Christ the Redeemer peak
+  node[name=Corcovado][natural=peak];
+  >;
 );
 out;
+===meta===
+(
+  // Rio de Janeiro's Christ the Redeemer peak
+  node[name=Corcovado][natural=peak];
+  >;
+);
+out meta;
 {{< /docs_repl >}}

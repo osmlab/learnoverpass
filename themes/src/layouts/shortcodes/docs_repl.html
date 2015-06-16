@@ -1,6 +1,12 @@
 <div class="docs-repl">
-  <textarea>{{ .Inner }}</textarea>
-  <iframe src="http://overpass-turbo.eu/map.html?Q={{ .Inner }}"
+  {{ if eq "=" (substr .Inner 0 1) }}
+    <select></select>
+    <textarea>{{ .Inner }}</textarea>
+    <iframe
+  {{ else }}
+    <textarea>{{ .Inner }}</textarea>
+    <iframe src="http://overpass-turbo.eu/map.html?Q={{ .Inner }}"
+  {{ end }}
           seamless="seamless"
           frameBorder="0" 
           width="100%;" style="height:50vh">
