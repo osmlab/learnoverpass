@@ -2,8 +2,9 @@
 date = 2015-05-07T11:09:35Z
 title = "Union"
 type = "docs"
-doctypes = ["block queries"]
-doctypes_weight = 1
+[menu.doctype]
+  parent = "Block Queries"
+weight = 1
 +++
 
 The union block statement is written as a pair of parentheses. Inside the union, any sequence of statements can be placed, including nested union and foreach statements.

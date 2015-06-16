@@ -1,8 +1,9 @@
 +++
 title = "By Tag"
 type = "docs"
-doctypes = ["Filters"]
-doctypes_weight = 1
+[menu.doctype]
+  parent = "Filters"
+weight = 1
 +++
 
 The has-kv filter selects all elements that have or have not a tag with a certain value. It supports the basic OSM types node, way, and relation as well as the extended type area.

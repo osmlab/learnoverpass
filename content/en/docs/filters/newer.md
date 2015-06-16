@@ -1,8 +1,9 @@
 +++
 title = "Newer"
 type = "docs"
-doctypes = ["Filters"]
-doctypes_weight = 7
+[menu.doctype]
+  parent = "Filters"
+weight = 7
 +++
 
 The newer filter selects all elements that have been changed since the given date. As opposed to other filters, this filter cannot be used alone. If the underlying database instance supports attic data, then "changed" is probably a better choice than "newer".

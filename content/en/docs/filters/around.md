@@ -1,8 +1,9 @@
 +++
 title = "Relative to other elements (around)"
 type = "docs"
-doctypes = ["Filters"]
-doctypes_weight = 6
+[menu.doctype]
+  parent = "Filters"
+weight = 6
 +++
 
 The around filter selects all elements within a certain radius around the elements in the input set. If you provide coordinates, then these coordinates are used instead of the input set. The input set can be changed with an adapted prefix notation. As for all filters, the result set is specified by the whole statement, not the individual filter.

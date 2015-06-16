@@ -2,8 +2,9 @@
 date = 2015-05-06T11:09:35Z
 title = "For-each loop (foreach)"
 type = "docs"
-doctypes = ["block queries"]
-doctypes_weight = 3
+[menu.doctype]
+  parent = "Block Queries"
+weight = 3
 +++
 
 The foreach block statement is written as the keyword foreach, followed by a pair of parentheses. Inside these parentheses, any sequence of statements can be placed, including nested union and foreach statements.

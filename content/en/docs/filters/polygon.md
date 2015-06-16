@@ -1,8 +1,9 @@
 +++
 title = "By polygon (poly)"
 type = "docs"
-doctypes = ["Filters"]
-doctypes_weight = 7
+[menu.doctype]
+  parent = "Filters"
+weight = 7
 +++
 
 The _polygon_ filter selects all elements of the chosen type inside the given bounding box.

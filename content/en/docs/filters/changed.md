@@ -1,8 +1,9 @@
 +++
 title = "By date of change (changed)"
 type = "docs"
-doctypes = ["Filters"]
-doctypes_weight = 8
+[menu.doctype]
+  parent = "Filters"
+weight = 8
 +++
 The changed filter selects all elements that have been changed between the two given dates. If only one date is given, then the second is assumed to be the front date of the database. If only one date is given and it is run with the current timestamp, then it behaves exactly like "newer" with two exceptions: first, it is faster, second, it can also stand as the only filter.
 

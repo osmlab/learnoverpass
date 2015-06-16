@@ -1,8 +1,9 @@
 +++
 title = "By user (user, uid)"
 type = "docs"
-doctypes = ["Filters"]
-doctypes_weight = 9
+[menu.doctype]
+  parent = "Filters"
+weight = 9
 +++
 
 The user filter selects all elements that have been last touched by the specified user.

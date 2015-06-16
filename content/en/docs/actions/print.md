@@ -1,8 +1,9 @@
 +++
 title = "Print (out)"
 type = "docs"
-doctypes = ["Actions"]
-doctypes_weight = 1
+[menu.doctype]
+  parent = "Actions"
+weight = 1
 +++
 
 The out action can be configured with an arbitrary number of parameters that are appended, separated by whitespace, between the word out and the semicolon.

@@ -1,8 +1,9 @@
 +++
 title = "By Input Set"
 type = "docs"
-doctypes = ["Filters"]
-doctypes_weight = 4
+[menu.doctype]
+  parent = "Filters"
+weight = 4
 +++
 
 The "item" filter selects all elements from its input set.

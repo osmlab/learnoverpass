@@ -1,8 +1,9 @@
 +++
 title = "Recurse (n, w, r, bn, bw, br)"
 type = "docs"
-doctypes = ["Filters"]
-doctypes_weight = 3
+[menu.doctype]
+  parent = "Filters"
+weight = 3
 +++
 
 The recurse filter selects all elements that are members of an element from the input set or have an element of the input set as member, depending on the given parameter.

@@ -1,8 +1,9 @@
 +++
 title = "Item"
 type = "docs"
-doctypes = ["Standalone queries"]
-doctypes_weight = 1
+[menu.doctype]
+  parent = "standalone-queries"
+weight = 1
 +++
 
 The item standalone query consists only of an input set prefix.

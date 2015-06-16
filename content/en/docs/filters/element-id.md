@@ -1,8 +1,9 @@
 +++
 title = "By Element Id"
 type = "docs"
-doctypes = ["Filters"]
-doctypes_weight = 5
+[menu.doctype]
+  parent = "Filters"
+weight = 5
 +++
 
 The id-query filter selects the element of given type with given id. It supports beside the OSM datatypes node, way, and relation also the type area.

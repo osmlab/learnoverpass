@@ -1,8 +1,9 @@
 +++
 title = "By area (area)"
 type = "docs"
-doctypes = ["Filters"]
-doctypes_weight = 10
+[menu.doctype]
+  parent = "Filters"
+weight = 10
 +++
 The area filter selects all elements of the chosen type that are inside the given area. Please note with regard to attic data that areas always represent current data.
 

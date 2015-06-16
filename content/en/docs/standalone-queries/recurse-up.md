@@ -1,8 +1,9 @@
 +++
 title = "Recurse Up (<)"
 type = "docs"
-doctypes = ["Standalone queries"]
-doctypes_weight = 2
+[menu.doctype]
+  parent = "standalone-queries"
+weight = 2
 +++
 
 The recurse up standalone query is written as a single less than.

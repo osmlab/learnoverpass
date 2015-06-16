@@ -1,8 +1,9 @@
 +++
 title = "Bounding Box"
 type = "docs"
-doctypes = ["Filters"]
-doctypes_weight = 2
+[menu.doctype]
+  parent = "Filters"
+weight = 2
 +++
 
 The bbox-query filter selects all elements within a certain bounding box.

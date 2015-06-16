@@ -3,13 +3,13 @@
   <div class="docs-list">
     {{ partial "header.html" . }}
     <ul>
-      {{ range $name, $taxonomy := .Site.Taxonomies.doctypes }}
+      {{ range .Site.Menus.doctype }}
         <li class="docs-list-title">
-          <strong>{{ replace $name "-" " " | title }}</strong>
+          <strong>{{ .Name }}</strong>
         </li>
-        {{ range $taxonomy.Pages }}
+        {{ range .Children }}
         <li>
-          <a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+          <a href="{{ .URL }}">{{ .Name }}</a>
         </li>
         {{ end }}
       {{ end }}

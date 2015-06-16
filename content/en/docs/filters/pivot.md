@@ -1,8 +1,9 @@
 +++
 title = "Area pivot (pivot)"
 type = "docs"
-doctypes = ["Filters"]
-doctypes_weight = 11
+[menu.doctype]
+  parent = "Filters"
+weight = 11
 +++
 The _pivot_ filter selects the element of the chosen type that defines the outline of the given area.
 
