@@ -40,7 +40,7 @@
 
 &lt;p&gt;Note: foreach and print statements cannot be subelement of element union.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;docs-repl&#34;&gt; &lt;textarea&gt;
+&lt;p&gt;&lt;div class=&#34;docs-repl&#34;&gt;  &lt;textarea&gt;
 (
 node
   [amenity=drinking_water]
@@ -50,7 +50,7 @@ node
   (47.06,15.42,47.09,15.48);
 );
 out;
-&lt;/textarea&gt;&lt;iframe src=&#34;http://overpass-turbo.eu/map.html?Q=%0a%28%0anode%0a%20%20%5bamenity%3ddrinking_water%5d%0a%20%20%2847.06%2c15.42%2c47.09%2c15.48%29%3b%0anode%0a%20%20%5btourism%3dhotel%5d%0a%20%20%2847.06%2c15.42%2c47.09%2c15.48%29%3b%0a%29%3b%0aout%3b%0a&#34; seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34; style=&#34;height:50vh&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;/textarea&gt;&lt;iframe src=&#34;http://overpass-turbo.eu/map.html?Q=%0a%28%0anode%0a%20%20%5bamenity%3ddrinking_water%5d%0a%20%20%2847.06%2c15.42%2c47.09%2c15.48%29%3b%0anode%0a%20%20%5btourism%3dhotel%5d%0a%20%20%2847.06%2c15.42%2c47.09%2c15.48%29%3b%0a%29%3b%0aout%3b%0a&#34;  seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34; style=&#34;height:50vh&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -83,13 +83,13 @@ out;
 
 &lt;p&gt;Same as the preceding example, but the result is written into the variable a.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;docs-repl&#34;&gt; &lt;textarea&gt;
+&lt;p&gt;&lt;div class=&#34;docs-repl&#34;&gt;  &lt;textarea&gt;
 (
 node[amenity]( 47.06, 15.435,  47.07,  15.44);
 -node[amenity](47.064, 15.435, 47.066, 15.44);
 );
 out;
-&lt;/textarea&gt;&lt;iframe src=&#34;http://overpass-turbo.eu/map.html?Q=%0a%28%0anode%5bamenity%5d%28%2047.06%2c%2015.435%2c%20%2047.07%2c%20%2015.44%29%3b%0a-node%5bamenity%5d%2847.064%2c%2015.435%2c%2047.066%2c%2015.44%29%3b%0a%29%3b%0aout%3b%0a&#34; seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34; style=&#34;height:50vh&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;/textarea&gt;&lt;iframe src=&#34;http://overpass-turbo.eu/map.html?Q=%0a%28%0anode%5bamenity%5d%28%2047.06%2c%2015.435%2c%20%2047.07%2c%20%2015.44%29%3b%0a-node%5bamenity%5d%2847.064%2c%2015.435%2c%2047.066%2c%2015.44%29%3b%0a%29%3b%0aout%3b%0a&#34;  seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34; style=&#34;height:50vh&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -137,6 +137,21 @@ foreach(
 
 &lt;pre&gt;&lt;code&gt;foreach.a-&amp;gt;.b(...);
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;div class=&#34;docs-repl&#34;&gt;  &lt;textarea&gt;
+// get all bank nodes in coordinates
+(
+  node[amenity=bank]
+  (47.0678,15.4401658,47.069,15.4501658);
+  &amp;gt;;
+);
+// foreach bank node, print out adjacent nodes
+foreach-&amp;gt;.bank_set(
+  node(around.bank_set:15)-&amp;gt;.adjacent_set;
+  (.adjacent_set);
+  out meta;
+);
+&lt;/textarea&gt;&lt;iframe src=&#34;http://overpass-turbo.eu/map.html?Q=%0a%2f%2f%20get%20all%20bank%20nodes%20in%20coordinates%0a%28%0a%20%20node%5bamenity%3dbank%5d%0a%20%20%2847.0678%2c15.4401658%2c47.069%2c15.4501658%29%3b%0a%20%20%3e%3b%0a%29%3b%0a%2f%2f%20foreach%20bank%20node%2c%20print%20out%20adjacent%20nodes%0aforeach-%3e.bank_set%28%0a%20%20node%28around.bank_set%3a15%29-%3e.adjacent_set%3b%0a%20%20%28.adjacent_set%29%3b%0a%20%20out%20meta%3b%0a%29%3b%0a&#34;  seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34; style=&#34;height:50vh&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -166,6 +181,436 @@ Settings: Things like output format that can be set once at the beginning.&lt;/p
       
       <guid>//osmlab.github.io/learnoverpass/en/</guid>
       <description>&lt;p&gt;Whether you are a complete beginner or an established developer, you will find LearnOverpass as the most comprehensive resource to learn how to utilize the Overpass API. In short time, learn how to use the powerful Query language, and collect data of various criteria: from location, types of objects, tag properties to proximities.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Area pivot (pivot)</title>
+      <link>//osmlab.github.io/learnoverpass/en/docs/filters/pivot/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//osmlab.github.io/learnoverpass/en/docs/filters/pivot/</guid>
+      <description>&lt;p&gt;The &lt;em&gt;pivot&lt;/em&gt; filter selects the element of the chosen type that defines the outline of the given area.&lt;/p&gt;
+
+&lt;p&gt;The input set can be changed with an adapted prefix notation. As for all filters, the result set is specified by the whole statement, not the individual filter.&lt;/p&gt;
+
+&lt;p&gt;It consists of an opening parenthesis. Then follows the keyword &lt;em&gt;pivot&lt;/em&gt;. The filter ends with a closing parenthesis.&lt;/p&gt;
+
+&lt;p&gt;The statement finds for each area in the input set the respective element that the area has been generated from. Which is either a multipolygon relation or a way.&lt;/p&gt;
+
+&lt;p&gt;Examples:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;way(pivot);
+rel(pivot);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The example with modified input set:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;way(pivot.a);
+rel(pivot.a);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;div class=&#34;docs-repl&#34;&gt;  &lt;textarea&gt;
+// determine area for Greater London and store it to .London_area
+area[name=&amp;#34;London&amp;#34;][admin_level=6][boundary=administrative]-&amp;gt;.London_area;
+// convert back to relations using the pivot filter
+rel(pivot.London_area);
+// output the geom
+out geom;
+&lt;/textarea&gt;&lt;iframe src=&#34;http://overpass-turbo.eu/map.html?Q=%0a%2f%2f%20determine%20area%20for%20Greater%20London%20and%20store%20it%20to%20.London_area%0aarea%5bname%3d%22London%22%5d%5badmin_level%3d6%5d%5bboundary%3dadministrative%5d-%3e.London_area%3b%0a%2f%2f%20convert%20back%20to%20relations%20using%20the%20pivot%20filter%0arel%28pivot.London_area%29%3b%0a%2f%2f%20output%20the%20geom%0aout%20geom%3b%0a&#34;  seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34; style=&#34;height:50vh&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Bounding Box</title>
+      <link>//osmlab.github.io/learnoverpass/en/docs/filters/bbox/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//osmlab.github.io/learnoverpass/en/docs/filters/bbox/</guid>
+      <description>&lt;p&gt;The bbox-query filter selects all elements within a certain bounding box.&lt;/p&gt;
+
+&lt;p&gt;It has no input set. As for all filters, the result set is specified by the whole statement, not the individual filter.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(south,west,north,east)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It consists of an opening parenthesis. Then follow four floating point numbers, separated by commas. The filter ends with a closing parenthesis.&lt;/p&gt;
+
+&lt;p&gt;The floating point numbers give the limits of the bounding box: The first is the southern limit or minimum latitude. The second is the western limit, usually the minimum longitude. The third is the northern limit or maximum latitude. The last is the eastern limit, usually the maximum longitude. If the second argument is bigger than the fourth argument, the bounding box crosses the longitude of 180 degrees.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;docs-repl&#34;&gt;  &lt;textarea&gt;
+node
+(47.065,15.425,47.07,15.43); // a bbox-filter
+out;
+&lt;/textarea&gt;&lt;iframe src=&#34;http://overpass-turbo.eu/map.html?Q=%0anode%0a%2847.065%2c15.425%2c47.07%2c15.43%29%3b%20%2f%2f%20a%20bbox-filter%0aout%3b%0a&#34;  seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34; style=&#34;height:50vh&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>By Element Id</title>
+      <link>//osmlab.github.io/learnoverpass/en/docs/filters/element-id/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//osmlab.github.io/learnoverpass/en/docs/filters/element-id/</guid>
+      <description>&lt;p&gt;The id-query filter selects the element of given type with given id. It supports beside the OSM datatypes node, way, and relation also the type area.&lt;/p&gt;
+
+&lt;p&gt;It has no input set. As for all filters, the result set is specified by the whole statement, not the individual filter.&lt;/p&gt;
+
+&lt;p&gt;It consists of an opening parenthesis. Then follows a positive integer. The filter is ends with a closing parenthesis.&lt;/p&gt;
+
+&lt;p&gt;Examples:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;node(1);
+way(1);
+rel(1);
+area(1);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note that area ids need to be derived from an existing OSM way by adding 2400000000 to its OSM id or in case of a relation by adding 3600000000 respectively. Note that area creation is subject to some extraction rules, i.e. not all ways/relations have an area counterpart. See &lt;a href=&#34;https://github.com/drolbr/Overpass-API/blob/master/rules/areas.osm3s&#34;&gt;areas.osm3s&lt;/a&gt; for details.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;docs-repl&#34;&gt;  &lt;textarea&gt;
+// get node with id 1170494282
+// put it (implicitly) in the default set
+node(1170494282);
+// print the default set
+out;
+&lt;/textarea&gt;&lt;iframe src=&#34;http://overpass-turbo.eu/map.html?Q=%0a%2f%2f%20get%20node%20with%20id%201170494282%0a%2f%2f%20put%20it%20%28implicitly%29%20in%20the%20default%20set%0anode%281170494282%29%3b%0a%2f%2f%20print%20the%20default%20set%0aout%3b%0a&#34;  seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34; style=&#34;height:50vh&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>By Input Set</title>
+      <link>//osmlab.github.io/learnoverpass/en/docs/filters/input-set/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//osmlab.github.io/learnoverpass/en/docs/filters/input-set/</guid>
+      <description>&lt;p&gt;The &amp;ldquo;item&amp;rdquo; filter selects all elements from its input set.&lt;/p&gt;
+
+&lt;p&gt;As for all filters, the result set is specified by the whole statement, not the individual filter.&lt;/p&gt;
+
+&lt;p&gt;It consists of a dot, followed by the name of the input set.&lt;/p&gt;
+
+&lt;p&gt;Examples: The default set&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;node._;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and a named set&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;node.a;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It is also possible to specify several input sets:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;node.a.b;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;div class=&#34;docs-repl&#34;&gt;  &lt;textarea&gt;
+// get area Alpe and Cividale
+(area[name=&amp;#34;Cividale del Friuli&amp;#34;])-&amp;gt;.Cividale;
+(area[name=&amp;#34;Julijske Alpe&amp;#34;])-&amp;gt;.Alpe;
+
+(node[power=pole](area.Cividale))-&amp;gt;.Cividale_nodes;
+(node[power=pole](area.Alpe))-&amp;gt;.Alpe_nodes;
+
+// print out nodes that are present in both areas (intersection)
+node.Alpe_nodes.Cividale_nodes;
+out body qt;
+
+(relation[name=&amp;#34;Cividale del Friuli&amp;#34;];&amp;gt;;);
+out body;
+out skel qt;
+
+(relation[name=&amp;#34;Julijske Alpe&amp;#34;];&amp;gt;;);
+out body;
+out skel qt;
+&lt;/textarea&gt;&lt;iframe src=&#34;http://overpass-turbo.eu/map.html?Q=%0a%2f%2f%20get%20area%20Alpe%20and%20Cividale%0a%28area%5bname%3d%22Cividale%20del%20Friuli%22%5d%29-%3e.Cividale%3b%0a%28area%5bname%3d%22Julijske%20Alpe%22%5d%29-%3e.Alpe%3b%0a%0a%28node%5bpower%3dpole%5d%28area.Cividale%29%29-%3e.Cividale_nodes%3b%0a%28node%5bpower%3dpole%5d%28area.Alpe%29%29-%3e.Alpe_nodes%3b%0a%0a%2f%2f%20print%20out%20nodes%20that%20are%20present%20in%20both%20areas%20%28intersection%29%0anode.Alpe_nodes.Cividale_nodes%3b%0aout%20body%20qt%3b%0a%0a%28relation%5bname%3d%22Cividale%20del%20Friuli%22%5d%3b%3e%3b%29%3b%0aout%20body%3b%0aout%20skel%20qt%3b%0a%0a%28relation%5bname%3d%22Julijske%20Alpe%22%5d%3b%3e%3b%29%3b%0aout%20body%3b%0aout%20skel%20qt%3b%0a&#34;  seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34; style=&#34;height:50vh&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>By Tag</title>
+      <link>//osmlab.github.io/learnoverpass/en/docs/filters/tag/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//osmlab.github.io/learnoverpass/en/docs/filters/tag/</guid>
+      <description>
+
+&lt;p&gt;The has-kv filter selects all elements that have or have not a tag with a certain value. It supports the basic OSM types node, way, and relation as well as the extended type area.&lt;/p&gt;
+
+&lt;p&gt;It has no input set. As for all filters, the result set is specified by the whole statement, not the individual filter.&lt;/p&gt;
+
+&lt;p&gt;All variants consist of an opening bracket, then a string literal in single or double quotes. Then the variants differ. All variants end with a closing bracket. If the string literal consists only of letters, the quotes can be omitted.&lt;/p&gt;
+
+&lt;h3 id=&#34;equals:d47b870d8e90a2c386554be504052770&#34;&gt;Equals (=, !=)&lt;/h3&gt;
+
+&lt;p&gt;The most common variant selects all elements where the tag with the given key has a specific value. This variant contains after the key literal an equal sign and a further literal containing the value. Examples, all equivalent:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;node[&amp;quot;name&amp;quot;=&amp;quot;Foo&amp;quot;];
+node[name=Foo];
+node[&#39;name&#39;=&amp;quot;Foo&amp;quot;];
+node[name=&amp;quot;Foo&amp;quot;];
+node[&amp;quot;name&amp;quot;=&#39;Foo&#39;];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you have a digit, whitespace or whatever in the value, you do need single or double quotes:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;node[&amp;quot;name&amp;quot;=&amp;quot;Foo Street&amp;quot;];
+node[&amp;quot;name&amp;quot;=&#39;Foo Street&#39;];
+node[name=&amp;quot;Foo Street&amp;quot;];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Querying for empty values is not possible using the equals value operator. This can only be achieved by using a regular expression:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;node[power=&amp;quot;&amp;quot;];          // not supported
+node[power~&amp;quot;^$&amp;quot;];        // use regular expression instead
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Likewise, querying empty key values is also not possible using this kind of key-value query and needs to be expressed via regular expressions.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;node[~&amp;quot;^$&amp;quot;~&amp;quot;.&amp;quot;];         // find nodes with empty key (&amp;quot;&amp;quot;) and any value
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;NB: Overpass Turbo Wizard already has some logic in place to automatically convert &amp;ldquo;&amp;rdquo;=&amp;ldquo;&amp;rdquo; accordingly.&lt;/p&gt;
+
+&lt;h3 id=&#34;exists:d47b870d8e90a2c386554be504052770&#34;&gt;Exists&lt;/h3&gt;
+
+&lt;p&gt;The second variant selects all elements that have a tag with a certain key and an arbitrary value. It contains nothing between the key literal and the closing bracket:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;node[&amp;quot;name&amp;quot;];
+node[&#39;name&#39;];
+node[name];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;value-matches-regular-expression:d47b870d8e90a2c386554be504052770&#34;&gt;Value matches regular expression (~, !~)&lt;/h3&gt;
+
+&lt;p&gt;The third variant selects all elements that have a tag with a certain key and a value that matches some regular expression. It contains after the key literal a tilde, then a second literal for the regular expression to search for:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;node[&amp;quot;name&amp;quot;~&amp;quot;^Foo$&amp;quot;];    /* finds exactly &amp;quot;Foo&amp;quot; */
+node[&amp;quot;name&amp;quot;~&amp;quot;^Foo&amp;quot;];     /* finds anything that starts with &amp;quot;Foo&amp;quot; */
+node[&amp;quot;name&amp;quot;~&amp;quot;Foo$&amp;quot;];     /* finds anything that ends with &amp;quot;Foo&amp;quot; */
+node[&amp;quot;name&amp;quot;~&amp;quot;Foo&amp;quot;];      /* finds anything that contains the substring &amp;quot;Foo&amp;quot; */
+node[&amp;quot;name&amp;quot;~&amp;quot;.&amp;quot;];        /* finds anything, equal to the previous variant */
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Please note that in QL you need to escape backslashes: [&amp;ldquo;name&amp;rdquo;~&amp;ldquo;^St.&amp;rdquo;] results in the regular expression ^St. (which finds every name starting with &amp;ldquo;St&amp;rdquo;), while [&amp;ldquo;name&amp;rdquo;~&amp;ldquo;^St\.&amp;ldquo;] produces the most likely meant regular expression St. (which finds every name starting with &amp;ldquo;St.&amp;rdquo;). This is due to the C escaping rules and doesn&amp;rsquo;t apply to the XML syntax.&lt;/p&gt;
+
+&lt;p&gt;You can also search case insensitively:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;node[&amp;quot;name&amp;quot;~&amp;quot;^Foo$&amp;quot;,i];    /* finds &amp;quot;foo&amp;quot;, &amp;quot;FOO&amp;quot;, &amp;quot;fOo&amp;quot;, &amp;quot;Foo&amp;quot; etc. */
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Both the key and value variants with and without regular expressions can be negated. They then select exactly the elements which have a tag with the given key, but no matching value and the elements that don&amp;rsquo;t have a tag with the given key:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;node[&amp;quot;name&amp;quot;!=&amp;quot;Foo&amp;quot;];
+node[&amp;quot;name&amp;quot;!~&amp;quot;Foo&amp;quot;];
+node[&amp;quot;name&amp;quot;!~&amp;quot;Foo&amp;quot;,i];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Key/value matches regular expression (~&amp;ldquo;key regex&amp;rdquo;~&amp;ldquo;value regex&amp;rdquo;)
+The forth variant selects all elements where both key and value match a regular expression. After an initial tilde (~) the regular expression for the key needs to be provided, followed by another tilde character and eventually the regular expression for the value.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;node[~&amp;quot;^addr:.*$&amp;quot;~&amp;quot;^Foo$&amp;quot;];    /* finds addr:* tags with value exactly &amp;quot;Foo&amp;quot; */
+node[~&amp;quot;^addr:.*$&amp;quot;~&amp;quot;^Foo&amp;quot;];     /* finds addr:* tags with value starting with &amp;quot;Foo&amp;quot; */
+node[~&amp;quot;^addr:.*$&amp;quot;~&amp;quot;Foo$&amp;quot;];     /* finds addr:* tags with value ending with &amp;quot;Foo&amp;quot; */
+node[~&amp;quot;^addr:.*$&amp;quot;~&amp;quot;Foo&amp;quot;];      /* finds addr:* tags with value containing the substring &amp;quot;Foo&amp;quot; */
+node[~&amp;quot;^addr:.*$&amp;quot;~&amp;quot;.&amp;quot;];        /* finds addr:* tags with any value */
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Regular expressions for values cannot be negated in this variant.
+&lt;div class=&#34;docs-repl&#34;&gt;  &lt;textarea&gt;
+// Filter and only get nodes that are banks.
+node[amenity=bank]
+(47.06,15.42,47.09,15.48); // a bbox-filter
+out;
+&lt;/textarea&gt;&lt;iframe src=&#34;http://overpass-turbo.eu/map.html?Q=%0a%2f%2f%20Filter%20and%20only%20get%20nodes%20that%20are%20banks.%0anode%5bamenity%3dbank%5d%0a%2847.06%2c15.42%2c47.09%2c15.48%29%3b%20%2f%2f%20a%20bbox-filter%0aout%3b%0a&#34;  seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34; style=&#34;height:50vh&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>By area (area)</title>
+      <link>//osmlab.github.io/learnoverpass/en/docs/filters/area/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//osmlab.github.io/learnoverpass/en/docs/filters/area/</guid>
+      <description>&lt;p&gt;The area filter selects all elements of the chosen type that are inside the given area. Please note with regard to attic data that areas always represent current data.&lt;/p&gt;
+
+&lt;p&gt;The input set can be changed with an adapted prefix notation. As for all filters, the result set is specified by the whole statement, not the individual filter.&lt;/p&gt;
+
+&lt;p&gt;Syntax: It consists of an opening parenthesis. Then follows the keyword area. Then can follow a colon and a non-negative integer. The filter ends with a closing parenthesis.&lt;/p&gt;
+
+&lt;p&gt;Nodes are found if they are properly inside or on the border of the area. Ways are found if at least one point (also points on the segment) is properly inside the area. A way ending on the border and not otherwise crossing the area is not found. Relations are found if one of its members is properly inside the area.&lt;/p&gt;
+
+&lt;p&gt;If the area statement is provided without integer, the areas from the input set are used. An Example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;node(area);
+way(area);
+rel(area);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The example with modified input set:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;node(area.a);
+way(area.a);
+rel(area.a);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If an integer is added, the input set is ignored and instead the area that has the given integer as id is taken.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;node(area:2400000001);
+way(area:2400000001);
+rel(area:2400000001);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Because areas in OSM are not native elements but are only infered from the OSM database using its closed ways or relations; this facility allows grouping their various representation in a coherent set which can store their geometry, independantly of their complexity and representation in the OSM database, as if they were a single distinctive element, without using complex filtering rules in your query. However associating these objects with an OSM id attribute requires some adjusment because the same id value could be used for unrelated elements with different type (way or relation). For this reason, areas returned by the Overpass API only have a &amp;ldquo;virtual&amp;rdquo; id specific to the Overpass API, but not found directly in the OSM database.&lt;/p&gt;
+
+&lt;p&gt;By convention the area id can be calculated from an existing OSM way by adding 2400000000 to its OSM id, or in case of a relation by adding 3600000000 respectively. Note that area creation is subject to some extraction rules, i.e. not all ways/relations have an area counterpart (notably those that are tagged with &lt;code&gt;area=no&lt;/code&gt;, and most multipolygons and that don&amp;rsquo;t have a defined &lt;code&gt;name=*&lt;/code&gt; will not be part of areas).
+Areas are created by a regular job on the Overpass API server and usually have a lag of several hours compared to the OSM main database. The exact timestamp can be determined by checking the &lt;code&gt;timestamp_areas_base&lt;/code&gt; value in the Overpass json or xml result.&lt;/p&gt;
+
+&lt;p&gt;If you want more immediate results (not depending on the delayed batch processing), you can also write your own filters without using this facility in your Overpass query: use standard OSM element types and ids and filter them by specific tags of your choice.&lt;/p&gt;
+
+&lt;p&gt;See &lt;a href=&#34;https://github.com/drolbr/Overpass-API/blob/master/rules/areas.osm3s&#34;&gt;areas.osm3s&lt;/a&gt; for details of the filters (written using the XML variant of the Overpass query language) currently by Overpass used to generate the areas that can be queried with this facility. Those areas are defined using the &amp;ldquo;pivot&amp;rdquo; query feature.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;docs-repl&#34;&gt;  &lt;textarea&gt;
+// search the area of the Dolmites
+area
+  [place=region]
+  [&amp;#34;region:type&amp;#34;=&amp;#34;mountain_area&amp;#34;]
+  [&amp;#34;name:en&amp;#34;=&amp;#34;Dolomites&amp;#34;];
+out body;
+
+// get all peaks in the area
+node
+  [natural=peak]
+  (area);
+out body qt;
+&lt;/textarea&gt;&lt;iframe src=&#34;http://overpass-turbo.eu/map.html?Q=%0a%2f%2f%20search%20the%20area%20of%20the%20Dolmites%0aarea%0a%20%20%5bplace%3dregion%5d%0a%20%20%5b%22region%3atype%22%3d%22mountain_area%22%5d%0a%20%20%5b%22name%3aen%22%3d%22Dolomites%22%5d%3b%0aout%20body%3b%0a%0a%2f%2f%20get%20all%20peaks%20in%20the%20area%0anode%0a%20%20%5bnatural%3dpeak%5d%0a%20%20%28area%29%3b%0aout%20body%20qt%3b%0a&#34;  seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34; style=&#34;height:50vh&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>By date of change (changed)</title>
+      <link>//osmlab.github.io/learnoverpass/en/docs/filters/changed/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//osmlab.github.io/learnoverpass/en/docs/filters/changed/</guid>
+      <description>&lt;p&gt;The changed filter selects all elements that have been changed between the two given dates. If only one date is given, then the second is assumed to be the front date of the database. If only one date is given and it is run with the current timestamp, then it behaves exactly like &amp;ldquo;newer&amp;rdquo; with two exceptions: first, it is faster, second, it can also stand as the only filter.&lt;/p&gt;
+
+&lt;p&gt;It has no input set. As for all filters, the result set is specified by the whole statement, not the individual filter.&lt;/p&gt;
+
+&lt;p&gt;It consists of an opening parenthesis. Then follows a date specification. Please note that this date specification cannot be abbreviated and has to be put in single or double quotes. Then can follow a comma and a second date specification. The filter ends with a closing parenthesis.&lt;/p&gt;
+
+&lt;p&gt;Example: All changes since the given date and now&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;node._(changed:&amp;quot;2012-09-14T07:00:00Z&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;div class=&#34;docs-repl&#34;&gt;  &lt;textarea&gt;
+(node(poly:&amp;#34;50.73 7.13 50.73 7.17 50.75 7.15&amp;#34;);&amp;gt;;);
+// This finds all nodes that have changed
+// between the two given dates 
+node._(changed:&amp;#34;2012-09-14T07:00:00Z&amp;#34;,&amp;#34;2012-09-14T07:01:00Z&amp;#34;);
+out;
+&lt;/textarea&gt;&lt;iframe src=&#34;http://overpass-turbo.eu/map.html?Q=%0a%28node%28poly%3a%2250.73%207.13%2050.73%207.17%2050.75%207.15%22%29%3b%3e%3b%29%3b%0a%2f%2f%20This%20finds%20all%20nodes%20that%20have%20changed%0a%2f%2f%20between%20the%20two%20given%20dates%20%0anode._%28changed%3a%222012-09-14T07%3a00%3a00Z%22%2c%222012-09-14T07%3a01%3a00Z%22%29%3b%0aout%3b%0a&#34;  seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34; style=&#34;height:50vh&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>By polygon (poly)</title>
+      <link>//osmlab.github.io/learnoverpass/en/docs/filters/polygon/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//osmlab.github.io/learnoverpass/en/docs/filters/polygon/</guid>
+      <description>&lt;p&gt;The &lt;em&gt;polygon&lt;/em&gt; filter selects all elements of the chosen type inside the given bounding box.&lt;/p&gt;
+
+&lt;p&gt;It has no input set. As for all filters, the result set is specified by the whole statement, not the individual filter.&lt;/p&gt;
+
+&lt;p&gt;It consists of an opening parenthesis. Then follows the keyword poly. Then follows a string containing an even number of floating point numbers, divided only by whitespace. Each pair of floating point numbers represents a coordinate, in order latitude, then longitude. The filter ends with a closing parenthesis.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(poly:&amp;quot;latitude_1 longitude_1 latitude_2 longitude_2 latitude_3 longitude_3 …&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;An example (a triangle near Bonn, Germany):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;node(poly:&amp;quot;50.7 7.1 50.7 7.2 50.75 7.15&amp;quot;);
+way(poly:&amp;quot;50.7 7.1 50.7 7.2 50.75 7.15&amp;quot;);
+rel(poly:&amp;quot;50.7 7.1 50.7 7.2 50.75 7.15&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;div class=&#34;docs-repl&#34;&gt;  &lt;textarea&gt;
+(node(poly:&amp;#34;50.73 7.13 50.73 7.17 50.75 7.15&amp;#34;);&amp;gt;;);
+out;
+&lt;/textarea&gt;&lt;iframe src=&#34;http://overpass-turbo.eu/map.html?Q=%0a%28node%28poly%3a%2250.73%207.13%2050.73%207.17%2050.75%207.15%22%29%3b%3e%3b%29%3b%0aout%3b%0a&#34;  seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34; style=&#34;height:50vh&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>By user (user, uid)</title>
+      <link>//osmlab.github.io/learnoverpass/en/docs/filters/user/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//osmlab.github.io/learnoverpass/en/docs/filters/user/</guid>
+      <description>&lt;p&gt;The user filter selects all elements that have been last touched by the specified user.&lt;/p&gt;
+
+&lt;p&gt;It has no input set. As for all filters, the result set is specified by the whole statement, not the individual filter.&lt;/p&gt;
+
+&lt;p&gt;It consists of an opening parenthesis. Then follows either the keyword user, a colon and a string literal denoting the user name to search for. Or the keyword uid followed by the user id of the user to search for. The filter ends with a closing parenthesis.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;node(user:&amp;quot;Steve&amp;quot;);
+node(uid:1);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;div class=&#34;docs-repl&#34;&gt;  &lt;textarea&gt;
+(node(poly:&amp;#34;50.73 7.13 50.73 7.17 50.75 7.15&amp;#34;);&amp;gt;;);
+node._(user:&amp;#34;HeinerSchaefer&amp;#34;);
+out;
+&lt;/textarea&gt;&lt;iframe src=&#34;http://overpass-turbo.eu/map.html?Q=%0a%28node%28poly%3a%2250.73%207.13%2050.73%207.17%2050.75%207.15%22%29%3b%3e%3b%29%3b%0anode._%28user%3a%22HeinerSchaefer%22%29%3b%0aout%3b%0a&#34;  seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34; style=&#34;height:50vh&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Item</title>
+      <link>//osmlab.github.io/learnoverpass/en/docs/standalone-queries/item/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//osmlab.github.io/learnoverpass/en/docs/standalone-queries/item/</guid>
+      <description>&lt;p&gt;The item standalone query consists only of an input set prefix.&lt;/p&gt;
+
+&lt;p&gt;It takes the input set specified by its prefix. This is in particular useful for union statements: it reproduces its input set as (part of the) result of the union statement.&lt;/p&gt;
+
+&lt;p&gt;The most common usage is the usage with the default input set:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  ._;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In the context of a union statement, the following will return all items in the default inputset along with the recurse down result.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  (._; &amp;gt;;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;But of course other sets are possible too:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  .a;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In the context of a union statement:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  (.a; .a &amp;gt;;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note: Subsequent statements in a union statement are not impacted by the item statement. In particular &lt;code&gt;.a;&lt;/code&gt; does not add the contents of the input set to the default item set ._&lt;/p&gt;
+
+&lt;p&gt;The item statement can also be used as filter.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;docs-repl&#34;&gt;  &lt;textarea&gt;
+(
+node[amenity=bank]
+  (47.06,15.42,47.09,15.48);
+)-&amp;gt;.bank_set;
+
+//here we print the bank_set by passing the .bank_set query
+.bank_set out;
+&lt;/textarea&gt;&lt;iframe src=&#34;http://overpass-turbo.eu/map.html?Q=%0a%28%0anode%5bamenity%3dbank%5d%0a%20%20%2847.06%2c15.42%2c47.09%2c15.48%29%3b%0a%29-%3e.bank_set%3b%0a%0a%2f%2fhere%20we%20print%20the%20bank_set%20by%20passing%20the%20.bank_set%20query%0a.bank_set%20out%3b%0a&#34;  seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34; style=&#34;height:50vh&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/p&gt;
 </description>
     </item>
     

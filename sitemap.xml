@@ -13,17 +13,17 @@
   </url>
   
   <url>
-    <loc>//osmlab.github.io/learnoverpass/en/docs/block-queries/foreach/</loc>
-    <lastmod>2015-05-06T11:09:35+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>//osmlab.github.io/learnoverpass/de/</loc>
     <lastmod>2015-05-06T11:09:35+00:00</lastmod>
   </url>
   
   <url>
     <loc>//osmlab.github.io/learnoverpass/en/docs/block-queries/difference/</loc>
+    <lastmod>2015-05-06T11:09:35+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//osmlab.github.io/learnoverpass/en/docs/block-queries/foreach/</loc>
     <lastmod>2015-05-06T11:09:35+00:00</lastmod>
   </url>
   
@@ -35,6 +35,66 @@
   <url>
     <loc>//osmlab.github.io/learnoverpass/en/</loc>
     <lastmod>2015-05-06T11:09:35+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//osmlab.github.io/learnoverpass/en/docs/actions/print/</loc>
+  </url>
+  
+  <url>
+    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/around/</loc>
+  </url>
+  
+  <url>
+    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/area/</loc>
+  </url>
+  
+  <url>
+    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/changed/</loc>
+  </url>
+  
+  <url>
+    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/element-id/</loc>
+  </url>
+  
+  <url>
+    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/bbox/</loc>
+  </url>
+  
+  <url>
+    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/input-set/</loc>
+  </url>
+  
+  <url>
+    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/newer/</loc>
+  </url>
+  
+  <url>
+    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/pivot/</loc>
+  </url>
+  
+  <url>
+    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/polygon/</loc>
+  </url>
+  
+  <url>
+    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/recurse/</loc>
+  </url>
+  
+  <url>
+    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/tag/</loc>
+  </url>
+  
+  <url>
+    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/user/</loc>
+  </url>
+  
+  <url>
+    <loc>//osmlab.github.io/learnoverpass/en/docs/standalone-queries/item/</loc>
+  </url>
+  
+  <url>
+    <loc>//osmlab.github.io/learnoverpass/en/docs/standalone-queries/recurse-up/</loc>
   </url>
   
 </urlset>

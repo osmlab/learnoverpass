@@ -1,0 +1,53 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us"><head><link href="http://gmpg.org/xfn/11" rel="profile"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1"><title>By area (area)</title><link rel="stylesheet" href="//osmlab.github.io/learnoverpass//css/main.css"> <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png"><link href="/favicon.png" rel="icon"><link href="" rel="alternate" type="application/rss+xml" title="LearnOverpass &middot; " /><meta name="description" content=""><meta name="keywords" content=""> </head><body><div class="row"><div class="docs-list"> <header><a href="//osmlab.github.io/learnoverpass//"><h1 class="header-title"> LearnOverpass</h1></a></header><ul> <li class="docs-list-title"> <strong>Block Queries</strong></li> <li> <a href="/learnoverpass/en/docs/block-queries/union/">Union</a></li> <li> <a href="/learnoverpass/en/docs/block-queries/difference/">Difference</a></li> <li> <a href="/learnoverpass/en/docs/block-queries/foreach/">For-each loop (foreach)</a></li>  <li class="docs-list-title"> <strong>Standalone Queries</strong></li> <li> <a href="/learnoverpass/en/docs/standalone-queries/item/">Item</a></li> <li> <a href="/learnoverpass/en/docs/standalone-queries/recurse-up/">Recurse Up (&lt;)</a></li>  <li class="docs-list-title"> <strong>Filters</strong></li> <li> <a href="/learnoverpass/en/docs/filters/tag/">By Tag</a></li> <li> <a href="/learnoverpass/en/docs/filters/bbox/">Bounding Box</a></li> <li> <a href="/learnoverpass/en/docs/filters/recurse/">Recurse (n, w, r, bn, bw, br)</a></li> <li> <a href="/learnoverpass/en/docs/filters/input-set/">By Input Set</a></li> <li> <a href="/learnoverpass/en/docs/filters/element-id/">By Element Id</a></li> <li> <a href="/learnoverpass/en/docs/filters/around/">Relative to other elements (around)</a></li> <li> <a href="/learnoverpass/en/docs/filters/polygon/">By polygon (poly)</a></li> <li> <a href="/learnoverpass/en/docs/filters/newer/">Newer</a></li> <li> <a href="/learnoverpass/en/docs/filters/changed/">By date of change (changed)</a></li> <li> <a href="/learnoverpass/en/docs/filters/user/">By user (user, uid)</a></li> <li> <a href="/learnoverpass/en/docs/filters/area/">By area (area)</a></li> <li> <a href="/learnoverpass/en/docs/filters/pivot/">Area pivot (pivot)</a></li>  <li class="docs-list-title"> <strong>Actions</strong></li> <li> <a href="/learnoverpass/en/docs/actions/print/">Print (out)</a></li>  </ul></div><div class="docs-content"><div class="content"><h1 id="post-title"> By area (area) <small> <a class="docs-improve" href="https://github.com/osmlab/learnoverpass/edit/master/content/en/docs/filters/area.md">Improve page</a></small></h1><p><p>The area filter selects all elements of the chosen type that are inside the given area. Please note with regard to attic data that areas always represent current data.</p>
+
+<p>The input set can be changed with an adapted prefix notation. As for all filters, the result set is specified by the whole statement, not the individual filter.</p>
+
+<p>Syntax: It consists of an opening parenthesis. Then follows the keyword area. Then can follow a colon and a non-negative integer. The filter ends with a closing parenthesis.</p>
+
+<p>Nodes are found if they are properly inside or on the border of the area. Ways are found if at least one point (also points on the segment) is properly inside the area. A way ending on the border and not otherwise crossing the area is not found. Relations are found if one of its members is properly inside the area.</p>
+
+<p>If the area statement is provided without integer, the areas from the input set are used. An Example:</p>
+
+<pre><code>node(area);
+way(area);
+rel(area);
+</code></pre>
+
+<p>The example with modified input set:</p>
+
+<pre><code>node(area.a);
+way(area.a);
+rel(area.a);
+</code></pre>
+
+<p>If an integer is added, the input set is ignored and instead the area that has the given integer as id is taken.</p>
+
+<pre><code>node(area:2400000001);
+way(area:2400000001);
+rel(area:2400000001);
+</code></pre>
+
+<p>Because areas in OSM are not native elements but are only infered from the OSM database using its closed ways or relations; this facility allows grouping their various representation in a coherent set which can store their geometry, independantly of their complexity and representation in the OSM database, as if they were a single distinctive element, without using complex filtering rules in your query. However associating these objects with an OSM id attribute requires some adjusment because the same id value could be used for unrelated elements with different type (way or relation). For this reason, areas returned by the Overpass API only have a &ldquo;virtual&rdquo; id specific to the Overpass API, but not found directly in the OSM database.</p>
+
+<p>By convention the area id can be calculated from an existing OSM way by adding 2400000000 to its OSM id, or in case of a relation by adding 3600000000 respectively. Note that area creation is subject to some extraction rules, i.e. not all ways/relations have an area counterpart (notably those that are tagged with <code>area=no</code>, and most multipolygons and that don&rsquo;t have a defined <code>name=*</code> will not be part of areas).
+Areas are created by a regular job on the Overpass API server and usually have a lag of several hours compared to the OSM main database. The exact timestamp can be determined by checking the <code>timestamp_areas_base</code> value in the Overpass json or xml result.</p>
+
+<p>If you want more immediate results (not depending on the delayed batch processing), you can also write your own filters without using this facility in your Overpass query: use standard OSM element types and ids and filter them by specific tags of your choice.</p>
+
+<p>See <a href="https://github.com/drolbr/Overpass-API/blob/master/rules/areas.osm3s">areas.osm3s</a> for details of the filters (written using the XML variant of the Overpass query language) currently by Overpass used to generate the areas that can be queried with this facility. Those areas are defined using the &ldquo;pivot&rdquo; query feature.</p>
+
+<p><div class="docs-repl">  <textarea>
+// search the area of the Dolmites
+area
+  [place=region]
+  [&#34;region:type&#34;=&#34;mountain_area&#34;]
+  [&#34;name:en&#34;=&#34;Dolomites&#34;];
+out body;
+
+// get all peaks in the area
+node
+  [natural=peak]
+  (area);
+out body qt;
+</textarea><iframe src="http://overpass-turbo.eu/map.html?Q=%0a%2f%2f%20search%20the%20area%20of%20the%20Dolmites%0aarea%0a%20%20%5bplace%3dregion%5d%0a%20%20%5b%22region%3atype%22%3d%22mountain_area%22%5d%0a%20%20%5b%22name%3aen%22%3d%22Dolomites%22%5d%3b%0aout%20body%3b%0a%0a%2f%2f%20get%20all%20peaks%20in%20the%20area%0anode%0a%20%20%5bnatural%3dpeak%5d%0a%20%20%28area%29%3b%0aout%20body%20qt%3b%0a"  seamless="seamless" frameBorder="0" width="100%;" style="height:50vh"></iframe></div></p>
+</p> <footer><p>Website released under MIT License. Documentation and Courses under GNU FDL. &copy; 2015</p> <small class="language-switch">     <a lang='en' href="//osmlab.github.io/learnoverpass//en/docs/filters/area/">English</a> | <a lang='de' href="//osmlab.github.io/learnoverpass//de/docs/filters/area/">Deutsch</a></small></footer></div></div></div> <script src="//osmlab.github.io/learnoverpass//js/bundle.js"></script> </body></html>
