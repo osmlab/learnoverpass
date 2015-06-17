@@ -13,7 +13,7 @@
   </url>
   
   <url>
-    <loc>//osmlab.github.io/learnoverpass/de/</loc>
+    <loc>//osmlab.github.io/learnoverpass/en/docs/block-queries/foreach/</loc>
     <lastmod>2015-05-06T11:09:35+00:00</lastmod>
   </url>
   
@@ -23,7 +23,7 @@
   </url>
   
   <url>
-    <loc>//osmlab.github.io/learnoverpass/en/docs/block-queries/foreach/</loc>
+    <loc>//osmlab.github.io/learnoverpass/de/</loc>
     <lastmod>2015-05-06T11:09:35+00:00</lastmod>
   </url>
   
@@ -42,11 +42,15 @@
   </url>
   
   <url>
+    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/area/</loc>
+  </url>
+  
+  <url>
     <loc>//osmlab.github.io/learnoverpass/en/docs/filters/around/</loc>
   </url>
   
   <url>
-    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/area/</loc>
+    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/bbox/</loc>
   </url>
   
   <url>
@@ -55,10 +59,6 @@
   
   <url>
     <loc>//osmlab.github.io/learnoverpass/en/docs/filters/element-id/</loc>
-  </url>
-  
-  <url>
-    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/bbox/</loc>
   </url>
   
   <url>
@@ -82,11 +82,11 @@
   </url>
   
   <url>
-    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/tag/</loc>
+    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/user/</loc>
   </url>
   
   <url>
-    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/user/</loc>
+    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/tag/</loc>
   </url>
   
   <url>
