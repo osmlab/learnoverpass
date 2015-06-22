@@ -4,22 +4,26 @@
 .docs-list
   background-color #f0f0f0
   overflow auto
-  .docs-list-title
-    padding 1em
-    background-color white
   ul 
     display none
     margin 0
-    padding 0
+    padding 1em
     line-height 1em
     list-style-type: none;
+    li
+      margin-bottom 0.5em
     a
       display block
       color black
-      padding 0.75em 0.75em 0.75em 1.5em
       text-decoration none
       &:hover
-        color #79bc5f
+        color text_accent
+  .docs-list-title
+    line-height 3em
+    color text_muted
+  .docs-list-active
+    a
+      color text_accent
 
 .docs-improve
   font-size 0.5em

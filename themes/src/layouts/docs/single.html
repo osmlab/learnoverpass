@@ -3,12 +3,13 @@
   <div class="docs-list">
     {{ partial "header.html" . }}
     <ul>
+      {{ $currNode := . }}
       {{ range .Site.Menus.doctype }}
         <li class="docs-list-title">
           <strong>{{ .Name }}</strong>
         </li>
         {{ range .Children }}
-        <li>
+        <li class="{{ if $currNode.IsMenuCurrent "doctype" . }}docs-list-active{{end}}">
           <a href="{{ .URL }}">{{ .Name }}</a>
         </li>
         {{ end }}
