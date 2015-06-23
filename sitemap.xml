@@ -13,7 +13,7 @@
   </url>
   
   <url>
-    <loc>//osmlab.github.io/learnoverpass/en/docs/block-queries/difference/</loc>
+    <loc>//osmlab.github.io/learnoverpass/de/</loc>
     <lastmod>2015-05-06T11:09:35+00:00</lastmod>
   </url>
   
@@ -23,7 +23,7 @@
   </url>
   
   <url>
-    <loc>//osmlab.github.io/learnoverpass/de/</loc>
+    <loc>//osmlab.github.io/learnoverpass/en/docs/block-queries/difference/</loc>
     <lastmod>2015-05-06T11:09:35+00:00</lastmod>
   </url>
   
@@ -42,11 +42,11 @@
   </url>
   
   <url>
-    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/area/</loc>
+    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/around/</loc>
   </url>
   
   <url>
-    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/changed/</loc>
+    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/area/</loc>
   </url>
   
   <url>
@@ -54,7 +54,11 @@
   </url>
   
   <url>
-    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/around/</loc>
+    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/changed/</loc>
+  </url>
+  
+  <url>
+    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/element-id/</loc>
   </url>
   
   <url>
@@ -74,19 +78,15 @@
   </url>
   
   <url>
+    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/polygon/</loc>
+  </url>
+  
+  <url>
     <loc>//osmlab.github.io/learnoverpass/en/docs/filters/tag/</loc>
   </url>
   
   <url>
-    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/element-id/</loc>
-  </url>
-  
-  <url>
     <loc>//osmlab.github.io/learnoverpass/en/docs/filters/user/</loc>
-  </url>
-  
-  <url>
-    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/polygon/</loc>
   </url>
   
   <url>
