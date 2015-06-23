@@ -5,6 +5,19 @@
 
   require("./codemirror-ql-mode.js");
 
+  var codeTags = document.getElementsByTagName("code");
+  [].forEach.call(codeTags, function(elm) {
+    var text = elm.textContent || elm.innerHTML;
+
+    while(elm.firstChild) elm.removeChild(elm.firstChild);
+    var cm = new CodeMirror(elm, {
+      value: text,
+      mode: "ql+mustache",
+      lineNumbers: false,
+      readOnly: true
+    });
+  });
+
   var docsRepl = document.getElementsByClassName("docs-repl");
 
   [].forEach.call(docsRepl, function(elm) {
