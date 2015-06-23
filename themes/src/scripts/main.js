@@ -2,7 +2,8 @@
   'use strict';
   var CodeMirror = require("codemirror");
   require("codemirror/addon/comment/comment.js");
-  require("codemirror/mode/javascript/javascript.js");
+
+  require("./codemirror-ql-mode.js");
 
   var docsRepl = document.getElementsByClassName("docs-repl");
 
@@ -14,7 +15,7 @@
     // init codemirror
     var cm = CodeMirror.fromTextArea(textarea, {
       lineNumbers: true,
-      mode: "javascript"
+      mode: "ql+mustache"
     });
 
     var code_sample = processCode(cm, select);
