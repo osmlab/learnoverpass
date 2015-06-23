@@ -12,9 +12,11 @@ gulp.task('styles', function () {
   return gulp.src('themes/src/styles/main.styl')
     //stylus
     .pipe($.plumber())
-    .pipe($.stylus({use: [jeet()]}))
-    .pipe($.autoprefixer({browsers: ['last 1 version']}))
-    .pipe($.minifyCss())
+    .pipe($.sourcemaps.init())
+      .pipe($.stylus({use: [jeet()]}))
+      .pipe($.autoprefixer({browsers: ['last 1 version']}))
+      .pipe($.minifyCss())
+    .pipe($.sourcemaps.write())
     .pipe(gulp.dest(theme + 'static/css'));
 });
 
@@ -24,6 +26,7 @@ gulp.task('scripts', [], function() {
       output: {
         filename: "bundle.js"
       },
+      devtool: "inline-source-map"
     }))
     .pipe(gulp.dest(theme + 'static/js/'));
 });
