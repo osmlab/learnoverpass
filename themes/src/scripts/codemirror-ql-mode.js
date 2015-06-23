@@ -2,7 +2,7 @@ module.exports = (function() {
   var CodeMirror = require("codemirror");
   require("codemirror/addon/mode/multiplex.js");
   require("codemirror/mode/clike/clike.js");
-    console.log('aa');
+
   CodeMirror.defineMIME("text/x-overpassQL", {
       name: "clike",
       keywords: (function(str){var r={}; var a=str.split(" "); for(var i=0; i<a.length; i++) r[a[i]]=true; return r;})(

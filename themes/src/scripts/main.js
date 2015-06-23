@@ -2,7 +2,6 @@
   'use strict';
   var CodeMirror = require("codemirror");
   require("codemirror/addon/comment/comment.js");
-
   require("./codemirror-ql-mode.js");
 
   var codeTags = document.getElementsByTagName("code");
@@ -39,13 +38,13 @@
         var text = this.children[this.selectedIndex].value.trim();
         cm.setValue(text);
       };
+      // set codemirror to default text
+      cm.setValue(code_sample[1]);
     }
     cm.on("change", function(cm, change) {
       iframe.src = "http://overpass-turbo.eu/map.html?Q=" + escape(cm.getValue());
     });
 
-    // set codemirror to default text
-    cm.setValue(code_sample[1]);
   });
   function processCode(cm, select) {
     var code_sample = cm.getDoc().getValue().split(/===/);
