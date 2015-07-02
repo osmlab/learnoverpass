@@ -5,7 +5,7 @@ deploy_directory=public
 deploy_branch=gh-pages
 
 rm -rf "$deploy_directory"
-hugo --theme=overpass_doc
+gulp deploy
 
 #if no user identity is already set in the current git environment, use this:
 default_username=deploy.sh

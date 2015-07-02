@@ -5,6 +5,7 @@ var jeet = require('jeet');
 var pngquant = require('pngquant');
 var jpegtran = require('imagemin-jpegtran');
 var webpack = require('gulp-webpack');
+var wp = require('webpack');
 
 var theme = 'themes/overpass_doc/';
 
@@ -29,6 +30,17 @@ gulp.task('scripts', [], function() {
       devtool: "inline-source-map"
     }))
     .pipe(gulp.dest(theme + 'static/js/'));
+});
+
+gulp.task('scripts-deploy', [], function() {
+    return gulp.src('themes/src/scripts/main.js')
+      .pipe(webpack({
+        output: {
+          filename: "bundle.js"
+        },
+        plugins: [new wp.optimize.UglifyJsPlugin()]
+      }))
+      .pipe(gulp.dest(theme + 'static/js/'));
 });
 
 gulp.task('jshint', function () {
@@ -86,6 +98,10 @@ gulp.task('clearcache', function() {
 
 gulp.task('build', ['jshint', 'html', 'partials'], function () {
   return gulp.src(theme + '**/*').pipe($.size({title: 'build', gzip: true}));
+});
+
+gulp.task('deploy', ['clean', 'build', 'scripts-deploy'], function(){
+    gulp.src('').pipe($.shell(['hugo --theme=overpass_doc']));
 });
 
 gulp.task('default', ['clean', 'build'], function () {
