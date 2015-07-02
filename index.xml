@@ -195,6 +195,101 @@ Settings: Things like output format that can be set once at the beginning.&lt;/p
     </item>
     
     <item>
+      <title>Print (out)</title>
+      <link>//osmlab.github.io/learnoverpass/en/docs/actions/print/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//osmlab.github.io/learnoverpass/en/docs/actions/print/</guid>
+      <description>&lt;p&gt;The out action can be configured with an arbitrary number of parameters that are appended, separated by whitespace, between the word out and the semicolon.&lt;/p&gt;
+
+&lt;p&gt;The out action takes an input set. It doesn&amp;rsquo;t return a result set. The input set can be changed by prepending the variable name.&lt;/p&gt;
+
+&lt;p&gt;Allowed values, in any order, are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;one of the following the degree of verbosity; default is body:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;ids&lt;/em&gt;: Print only the ids of the elements.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;skel&lt;/em&gt;: Print also the information necessary for geometry. These are also coordinates for nodes and way and relation member ids for ways and relations.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;body&lt;/em&gt;: Print all information necessary to use the data. These are also tags for all elements and the roles for relation members.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;tags&lt;/em&gt;: Print only ids and tags for each element and not coordinates or members.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#docs-tab-meta&#34;&gt;&lt;em&gt;meta&lt;/em&gt;&lt;/a&gt;: Print everything known about the elements. This includes additionally to body for all elements the version, changeset id, timestamp and the user data of the user that last touched the object.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;one of the following modificators for derived information:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#docs-tab-bounding_box&#34;&gt;&lt;em&gt;bb&lt;/em&gt;&lt;/a&gt;: Adds the bounding box of each element to the element. For nodes this is equivalent to &amp;ldquo;geom&amp;rdquo;. For ways it is the enclosing bounding box of all nodes. For relations it is the enclosing bounding box of all node and way members, relations as members have no effect.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#docs-tab-center&#34;&gt;&lt;em&gt;center&lt;/em&gt;&lt;/a&gt;: This adds the center of the above mentioned bounding box to ways and relations. Note: The center point is not guaranteed to lie inside the polygon (example).&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;geom&lt;/em&gt;: Add the full geometry to each object. This adds coordinates to each node, to each node member of a way or relation, and it adds a sequence of &amp;ldquo;nd&amp;rdquo; members with coordinates to all relations.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The attribute &amp;ldquo;geom&amp;rdquo; can be followed by a bounding box in the format &amp;ldquo;(south,west,north,east)&amp;rdquo;. In this case only coordinates that are inside the bounding box are produced. For way segments also the first coordinate outside the bounding box is produced to allow for properly formed segments.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;One of the following for the sort order can be added. Default is asc.
+
+&lt;ul&gt;
+&lt;li&gt;asc: Sort by object id.&lt;/li&gt;
+&lt;li&gt;qt: Sort by quadtile index; this is roughly geographical and significantly faster than order by ids.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;a non-negative integer for the maximum number of elements to print. Default is no limit.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;div class=&#34;docs-repl&#34;&gt; &lt;nav&gt;&lt;ul&gt;&lt;/ul&gt;&lt;/nav&gt;  &lt;textarea&gt;===default===
+(
+  // Rio de Janeiro&amp;#39;s Christ the Redeemer peak
+  node[name=Corcovado][natural=peak];
+  &amp;gt;;
+);
+out;
+===meta===
+(
+  // Rio de Janeiro&amp;#39;s Christ the Redeemer peak
+  node[name=Corcovado][natural=peak];
+  &amp;gt;;
+);
+out meta;
+===bounding box===
+(
+  // Rio de Janeiro&amp;#39;s Christ the Redeemer peak
+  way(141708228);
+  &amp;gt;;
+);
+out bb;
+===limit===
+(
+  // Rio de Janeiro&amp;#39;s Christ the Redeemer peak
+  way(141708228);
+  &amp;gt;;
+);
+// only print 20 nodes from the way 
+out 20;
+===center===
+(
+  // Rio de Janeiro&amp;#39;s Christ the Redeemer peak
+  way(141708228);
+  &amp;gt;;
+);
+// print center (not centroid) of the polygon
+out center;
+===combination===
+(
+  // Rio de Janeiro&amp;#39;s Christ the Redeemer peak
+  way(141708228);
+  &amp;gt;;
+);
+// print multiple times using different modifiers
+out geom;
+out center;
+out bb;
+&lt;/textarea&gt;&lt;div class=&#34;docs-repl-result&#34;&gt; &lt;iframe src=&#34;http://overpass-turbo.eu/master/map.html&#34;  seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34;&gt;&lt;/iframe&gt;&lt;textarea&gt;&lt;/textarea&gt; &lt;a class=&#34;docs-repl-change-output button&#34; href=&#34;#&#34;&gt;Data&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>By area (area)</title>
       <link>//osmlab.github.io/learnoverpass/en/docs/filters/area/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -308,97 +403,52 @@ out body;
     </item>
     
     <item>
-      <title>Print (out)</title>
-      <link>//osmlab.github.io/learnoverpass/en/docs/actions/print/</link>
+      <title>By Input Set</title>
+      <link>//osmlab.github.io/learnoverpass/en/docs/filters/input-set/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//osmlab.github.io/learnoverpass/en/docs/actions/print/</guid>
-      <description>&lt;p&gt;The out action can be configured with an arbitrary number of parameters that are appended, separated by whitespace, between the word out and the semicolon.&lt;/p&gt;
+      <guid>//osmlab.github.io/learnoverpass/en/docs/filters/input-set/</guid>
+      <description>&lt;p&gt;The &amp;ldquo;item&amp;rdquo; filter selects all elements from its input set.&lt;/p&gt;
 
-&lt;p&gt;The out action takes an input set. It doesn&amp;rsquo;t return a result set. The input set can be changed by prepending the variable name.&lt;/p&gt;
+&lt;p&gt;As for all filters, the result set is specified by the whole statement, not the individual filter.&lt;/p&gt;
 
-&lt;p&gt;Allowed values, in any order, are:&lt;/p&gt;
+&lt;p&gt;It consists of a dot, followed by the name of the input set.&lt;/p&gt;
 
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;one of the following the degree of verbosity; default is body:&lt;/p&gt;
+&lt;p&gt;Examples: The default set&lt;/p&gt;
 
-&lt;ul&gt;
-&lt;li&gt;&lt;em&gt;ids&lt;/em&gt;: Print only the ids of the elements.&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;skel&lt;/em&gt;: Print also the information necessary for geometry. These are also coordinates for nodes and way and relation member ids for ways and relations.&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;body&lt;/em&gt;: Print all information necessary to use the data. These are also tags for all elements and the roles for relation members.&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;tags&lt;/em&gt;: Print only ids and tags for each element and not coordinates or members.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#docs-tab-meta&#34;&gt;&lt;em&gt;meta&lt;/em&gt;&lt;/a&gt;: Print everything known about the elements. This includes additionally to body for all elements the version, changeset id, timestamp and the user data of the user that last touched the object.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
+&lt;pre&gt;&lt;code&gt;node._;
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;li&gt;&lt;p&gt;one of the following modificators for derived information:&lt;/p&gt;
+&lt;p&gt;and a named set&lt;/p&gt;
 
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#docs-tab-bounding_box&#34;&gt;&lt;em&gt;bb&lt;/em&gt;&lt;/a&gt;: Adds the bounding box of each element to the element. For nodes this is equivalent to &amp;ldquo;geom&amp;rdquo;. For ways it is the enclosing bounding box of all nodes. For relations it is the enclosing bounding box of all node and way members, relations as members have no effect.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#docs-tab-center&#34;&gt;&lt;em&gt;center&lt;/em&gt;&lt;/a&gt;: This adds the center of the above mentioned bounding box to ways and relations. Note: The center point is not guaranteed to lie inside the polygon (example).&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;geom&lt;/em&gt;: Add the full geometry to each object. This adds coordinates to each node, to each node member of a way or relation, and it adds a sequence of &amp;ldquo;nd&amp;rdquo; members with coordinates to all relations.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;node.a;
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;The attribute &amp;ldquo;geom&amp;rdquo; can be followed by a bounding box in the format &amp;ldquo;(south,west,north,east)&amp;rdquo;. In this case only coordinates that are inside the bounding box are produced. For way segments also the first coordinate outside the bounding box is produced to allow for properly formed segments.&lt;/p&gt;
+&lt;p&gt;It is also possible to specify several input sets:&lt;/p&gt;
 
-&lt;ul&gt;
-&lt;li&gt;One of the following for the sort order can be added. Default is asc.
+&lt;pre&gt;&lt;code&gt;node.a.b;
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;ul&gt;
-&lt;li&gt;asc: Sort by object id.&lt;/li&gt;
-&lt;li&gt;qt: Sort by quadtile index; this is roughly geographical and significantly faster than order by ids.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;a non-negative integer for the maximum number of elements to print. Default is no limit.&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;&lt;div class=&#34;docs-repl&#34;&gt;  &lt;textarea&gt;
+// get area Alpe and Cividale
+(area[name=&amp;#34;Cividale del Friuli&amp;#34;])-&amp;gt;.Cividale;
+(area[name=&amp;#34;Julijske Alpe&amp;#34;])-&amp;gt;.Alpe;
 
-&lt;p&gt;&lt;div class=&#34;docs-repl&#34;&gt; &lt;nav&gt;&lt;ul&gt;&lt;/ul&gt;&lt;/nav&gt;  &lt;textarea&gt;===default===
-(
-  // Rio de Janeiro&amp;#39;s Christ the Redeemer peak
-  node[name=Corcovado][natural=peak];
-  &amp;gt;;
-);
-out;
-===meta===
-(
-  // Rio de Janeiro&amp;#39;s Christ the Redeemer peak
-  node[name=Corcovado][natural=peak];
-  &amp;gt;;
-);
-out meta;
-===bounding box===
-(
-  // Rio de Janeiro&amp;#39;s Christ the Redeemer peak
-  way(141708228);
-  &amp;gt;;
-);
-out bb;
-===limit===
-(
-  // Rio de Janeiro&amp;#39;s Christ the Redeemer peak
-  way(141708228);
-  &amp;gt;;
-);
-// only print 20 nodes from the way 
-out 20;
-===center===
-(
-  // Rio de Janeiro&amp;#39;s Christ the Redeemer peak
-  way(141708228);
-  &amp;gt;;
-);
-// print center (not centroid) of the polygon
-out center;
-===combination===
-(
-  // Rio de Janeiro&amp;#39;s Christ the Redeemer peak
-  way(141708228);
-  &amp;gt;;
-);
-// print multiple times using different modifiers
-out geom;
-out center;
-out bb;
-&lt;/textarea&gt;&lt;div class=&#34;docs-repl-result&#34;&gt; &lt;iframe src=&#34;http://overpass-turbo.eu/master/map.html&#34;  seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34;&gt;&lt;/iframe&gt;&lt;textarea&gt;&lt;/textarea&gt; &lt;a class=&#34;docs-repl-change-output button&#34; href=&#34;#&#34;&gt;Data&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/p&gt;
+(node[power=pole](area.Cividale))-&amp;gt;.Cividale_nodes;
+(node[power=pole](area.Alpe))-&amp;gt;.Alpe_nodes;
+
+// print out nodes that are present in both areas (intersection)
+node.Alpe_nodes.Cividale_nodes;
+out body qt;
+
+(relation[name=&amp;#34;Cividale del Friuli&amp;#34;];&amp;gt;;);
+out body;
+out skel qt;
+
+(relation[name=&amp;#34;Julijske Alpe&amp;#34;];&amp;gt;;);
+out body;
+out skel qt;
+&lt;/textarea&gt;&lt;div class=&#34;docs-repl-result&#34;&gt;  &lt;iframe src=&#34;http://overpass-turbo.eu/master/map.html?Q=%0a%2f%2f%20get%20area%20Alpe%20and%20Cividale%0a%28area%5bname%3d%22Cividale%20del%20Friuli%22%5d%29-%3e.Cividale%3b%0a%28area%5bname%3d%22Julijske%20Alpe%22%5d%29-%3e.Alpe%3b%0a%0a%28node%5bpower%3dpole%5d%28area.Cividale%29%29-%3e.Cividale_nodes%3b%0a%28node%5bpower%3dpole%5d%28area.Alpe%29%29-%3e.Alpe_nodes%3b%0a%0a%2f%2f%20print%20out%20nodes%20that%20are%20present%20in%20both%20areas%20%28intersection%29%0anode.Alpe_nodes.Cividale_nodes%3b%0aout%20body%20qt%3b%0a%0a%28relation%5bname%3d%22Cividale%20del%20Friuli%22%5d%3b%3e%3b%29%3b%0aout%20body%3b%0aout%20skel%20qt%3b%0a%0a%28relation%5bname%3d%22Julijske%20Alpe%22%5d%3b%3e%3b%29%3b%0aout%20body%3b%0aout%20skel%20qt%3b%0a&#34;  seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34;&gt;&lt;/iframe&gt;&lt;textarea&gt;&lt;/textarea&gt; &lt;a class=&#34;docs-repl-change-output button&#34; href=&#34;#&#34;&gt;Data&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -505,56 +555,6 @@ out;
 (node._(newer:&amp;#34;2012-09-14T07:00:00Z&amp;#34;);&amp;gt;;);
 out;
 &lt;/textarea&gt;&lt;div class=&#34;docs-repl-result&#34;&gt;  &lt;iframe src=&#34;http://overpass-turbo.eu/master/map.html?Q=%0a%28node%28poly%3a%2250.73%207.13%2050.73%207.17%2050.75%207.15%22%29%3b%3e%3b%29%3b%0a%2f%2f%20This%20finds%20all%20nodes%20that%20have%20changed%0a%2f%2f%20since%2014%20Sep%202012%2c%207%20h%20UTC%2c%20in%20the%20given%20input%20set.%0a%28node._%28newer%3a%222012-09-14T07%3a00%3a00Z%22%29%3b%3e%3b%29%3b%0aout%3b%0a&#34;  seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34;&gt;&lt;/iframe&gt;&lt;textarea&gt;&lt;/textarea&gt; &lt;a class=&#34;docs-repl-change-output button&#34; href=&#34;#&#34;&gt;Data&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>By Input Set</title>
-      <link>//osmlab.github.io/learnoverpass/en/docs/filters/input-set/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>//osmlab.github.io/learnoverpass/en/docs/filters/input-set/</guid>
-      <description>&lt;p&gt;The &amp;ldquo;item&amp;rdquo; filter selects all elements from its input set.&lt;/p&gt;
-
-&lt;p&gt;As for all filters, the result set is specified by the whole statement, not the individual filter.&lt;/p&gt;
-
-&lt;p&gt;It consists of a dot, followed by the name of the input set.&lt;/p&gt;
-
-&lt;p&gt;Examples: The default set&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;node._;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;and a named set&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;node.a;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;It is also possible to specify several input sets:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;node.a.b;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;div class=&#34;docs-repl&#34;&gt;  &lt;textarea&gt;
-// get area Alpe and Cividale
-(area[name=&amp;#34;Cividale del Friuli&amp;#34;])-&amp;gt;.Cividale;
-(area[name=&amp;#34;Julijske Alpe&amp;#34;])-&amp;gt;.Alpe;
-
-(node[power=pole](area.Cividale))-&amp;gt;.Cividale_nodes;
-(node[power=pole](area.Alpe))-&amp;gt;.Alpe_nodes;
-
-// print out nodes that are present in both areas (intersection)
-node.Alpe_nodes.Cividale_nodes;
-out body qt;
-
-(relation[name=&amp;#34;Cividale del Friuli&amp;#34;];&amp;gt;;);
-out body;
-out skel qt;
-
-(relation[name=&amp;#34;Julijske Alpe&amp;#34;];&amp;gt;;);
-out body;
-out skel qt;
-&lt;/textarea&gt;&lt;div class=&#34;docs-repl-result&#34;&gt;  &lt;iframe src=&#34;http://overpass-turbo.eu/master/map.html?Q=%0a%2f%2f%20get%20area%20Alpe%20and%20Cividale%0a%28area%5bname%3d%22Cividale%20del%20Friuli%22%5d%29-%3e.Cividale%3b%0a%28area%5bname%3d%22Julijske%20Alpe%22%5d%29-%3e.Alpe%3b%0a%0a%28node%5bpower%3dpole%5d%28area.Cividale%29%29-%3e.Cividale_nodes%3b%0a%28node%5bpower%3dpole%5d%28area.Alpe%29%29-%3e.Alpe_nodes%3b%0a%0a%2f%2f%20print%20out%20nodes%20that%20are%20present%20in%20both%20areas%20%28intersection%29%0anode.Alpe_nodes.Cividale_nodes%3b%0aout%20body%20qt%3b%0a%0a%28relation%5bname%3d%22Cividale%20del%20Friuli%22%5d%3b%3e%3b%29%3b%0aout%20body%3b%0aout%20skel%20qt%3b%0a%0a%28relation%5bname%3d%22Julijske%20Alpe%22%5d%3b%3e%3b%29%3b%0aout%20body%3b%0aout%20skel%20qt%3b%0a&#34;  seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34;&gt;&lt;/iframe&gt;&lt;textarea&gt;&lt;/textarea&gt; &lt;a class=&#34;docs-repl-change-output button&#34; href=&#34;#&#34;&gt;Data&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/p&gt;
 </description>
     </item>
     

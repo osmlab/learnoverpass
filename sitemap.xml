@@ -38,6 +38,10 @@
   </url>
   
   <url>
+    <loc>//osmlab.github.io/learnoverpass/en/docs/actions/print/</loc>
+  </url>
+  
+  <url>
     <loc>//osmlab.github.io/learnoverpass/en/docs/filters/area/</loc>
   </url>
   
@@ -46,7 +50,7 @@
   </url>
   
   <url>
-    <loc>//osmlab.github.io/learnoverpass/en/docs/actions/print/</loc>
+    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/input-set/</loc>
   </url>
   
   <url>
@@ -66,10 +70,6 @@
   </url>
   
   <url>
-    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/input-set/</loc>
-  </url>
-  
-  <url>
     <loc>//osmlab.github.io/learnoverpass/en/docs/filters/pivot/</loc>
   </url>
   
@@ -78,11 +78,11 @@
   </url>
   
   <url>
-    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/recurse/</loc>
+    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/tag/</loc>
   </url>
   
   <url>
-    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/tag/</loc>
+    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/recurse/</loc>
   </url>
   
   <url>
@@ -90,11 +90,11 @@
   </url>
   
   <url>
-    <loc>//osmlab.github.io/learnoverpass/en/docs/standalone-queries/recurse-up/</loc>
+    <loc>//osmlab.github.io/learnoverpass/en/docs/standalone-queries/item/</loc>
   </url>
   
   <url>
-    <loc>//osmlab.github.io/learnoverpass/en/docs/standalone-queries/item/</loc>
+    <loc>//osmlab.github.io/learnoverpass/en/docs/standalone-queries/recurse-up/</loc>
   </url>
   
 </urlset>
