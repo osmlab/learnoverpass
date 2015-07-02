@@ -23,14 +23,14 @@
 <li><em>skel</em>: Print also the information necessary for geometry. These are also coordinates for nodes and way and relation member ids for ways and relations.</li>
 <li><em>body</em>: Print all information necessary to use the data. These are also tags for all elements and the roles for relation members.</li>
 <li><em>tags</em>: Print only ids and tags for each element and not coordinates or members.</li>
-<li><em>meta</em>: Print everything known about the elements. This includes additionally to body for all elements the version, changeset id, timestamp and the user data of the user that last touched the object.</li>
+<li><a href="#docs-tab-meta"><em>meta</em></a>: Print everything known about the elements. This includes additionally to body for all elements the version, changeset id, timestamp and the user data of the user that last touched the object.</li>
 </ul></li>
 
 <li><p>one of the following modificators for derived information:</p>
 
 <ul>
-<li><em>bb</em>: Adds the bounding box of each element to the element. For nodes this is equivalent to &ldquo;geom&rdquo;. For ways it is the enclosing bounding box of all nodes. For relations it is the enclosing bounding box of all node and way members, relations as members have no effect.</li>
-<li><em>center</em>: This adds the center of the above mentioned bounding box to ways and relations. Note: The center point is not guaranteed to lie inside the polygon (example).</li>
+<li><a href="#docs-tab-bounding_box"><em>bb</em></a>: Adds the bounding box of each element to the element. For nodes this is equivalent to &ldquo;geom&rdquo;. For ways it is the enclosing bounding box of all nodes. For relations it is the enclosing bounding box of all node and way members, relations as members have no effect.</li>
+<li><a href="#docs-tab-center"><em>center</em></a>: This adds the center of the above mentioned bounding box to ways and relations. Note: The center point is not guaranteed to lie inside the polygon (example).</li>
 <li><em>geom</em>: Add the full geometry to each object. This adds coordinates to each node, to each node member of a way or relation, and it adds a sequence of &ldquo;nd&rdquo; members with coordinates to all relations.</li>
 </ul></li>
 </ul>
@@ -44,44 +44,10 @@
 <li>asc: Sort by object id.</li>
 <li>qt: Sort by quadtile index; this is roughly geographical and significantly faster than order by ids.</li>
 </ul></li>
-
-<li><p>a non-negative integer for the maximum number of elements to print. Default is no limit.
-Example:</p>
-
-<p>out;</p></li>
+<li>a non-negative integer for the maximum number of elements to print. Default is no limit.</li>
 </ul>
 
-<p>Print the elements without meta information.</p>
-
-<p>Example:</p>
-
-<pre><code>out meta;
-</code></pre>
-
-<p>Print the elements with meta information.</p>
-
-<p>Example:</p>
-
-<pre><code>out 99;
-</code></pre>
-
-<p>Print at most 99 elements.</p>
-
-<p>Example:</p>
-
-<pre><code>out meta qt 1000000;
-</code></pre>
-
-<p>Print up to 1,000,000 elements, ordered by location, with meta data.</p>
-
-<p>Example:</p>
-
-<pre><code>.a out;
-</code></pre>
-
-<p>Reads from variable a the data to output.</p>
-
-<p><div class="docs-repl">  <select></select> <textarea>===default===
+<p><div class="docs-repl"> <nav><ul></ul></nav>  <textarea>===default===
 (
   // Rio de Janeiro&#39;s Christ the Redeemer peak
   node[name=Corcovado][natural=peak];
@@ -95,5 +61,38 @@ out;
   &gt;;
 );
 out meta;
-</textarea><iframe  seamless="seamless" frameBorder="0" width="100%;" style="height:50vh"></iframe></div></p>
+===bounding box===
+(
+  // Rio de Janeiro&#39;s Christ the Redeemer peak
+  way(141708228);
+  &gt;;
+);
+out bb;
+===limit===
+(
+  // Rio de Janeiro&#39;s Christ the Redeemer peak
+  way(141708228);
+  &gt;;
+);
+// only print 20 nodes from the way 
+out 20;
+===center===
+(
+  // Rio de Janeiro&#39;s Christ the Redeemer peak
+  way(141708228);
+  &gt;;
+);
+// print center (not centroid) of the polygon
+out center;
+===combination===
+(
+  // Rio de Janeiro&#39;s Christ the Redeemer peak
+  way(141708228);
+  &gt;;
+);
+// print multiple times using different modifiers
+out geom;
+out center;
+out bb;
+</textarea><div class="docs-repl-result"> <iframe src="http://overpass-turbo.eu/master/map.html"  seamless="seamless" frameBorder="0" width="100%;"></iframe><textarea></textarea> <a class="docs-repl-change-output button" href="#">Data</a></div></div></p>
 </p> <footer><p>Website released under MIT License. Documentation and Courses under GNU FDL. &copy; 2015</p> <small class="language-switch">     <a lang='en' href="//osmlab.github.io/learnoverpass//en/docs/actions/print/">English</a> | <a lang='de' href="//osmlab.github.io/learnoverpass//de/docs/actions/print/">Deutsch</a></small></footer></div></div></div> <script src="//osmlab.github.io/learnoverpass//js/bundle.js"></script> </body></html>
