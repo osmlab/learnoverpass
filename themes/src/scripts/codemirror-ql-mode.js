@@ -2,6 +2,8 @@ module.exports = (function() {
   var CodeMirror = require("codemirror");
   require("codemirror/addon/mode/multiplex.js");
   require("codemirror/mode/clike/clike.js");
+  require("codemirror/mode/javascript/javascript.js");
+  require("codemirror/mode/xml/xml.js");
 
   CodeMirror.defineMIME("text/x-overpassQL", {
       name: "clike",

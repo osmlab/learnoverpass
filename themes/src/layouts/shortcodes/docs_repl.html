@@ -1,14 +1,20 @@
 <div class="docs-repl">
   {{ if eq "=" (substr .Inner 0 1) }}
-    <select></select>
-    <textarea>{{ .Inner }}</textarea>
-    <iframe
-  {{ else }}
-    <textarea>{{ .Inner }}</textarea>
-    <iframe src="http://overpass-turbo.eu/map.html?Q={{ .Inner }}"
+  <nav><ul></ul></nav>
   {{ end }}
+  <textarea>{{ .Inner }}</textarea>
+
+  <div class="docs-repl-result">
+    {{ if eq "=" (substr .Inner 0 1) }}
+    <iframe src="http://overpass-turbo.eu/master/map.html"
+    {{ else }}
+    <iframe src="http://overpass-turbo.eu/master/map.html?Q={{ .Inner }}"
+    {{ end }}
           seamless="seamless"
           frameBorder="0" 
-          width="100%;" style="height:50vh">
-  </iframe>
+          width="100%;">
+    </iframe>
+    <textarea></textarea>
+    <a class="docs-repl-change-output button" href="#">Data</a>
+  </div>
 </div>

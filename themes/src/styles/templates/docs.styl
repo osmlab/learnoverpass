@@ -33,12 +33,56 @@
   .content
     @extend .container
 
+.docs-sample-code
+  //stub
+
 .docs-repl
    .CodeMirror
      height 300px
+   nav
+     a
+       color text_color
+       position relative
+       text-decoration none
+     a.active
+       color text_accent
+     ul
+       list-style-type none 
+       padding 0
+       margin .5em 0em
+       li
+         border 1px solid #ccc
+         display inline
+         padding .5em
+         margin-right .2em
+
+.docs-repl-result
+  position relative
+  height 50vh
+  iframe, .CodeMirror
+    height 50vh
+    width 100%
+  .CodeMirror 
+    top 0px
+    position absolute
+    border-top 0px solid #ccc
+    z-index 1
+  iframe
+    position absolute
+    z-index 2
+  a
+    z-index 3
+    position absolute
+    top 1em
+    right 1em 
+    background-color white
+    box-shadow: 0 1px 5px rgba(0,0,0,0.15);
+    z-index 1001
 
 .CodeMirror
   height default
+  width 100%
+  border 1px solid #ccc
   
 @media (min-width sm_size)
   .docs-list
