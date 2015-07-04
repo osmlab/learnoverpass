@@ -4,7 +4,7 @@ var $ = require('gulp-load-plugins')();
 var jeet = require('jeet');
 var pngquant = require('pngquant');
 var jpegtran = require('imagemin-jpegtran');
-var webpack = require('gulp-webpack');
+var webpack = require('webpack-stream');
 var wp = require('webpack');
 
 var theme = 'themes/overpass_doc/';
@@ -22,25 +22,19 @@ gulp.task('styles', function () {
 });
 
 gulp.task('scripts', [], function() {
+  var config = require('./webpack.config.js');
+  config.devtool = "inline-source-map";
+
   return gulp.src('themes/src/scripts/main.js')
-    .pipe(webpack({
-      output: {
-        filename: "bundle.js"
-      },
-      devtool: "inline-source-map"
-    }))
+    .pipe(webpack(config))
     .pipe(gulp.dest(theme + 'static/js/'));
 });
 
 gulp.task('scripts-deploy', [], function() {
-    return gulp.src('themes/src/scripts/main.js')
-      .pipe(webpack({
-        output: {
-          filename: "bundle.js"
-        },
-        plugins: [new wp.optimize.UglifyJsPlugin()]
-      }))
-      .pipe(gulp.dest(theme + 'static/js/'));
+  var config = require('./webpack.config.js');
+  return gulp.src('themes/src/scripts/main.js')
+    .pipe(webpack(config))
+    .pipe(gulp.dest(theme + 'static/js/'));
 });
 
 gulp.task('jshint', function () {
