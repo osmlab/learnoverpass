@@ -6,10 +6,6 @@
 
   var debounce = require('debounce');
 
-  var textarea = document.getElementsByTagName('textarea')[0];
-  CodeMirror.fromTextArea(textarea, {
-    lineNumbers: true,
-    theme: "base16-light",
-    mode: "ql+mustache"
-  });
+  var docsRepl = document.getElementsByClassName("docs-repl");
+  [].forEach.call(docsRepl, require('./components/docs-repl.js'));
 })();
