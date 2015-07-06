@@ -1,5 +1,35 @@
 {{ partial "head.html" . }}
-{{ .Content }}
+{{ partial "menu-bar.html" . }}
+<div class="exercise-container">
+   <div class="exercise-lesson">
+     <div class="exercise-lesson-bar">
+       <div class="line">Intro</div>
+     </div>
+     <div class="exercise-lesson-inner">
+       <div class="exercise-lesson-article">
+         <h2>{{ .Title }}</h2>
+         {{ .Content }}
+       </div>
+       <div class="exercise-lesson-instruction">
+         <div class="exercise-lesson-label">
+           <span>
+             Instructions
+           </span>
+         </div>
+        {{ .Params.instructions | markdownify }}
+       </div>
+     </div>
+   </div>
+   <div class="docs-repl exercise-main">
+     <textarea>{{ .Params.code }}</textarea>
+     <div class="docs-repl-result output">
+       <iframe src="http://overpass-turbo.eu/master/map.html" seamless="seamless" frameBorder="0">
+       </iframe>
+       <textarea></textarea>
+       <a class="docs-repl-change-output button" href="#">Data</a>
+     </div>
+   </div>
+</div>
 {{ partial "shared.js.html" . }}
 {{ partial "exercise.js.html" . }}
 {{ partial "foot.html" . }}

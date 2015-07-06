@@ -1,0 +1,75 @@
+@require "jeet"
+exercise_width = 270px
+menu_bar_height = 40px
+menu_bar_height_half = 20px
+
+body
+  height 100vh
+  overflow hidden
+
+.exercise-container
+  //stub
+
+.exercise-lesson
+  column(2/3, cycle: 3, gutter: 0)
+  height "calc(100vh - %s)" % (menu_bar_height)
+
+.exercise-lesson-bar
+  height 40px
+  border-bottom 1px solid rgba(0,0,0,0.15)
+  .line
+    padding 10px 30px
+
+.exercise-lesson-inner
+  height "calc(100vh - %s)" %(menu_bar_height + 40px)
+  overflow auto
+  .exercise-lesson-article
+    max-width 85%
+    margin 0 auto
+  .exercise-lesson-instruction
+    margin-bottom 25px
+    background-color #f0faff
+    border-top 1px solid #c5dfea
+    border-bottom 1px solid #c5dfea
+    .exercise-lesson-label
+      margin 0 auto
+      text-align center
+      span
+        border 1px solid #c5dfea
+        padding 0.5em
+        background-color white
+    li
+      padding-top 1em
+    li:first-child
+      padding-top 0em
+
+.exercise-main
+  column(1/3, cycle: 3, gutter: 0)
+  .CodeMirror
+    border-width 0px
+    height "calc(50vh - %s)" % (menu_bar_height_half)
+  .output
+    overflow auto
+    width 100%
+    height "calc(50vh - %s)" % (menu_bar_height_half)
+    iframe
+      width 100%
+      height 100%
+
+@media (min-width sm_size)
+  .exercise-main
+    column(1/2, cycle: 2, gutter: 0)
+  .exercise-lesson
+    column(1/2, cycle: 2, gutter: 0)
+
+@media (min-width md_size)
+  .exercise-main
+    column(2/3, cycle: 3, gutter: 0)
+  .exercise-lesson
+    column(1/3, cycle: 3, gutter: 0)
+
+@media (min-width lg_size)
+  .exercise-main
+    column(3/4, cycle: 4, gutter: 0)
+  .exercise-lesson
+    column(1/4, cycle: 4, gutter: 0)
