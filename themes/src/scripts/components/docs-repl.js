@@ -4,7 +4,9 @@ require("../codemirror-ql-mode.js");
 
 var debounce = require('debounce');
 
-module.exports = function(elm) {
+module.exports = function(opts) {
+  var elm = opts.elm;
+
   var textarea = elm.getElementsByTagName('textarea')[0];
   var dataresult_area = elm.getElementsByTagName('textarea')[1];
   var iframe = elm.getElementsByTagName('iframe')[0];
@@ -12,17 +14,9 @@ module.exports = function(elm) {
   var change_output_btn = elm.querySelector('.docs-repl-change-output');
 
   // init codemirror
-  var cm = CodeMirror.fromTextArea(textarea, {
-    lineNumbers: true,
-    theme: "base16-light",
-    mode: "ql+mustache"
-  });
+  var cm = CodeMirror.fromTextArea(textarea, opts.opts);
 
   var code_sample = processCode(cm);
-  // attach event listeners
-  cm.on("change", debounce(function(cm, change) {
-    postTo(iframe, 'update_map', [cm.getValue()]);
-  }, 200));
 
   var cm_result = CodeMirror.fromTextArea(dataresult_area, {
       mode: "xml"
@@ -37,6 +31,8 @@ module.exports = function(elm) {
       //errors
       console.log(data.handler, data.msg);
     }
+    if(opts.onSuccessData)
+      opts.onSuccessData(data);
   });
 
   change_output_btn.onclick = function() {
@@ -100,6 +96,22 @@ module.exports = function(elm) {
       postTo(iframe, 'catch_alert');
     };
   }
+
+  return {
+    iframe: iframe,
+    updateMap: function(){
+      postTo(iframe, 'update_map', [cm.getValue()]);
+    },
+    getValue: function() {
+      return cm.getValue();
+    },
+    setValue: function(str) {
+      cm.setValue(str);
+    },
+    onChange: function(listener){
+      cm.on("change", listener);
+    }
+  };
 };
 
 function makeTabs(ul, code_sample, callback){

@@ -3,6 +3,9 @@
   var CodeMirror = require("codemirror");
   require("codemirror/addon/comment/comment.js");
   require("./codemirror-ql-mode.js");
+  var debounce = require('debounce');
+
+  var createDocsRepl = require('./components/docs-repl.js');
 
   var turboURL = "http://overpass-turbo.eu/";
 
@@ -21,5 +24,20 @@
   });
 
   var docsRepl = document.getElementsByClassName("docs-repl");
-  [].forEach.call(docsRepl, require('./components/docs-repl.js'));
+  [].forEach.call(docsRepl, function(elm){
+   var doc = createDocsRepl({
+      elm:elm,
+      opts: {
+        lineNumbers: true,
+        mode: "ql+mustache"
+      }
+    });
+    doc.onChange(debounce(function(cm, change) {
+      postTo(doc.iframe, 'update_map', [cm.getValue()]);
+    }, 200));
+  });
 })();
+function postTo(iframe, cmd, args){
+  var value = JSON.stringify({cmd: cmd, value: args});
+  iframe.contentWindow.postMessage(value, "*");
+}
