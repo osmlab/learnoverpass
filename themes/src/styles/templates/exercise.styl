@@ -2,6 +2,7 @@
 exercise_width = 270px
 menu_bar_height = 40px
 menu_bar_height_half = 20px
+action_bar_height_half = 30px
 
 body
   height 100vh
@@ -11,7 +12,7 @@ body
   //stub
 
 .exercise-lesson
-  column(2/3, cycle: 3, gutter: 0)
+  column(1/2, cycle: 2, gutter: 0)
   height "calc(100vh - %s)" % (menu_bar_height)
 
 .exercise-lesson-bar
@@ -44,17 +45,41 @@ body
       padding-top 0em
 
 .exercise-main
-  column(1/3, cycle: 3, gutter: 0)
+  column(1/2, cycle: 2, gutter: 0)
+  background-color #e0e0e0
   .CodeMirror
     border-width 0px
-    height "calc(50vh - %s)" % (menu_bar_height_half)
+    height "calc(50vh - %s)" % (menu_bar_height_half + action_bar_height_half)
   .output
     overflow auto
     width 100%
-    height "calc(50vh - %s)" % (menu_bar_height_half)
+    height "calc(50vh - %s)" % (menu_bar_height_half + action_bar_height_half)
     iframe
       width 100%
       height 100%
+  .exercise-action-bar
+    height action_bar_height_half * 2
+    .exercise-action-bar-inner
+      padding 20px 10px
+
+.exercise-action-run
+  margin 5px
+  @extend .button
+  color white
+  background-color bg_accent
+  &:hover
+    background-color text_accent
+
+.exercise-action-reset
+  margin 5px
+  @extend .button
+  color white
+  background-color bg_title 
+  &:hover
+    background-color lighten(bg_title, 30%)
+
+.exercise-answer
+  display none
 
 @media (min-width sm_size)
   .exercise-main

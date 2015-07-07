@@ -18,8 +18,9 @@
           var result = processAnswer(escapeHTML(data.resultText));
           var answer = processAnswer(exerciseAnswer);
 
-          console.log({x:result,y: answer});
-          console.log(result === answer);
+          if(result === answer){
+            alert("Correct Answer!");
+          }
         }
       },
       opts: {

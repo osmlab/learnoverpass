@@ -22,6 +22,18 @@
    </div>
    <div class="docs-repl exercise-main">
      <textarea>{{ .Params.code }}</textarea>
+     <div class="exercise-action-bar">
+       <div class="exercise-action-bar-inner">
+          <div>
+            <a href="#" class="exercise-action-run">
+              Run Query
+            </a>
+            <a href="#" class="exercise-action-reset">
+              Reset Code
+            </a>
+          </div>
+       </div>
+     </div>
      <div class="docs-repl-result output">
        <iframe src="http://overpass-turbo.eu/master/map.html" seamless="seamless" frameBorder="0">
        </iframe>
@@ -29,6 +41,7 @@
        <a class="docs-repl-change-output button" href="#">Data</a>
      </div>
    </div>
+   <div class="exercise-answer">{{ .Params.answer }}</div>
 </div>
 {{ partial "shared.js.html" . }}
 {{ partial "exercise.js.html" . }}
