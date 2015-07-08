@@ -2,19 +2,35 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ens on LearnOverpass</title>
-    <link>//osmlab.github.io/learnoverpass/en/</link>
+    <link>http://osmlab.github.io/learnoverpass/en/</link>
     <description>Recent content in Ens on LearnOverpass</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 07 May 2015 11:09:35 +0000</lastBuildDate>
-    <atom:link href="//osmlab.github.io/learnoverpass/en/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 01 Jul 2015 16:35:50 +0800</lastBuildDate>
+    <atom:link href="http://osmlab.github.io/learnoverpass/en/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Introduction</title>
+      <link>http://osmlab.github.io/learnoverpass/en/exercises/intro/1/</link>
+      <pubDate>Wed, 01 Jul 2015 16:35:50 +0800</pubDate>
+      
+      <guid>http://osmlab.github.io/learnoverpass/en/exercises/intro/1/</guid>
+      <description>&lt;p&gt;The Overpass API is a powerful, read-only API that lets you query data from OpenStreetMap.&lt;/p&gt;
+
+&lt;p&gt;The Overpass Query Language (QL) is the language you use to &amp;lsquo;talk&amp;rsquo; to this API, asking data for your own specific use.&lt;/p&gt;
+
+&lt;p&gt;On the right is a text editor where you can type in your QL commands. See the code with the word &lt;code&gt;node&lt;/code&gt;? That&amp;rsquo;s a QL statement, which stands for - you guessed it, the humble node.&lt;/p&gt;
+
+&lt;p&gt;The world map is a visualization of the data that&amp;rsquo;s received by your statement. Right now it contains nothing, because while we query the node with the first line, the API doesn&amp;rsquo;t know what to do with it! Let&amp;rsquo;s change that!&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Union</title>
-      <link>//osmlab.github.io/learnoverpass/en/docs/block-queries/union/</link>
+      <link>http://osmlab.github.io/learnoverpass/en/docs/block-queries/union/</link>
       <pubDate>Thu, 07 May 2015 11:09:35 +0000</pubDate>
       
-      <guid>//osmlab.github.io/learnoverpass/en/docs/block-queries/union/</guid>
+      <guid>http://osmlab.github.io/learnoverpass/en/docs/block-queries/union/</guid>
       <description>&lt;p&gt;The union block statement is written as a pair of parentheses. Inside the union, any sequence of statements can be placed, including nested union and foreach statements.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;(statement_1; statement_2; …)[-&amp;gt;.result_set];
@@ -56,10 +72,10 @@ out;
     
     <item>
       <title>Difference</title>
-      <link>//osmlab.github.io/learnoverpass/en/docs/block-queries/difference/</link>
+      <link>http://osmlab.github.io/learnoverpass/en/docs/block-queries/difference/</link>
       <pubDate>Wed, 06 May 2015 11:09:35 +0000</pubDate>
       
-      <guid>//osmlab.github.io/learnoverpass/en/docs/block-queries/difference/</guid>
+      <guid>http://osmlab.github.io/learnoverpass/en/docs/block-queries/difference/</guid>
       <description>&lt;p&gt;The difference block statement is written as a pair of parentheses. Inside the difference statement, exactly two statements must be placed, and between them a minus sign.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;(statement_1; - statement_2;)[-&amp;gt;.result_set];
@@ -95,10 +111,10 @@ out;
     
     <item>
       <title>For-each loop (foreach)</title>
-      <link>//osmlab.github.io/learnoverpass/en/docs/block-queries/foreach/</link>
+      <link>http://osmlab.github.io/learnoverpass/en/docs/block-queries/foreach/</link>
       <pubDate>Wed, 06 May 2015 11:09:35 +0000</pubDate>
       
-      <guid>//osmlab.github.io/learnoverpass/en/docs/block-queries/foreach/</guid>
+      <guid>http://osmlab.github.io/learnoverpass/en/docs/block-queries/foreach/</guid>
       <description>&lt;p&gt;The foreach block statement is written as the keyword foreach, followed by a pair of parentheses. Inside these parentheses, any sequence of statements can be placed, including nested union and foreach statements.&lt;/p&gt;
 
 &lt;p&gt;It takes an input set. It produces no result set. The foreach statement loops over the content of the input set, once for every element in the input set.&lt;/p&gt;
@@ -157,10 +173,10 @@ foreach-&amp;gt;.bank_set(
     
     <item>
       <title>Overpass API Documentation</title>
-      <link>//osmlab.github.io/learnoverpass/en/docs/</link>
+      <link>http://osmlab.github.io/learnoverpass/en/docs/</link>
       <pubDate>Wed, 06 May 2015 11:09:35 +0000</pubDate>
       
-      <guid>//osmlab.github.io/learnoverpass/en/docs/</guid>
+      <guid>http://osmlab.github.io/learnoverpass/en/docs/</guid>
       <description>&lt;p&gt;Overpass QL is the second query language for the Overpass API and was designed as an alternative to Overpass XML. It has a C style syntax: The whole query source code is divided in statements, and every statement ends with a semicolon. It has imperative semantics: The statements are processed one after another and change the execution state according to their semantics.&lt;/p&gt;
 
 &lt;p&gt;The execution state consists of the default set, potentially other named sets, and for block statements a stack. A set can contain nodes, ways, relations and areas, also of mixed type and of any number. Sets are created as result sets of statements and are read by subsequent statements as input. Unless you specify a named set as input or result, all input is implicitly read from and all results are written to the default variable named _ (a single underscore). Names for sets may consist of letters, digits and the underscore but must not start with a digit. Once a new result is (implicitly or explicitly) assigned to an existing set, its previous contents will be replaced and are no longer available. Sets always have global visibility.&lt;/p&gt;
@@ -176,20 +192,20 @@ Settings: Things like output format that can be set once at the beginning.&lt;/p
     
     <item>
       <title>Overpass API is a highly optimized, read-only API built for gathering OSM map data.</title>
-      <link>//osmlab.github.io/learnoverpass/en/</link>
+      <link>http://osmlab.github.io/learnoverpass/en/</link>
       <pubDate>Wed, 06 May 2015 11:09:35 +0000</pubDate>
       
-      <guid>//osmlab.github.io/learnoverpass/en/</guid>
+      <guid>http://osmlab.github.io/learnoverpass/en/</guid>
       <description>&lt;p&gt;Whether you are a complete beginner or an established developer, you will find LearnOverpass as the most comprehensive resource to learn how to utilize the Overpass API. In short time, learn how to use the powerful Query language, and collect data of various criteria: from location, types of objects, tag properties to proximities.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Area pivot (pivot)</title>
-      <link>//osmlab.github.io/learnoverpass/en/docs/filters/pivot/</link>
+      <link>http://osmlab.github.io/learnoverpass/en/docs/filters/pivot/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//osmlab.github.io/learnoverpass/en/docs/filters/pivot/</guid>
+      <guid>http://osmlab.github.io/learnoverpass/en/docs/filters/pivot/</guid>
       <description>&lt;p&gt;The &lt;em&gt;pivot&lt;/em&gt; filter selects the element of the chosen type that defines the outline of the given area.&lt;/p&gt;
 
 &lt;p&gt;The input set can be changed with an adapted prefix notation. As for all filters, the result set is specified by the whole statement, not the individual filter.&lt;/p&gt;
@@ -223,10 +239,10 @@ out geom;
     
     <item>
       <title>Bounding Box</title>
-      <link>//osmlab.github.io/learnoverpass/en/docs/filters/bbox/</link>
+      <link>http://osmlab.github.io/learnoverpass/en/docs/filters/bbox/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//osmlab.github.io/learnoverpass/en/docs/filters/bbox/</guid>
+      <guid>http://osmlab.github.io/learnoverpass/en/docs/filters/bbox/</guid>
       <description>&lt;p&gt;The bbox-query filter selects all elements within a certain bounding box.&lt;/p&gt;
 
 &lt;p&gt;It has no input set. As for all filters, the result set is specified by the whole statement, not the individual filter.&lt;/p&gt;
@@ -248,10 +264,10 @@ out;
     
     <item>
       <title>By Element Id</title>
-      <link>//osmlab.github.io/learnoverpass/en/docs/filters/element-id/</link>
+      <link>http://osmlab.github.io/learnoverpass/en/docs/filters/element-id/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//osmlab.github.io/learnoverpass/en/docs/filters/element-id/</guid>
+      <guid>http://osmlab.github.io/learnoverpass/en/docs/filters/element-id/</guid>
       <description>&lt;p&gt;The id-query filter selects the element of given type with given id. It supports beside the OSM datatypes node, way, and relation also the type area.&lt;/p&gt;
 
 &lt;p&gt;It has no input set. As for all filters, the result set is specified by the whole statement, not the individual filter.&lt;/p&gt;
@@ -280,10 +296,10 @@ out;
     
     <item>
       <title>By Input Set</title>
-      <link>//osmlab.github.io/learnoverpass/en/docs/filters/input-set/</link>
+      <link>http://osmlab.github.io/learnoverpass/en/docs/filters/input-set/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//osmlab.github.io/learnoverpass/en/docs/filters/input-set/</guid>
+      <guid>http://osmlab.github.io/learnoverpass/en/docs/filters/input-set/</guid>
       <description>&lt;p&gt;The &amp;ldquo;item&amp;rdquo; filter selects all elements from its input set.&lt;/p&gt;
 
 &lt;p&gt;As for all filters, the result set is specified by the whole statement, not the individual filter.&lt;/p&gt;
@@ -330,10 +346,10 @@ out skel qt;
     
     <item>
       <title>By Tag</title>
-      <link>//osmlab.github.io/learnoverpass/en/docs/filters/tag/</link>
+      <link>http://osmlab.github.io/learnoverpass/en/docs/filters/tag/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//osmlab.github.io/learnoverpass/en/docs/filters/tag/</guid>
+      <guid>http://osmlab.github.io/learnoverpass/en/docs/filters/tag/</guid>
       <description>
 
 &lt;p&gt;The has-kv filter selects all elements that have or have not a tag with a certain value. It supports the basic OSM types node, way, and relation as well as the extended type area.&lt;/p&gt;
@@ -429,10 +445,10 @@ out;
     
     <item>
       <title>By area (area)</title>
-      <link>//osmlab.github.io/learnoverpass/en/docs/filters/area/</link>
+      <link>http://osmlab.github.io/learnoverpass/en/docs/filters/area/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//osmlab.github.io/learnoverpass/en/docs/filters/area/</guid>
+      <guid>http://osmlab.github.io/learnoverpass/en/docs/filters/area/</guid>
       <description>&lt;p&gt;The area filter selects all elements of the chosen type that are inside the given area. Please note with regard to attic data that areas always represent current data.&lt;/p&gt;
 
 &lt;p&gt;The input set can be changed with an adapted prefix notation. As for all filters, the result set is specified by the whole statement, not the individual filter.&lt;/p&gt;
@@ -490,10 +506,10 @@ out body qt;
     
     <item>
       <title>By date of change (changed)</title>
-      <link>//osmlab.github.io/learnoverpass/en/docs/filters/changed/</link>
+      <link>http://osmlab.github.io/learnoverpass/en/docs/filters/changed/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//osmlab.github.io/learnoverpass/en/docs/filters/changed/</guid>
+      <guid>http://osmlab.github.io/learnoverpass/en/docs/filters/changed/</guid>
       <description>&lt;p&gt;The changed filter selects all elements that have been changed between the two given dates. If only one date is given, then the second is assumed to be the front date of the database. If only one date is given and it is run with the current timestamp, then it behaves exactly like &amp;ldquo;newer&amp;rdquo; with two exceptions: first, it is faster, second, it can also stand as the only filter.&lt;/p&gt;
 
 &lt;p&gt;It has no input set. As for all filters, the result set is specified by the whole statement, not the individual filter.&lt;/p&gt;
@@ -517,10 +533,10 @@ out;
     
     <item>
       <title>By polygon (poly)</title>
-      <link>//osmlab.github.io/learnoverpass/en/docs/filters/polygon/</link>
+      <link>http://osmlab.github.io/learnoverpass/en/docs/filters/polygon/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//osmlab.github.io/learnoverpass/en/docs/filters/polygon/</guid>
+      <guid>http://osmlab.github.io/learnoverpass/en/docs/filters/polygon/</guid>
       <description>&lt;p&gt;The &lt;em&gt;polygon&lt;/em&gt; filter selects all elements of the chosen type inside the given bounding box.&lt;/p&gt;
 
 &lt;p&gt;It has no input set. As for all filters, the result set is specified by the whole statement, not the individual filter.&lt;/p&gt;
@@ -546,10 +562,10 @@ out;
     
     <item>
       <title>By user (user, uid)</title>
-      <link>//osmlab.github.io/learnoverpass/en/docs/filters/user/</link>
+      <link>http://osmlab.github.io/learnoverpass/en/docs/filters/user/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//osmlab.github.io/learnoverpass/en/docs/filters/user/</guid>
+      <guid>http://osmlab.github.io/learnoverpass/en/docs/filters/user/</guid>
       <description>&lt;p&gt;The user filter selects all elements that have been last touched by the specified user.&lt;/p&gt;
 
 &lt;p&gt;It has no input set. As for all filters, the result set is specified by the whole statement, not the individual filter.&lt;/p&gt;
@@ -565,52 +581,6 @@ node(uid:1);
 node._(user:&amp;#34;HeinerSchaefer&amp;#34;);
 out;
 &lt;/textarea&gt;&lt;div class=&#34;docs-repl-result&#34;&gt;  &lt;iframe src=&#34;http://overpass-turbo.eu/master/map.html?Q=%0a%28node%28poly%3a%2250.73%207.13%2050.73%207.17%2050.75%207.15%22%29%3b%3e%3b%29%3b%0anode._%28user%3a%22HeinerSchaefer%22%29%3b%0aout%3b%0a&#34;  seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34;&gt;&lt;/iframe&gt;&lt;textarea&gt;&lt;/textarea&gt; &lt;a class=&#34;docs-repl-change-output button&#34; href=&#34;#&#34;&gt;Data&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Item</title>
-      <link>//osmlab.github.io/learnoverpass/en/docs/standalone-queries/item/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>//osmlab.github.io/learnoverpass/en/docs/standalone-queries/item/</guid>
-      <description>&lt;p&gt;The item standalone query consists only of an input set prefix.&lt;/p&gt;
-
-&lt;p&gt;It takes the input set specified by its prefix. This is in particular useful for union statements: it reproduces its input set as (part of the) result of the union statement.&lt;/p&gt;
-
-&lt;p&gt;The most common usage is the usage with the default input set:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  ._;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;In the context of a union statement, the following will return all items in the default inputset along with the recurse down result.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  (._; &amp;gt;;);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;But of course other sets are possible too:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  .a;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;In the context of a union statement:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  (.a; .a &amp;gt;;);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Note: Subsequent statements in a union statement are not impacted by the item statement. In particular &lt;code&gt;.a;&lt;/code&gt; does not add the contents of the input set to the default item set ._&lt;/p&gt;
-
-&lt;p&gt;The item statement can also be used as filter.&lt;/p&gt;
-
-&lt;p&gt;&lt;div class=&#34;docs-repl&#34;&gt;  &lt;textarea&gt;
-(
-node[amenity=bank]
-  (47.06,15.42,47.09,15.48);
-)-&amp;gt;.bank_set;
-
-//here we print the bank_set by passing the .bank_set query
-.bank_set out;
-&lt;/textarea&gt;&lt;div class=&#34;docs-repl-result&#34;&gt;  &lt;iframe src=&#34;http://overpass-turbo.eu/master/map.html?Q=%0a%28%0anode%5bamenity%3dbank%5d%0a%20%20%2847.06%2c15.42%2c47.09%2c15.48%29%3b%0a%29-%3e.bank_set%3b%0a%0a%2f%2fhere%20we%20print%20the%20bank_set%20by%20passing%20the%20.bank_set%20query%0a.bank_set%20out%3b%0a&#34;  seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34;&gt;&lt;/iframe&gt;&lt;textarea&gt;&lt;/textarea&gt; &lt;a class=&#34;docs-repl-change-output button&#34; href=&#34;#&#34;&gt;Data&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/p&gt;
 </description>
     </item>
     

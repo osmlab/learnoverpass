@@ -2,19 +2,35 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>LearnOverpass</title>
-    <link>//osmlab.github.io/learnoverpass/</link>
+    <link>http://osmlab.github.io/learnoverpass/</link>
     <description>Recent content on LearnOverpass</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 07 May 2015 11:09:35 +0000</lastBuildDate>
-    <atom:link href="//osmlab.github.io/learnoverpass/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 01 Jul 2015 16:35:50 +0800</lastBuildDate>
+    <atom:link href="http://osmlab.github.io/learnoverpass/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Introduction</title>
+      <link>http://osmlab.github.io/learnoverpass/en/exercises/intro/1/</link>
+      <pubDate>Wed, 01 Jul 2015 16:35:50 +0800</pubDate>
+      
+      <guid>http://osmlab.github.io/learnoverpass/en/exercises/intro/1/</guid>
+      <description>&lt;p&gt;The Overpass API is a powerful, read-only API that lets you query data from OpenStreetMap.&lt;/p&gt;
+
+&lt;p&gt;The Overpass Query Language (QL) is the language you use to &amp;lsquo;talk&amp;rsquo; to this API, asking data for your own specific use.&lt;/p&gt;
+
+&lt;p&gt;On the right is a text editor where you can type in your QL commands. See the code with the word &lt;code&gt;node&lt;/code&gt;? That&amp;rsquo;s a QL statement, which stands for - you guessed it, the humble node.&lt;/p&gt;
+
+&lt;p&gt;The world map is a visualization of the data that&amp;rsquo;s received by your statement. Right now it contains nothing, because while we query the node with the first line, the API doesn&amp;rsquo;t know what to do with it! Let&amp;rsquo;s change that!&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Union</title>
-      <link>//osmlab.github.io/learnoverpass/en/docs/block-queries/union/</link>
+      <link>http://osmlab.github.io/learnoverpass/en/docs/block-queries/union/</link>
       <pubDate>Thu, 07 May 2015 11:09:35 +0000</pubDate>
       
-      <guid>//osmlab.github.io/learnoverpass/en/docs/block-queries/union/</guid>
+      <guid>http://osmlab.github.io/learnoverpass/en/docs/block-queries/union/</guid>
       <description>&lt;p&gt;The union block statement is written as a pair of parentheses. Inside the union, any sequence of statements can be placed, including nested union and foreach statements.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;(statement_1; statement_2; …)[-&amp;gt;.result_set];
@@ -55,60 +71,11 @@ out;
     </item>
     
     <item>
-      <title>Overpass API is a highly optimized, read-only API built for gathering OSM map data.</title>
-      <link>//osmlab.github.io/learnoverpass/de/</link>
-      <pubDate>Wed, 06 May 2015 11:09:35 +0000</pubDate>
-      
-      <guid>//osmlab.github.io/learnoverpass/de/</guid>
-      <description>&lt;p&gt;Currently untranslated&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Difference</title>
-      <link>//osmlab.github.io/learnoverpass/en/docs/block-queries/difference/</link>
-      <pubDate>Wed, 06 May 2015 11:09:35 +0000</pubDate>
-      
-      <guid>//osmlab.github.io/learnoverpass/en/docs/block-queries/difference/</guid>
-      <description>&lt;p&gt;The difference block statement is written as a pair of parentheses. Inside the difference statement, exactly two statements must be placed, and between them a minus sign.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(statement_1; - statement_2;)[-&amp;gt;.result_set];
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;It takes no input set. It produces a result set. Its result set contains all elements that are result of the first sub-statement and not contained in the result of the second sub-statement.&lt;/p&gt;
-
-&lt;p&gt;Example:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(node[name=&amp;quot;Foo&amp;quot;]; - node(50.0,7.0,51.0,8.0););
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This collects all nodes that have a name tag &amp;ldquo;Foo&amp;rdquo; but are not inside the given bounding box.&lt;/p&gt;
-
-&lt;p&gt;The result set of the difference statement can be redirected with the usual postfix notation:&lt;/p&gt;
-
-&lt;p&gt;Example:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(node[name=&amp;quot;Foo&amp;quot;]; - node(50.0,7.0,51.0,8.0);)-&amp;gt;.a;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Same as the preceding example, but the result is written into the variable a.&lt;/p&gt;
-
-&lt;p&gt;&lt;div class=&#34;docs-repl&#34;&gt;  &lt;textarea&gt;
-(
-node[amenity]( 47.06, 15.435,  47.07,  15.44);
--node[amenity](47.064, 15.435, 47.066, 15.44);
-);
-out;
-&lt;/textarea&gt;&lt;div class=&#34;docs-repl-result&#34;&gt;  &lt;iframe src=&#34;http://overpass-turbo.eu/master/map.html?Q=%0a%28%0anode%5bamenity%5d%28%2047.06%2c%2015.435%2c%20%2047.07%2c%20%2015.44%29%3b%0a-node%5bamenity%5d%2847.064%2c%2015.435%2c%2047.066%2c%2015.44%29%3b%0a%29%3b%0aout%3b%0a&#34;  seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34;&gt;&lt;/iframe&gt;&lt;textarea&gt;&lt;/textarea&gt; &lt;a class=&#34;docs-repl-change-output button&#34; href=&#34;#&#34;&gt;Data&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>For-each loop (foreach)</title>
-      <link>//osmlab.github.io/learnoverpass/en/docs/block-queries/foreach/</link>
+      <link>http://osmlab.github.io/learnoverpass/en/docs/block-queries/foreach/</link>
       <pubDate>Wed, 06 May 2015 11:09:35 +0000</pubDate>
       
-      <guid>//osmlab.github.io/learnoverpass/en/docs/block-queries/foreach/</guid>
+      <guid>http://osmlab.github.io/learnoverpass/en/docs/block-queries/foreach/</guid>
       <description>&lt;p&gt;The foreach block statement is written as the keyword foreach, followed by a pair of parentheses. Inside these parentheses, any sequence of statements can be placed, including nested union and foreach statements.&lt;/p&gt;
 
 &lt;p&gt;It takes an input set. It produces no result set. The foreach statement loops over the content of the input set, once for every element in the input set.&lt;/p&gt;
@@ -166,11 +133,60 @@ foreach-&amp;gt;.bank_set(
     </item>
     
     <item>
-      <title>Overpass API Documentation</title>
-      <link>//osmlab.github.io/learnoverpass/en/docs/</link>
+      <title>Difference</title>
+      <link>http://osmlab.github.io/learnoverpass/en/docs/block-queries/difference/</link>
       <pubDate>Wed, 06 May 2015 11:09:35 +0000</pubDate>
       
-      <guid>//osmlab.github.io/learnoverpass/en/docs/</guid>
+      <guid>http://osmlab.github.io/learnoverpass/en/docs/block-queries/difference/</guid>
+      <description>&lt;p&gt;The difference block statement is written as a pair of parentheses. Inside the difference statement, exactly two statements must be placed, and between them a minus sign.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(statement_1; - statement_2;)[-&amp;gt;.result_set];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It takes no input set. It produces a result set. Its result set contains all elements that are result of the first sub-statement and not contained in the result of the second sub-statement.&lt;/p&gt;
+
+&lt;p&gt;Example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(node[name=&amp;quot;Foo&amp;quot;]; - node(50.0,7.0,51.0,8.0););
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This collects all nodes that have a name tag &amp;ldquo;Foo&amp;rdquo; but are not inside the given bounding box.&lt;/p&gt;
+
+&lt;p&gt;The result set of the difference statement can be redirected with the usual postfix notation:&lt;/p&gt;
+
+&lt;p&gt;Example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(node[name=&amp;quot;Foo&amp;quot;]; - node(50.0,7.0,51.0,8.0);)-&amp;gt;.a;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Same as the preceding example, but the result is written into the variable a.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;docs-repl&#34;&gt;  &lt;textarea&gt;
+(
+node[amenity]( 47.06, 15.435,  47.07,  15.44);
+-node[amenity](47.064, 15.435, 47.066, 15.44);
+);
+out;
+&lt;/textarea&gt;&lt;div class=&#34;docs-repl-result&#34;&gt;  &lt;iframe src=&#34;http://overpass-turbo.eu/master/map.html?Q=%0a%28%0anode%5bamenity%5d%28%2047.06%2c%2015.435%2c%20%2047.07%2c%20%2015.44%29%3b%0a-node%5bamenity%5d%2847.064%2c%2015.435%2c%2047.066%2c%2015.44%29%3b%0a%29%3b%0aout%3b%0a&#34;  seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34;&gt;&lt;/iframe&gt;&lt;textarea&gt;&lt;/textarea&gt; &lt;a class=&#34;docs-repl-change-output button&#34; href=&#34;#&#34;&gt;Data&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Overpass API is a highly optimized, read-only API built for gathering OSM map data.</title>
+      <link>http://osmlab.github.io/learnoverpass/de/</link>
+      <pubDate>Wed, 06 May 2015 11:09:35 +0000</pubDate>
+      
+      <guid>http://osmlab.github.io/learnoverpass/de/</guid>
+      <description>&lt;p&gt;Currently untranslated&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Overpass API Documentation</title>
+      <link>http://osmlab.github.io/learnoverpass/en/docs/</link>
+      <pubDate>Wed, 06 May 2015 11:09:35 +0000</pubDate>
+      
+      <guid>http://osmlab.github.io/learnoverpass/en/docs/</guid>
       <description>&lt;p&gt;Overpass QL is the second query language for the Overpass API and was designed as an alternative to Overpass XML. It has a C style syntax: The whole query source code is divided in statements, and every statement ends with a semicolon. It has imperative semantics: The statements are processed one after another and change the execution state according to their semantics.&lt;/p&gt;
 
 &lt;p&gt;The execution state consists of the default set, potentially other named sets, and for block statements a stack. A set can contain nodes, ways, relations and areas, also of mixed type and of any number. Sets are created as result sets of statements and are read by subsequent statements as input. Unless you specify a named set as input or result, all input is implicitly read from and all results are written to the default variable named _ (a single underscore). Names for sets may consist of letters, digits and the underscore but must not start with a digit. Once a new result is (implicitly or explicitly) assigned to an existing set, its previous contents will be replaced and are no longer available. Sets always have global visibility.&lt;/p&gt;
@@ -186,20 +202,20 @@ Settings: Things like output format that can be set once at the beginning.&lt;/p
     
     <item>
       <title>Overpass API is a highly optimized, read-only API built for gathering OSM map data.</title>
-      <link>//osmlab.github.io/learnoverpass/en/</link>
+      <link>http://osmlab.github.io/learnoverpass/en/</link>
       <pubDate>Wed, 06 May 2015 11:09:35 +0000</pubDate>
       
-      <guid>//osmlab.github.io/learnoverpass/en/</guid>
+      <guid>http://osmlab.github.io/learnoverpass/en/</guid>
       <description>&lt;p&gt;Whether you are a complete beginner or an established developer, you will find LearnOverpass as the most comprehensive resource to learn how to utilize the Overpass API. In short time, learn how to use the powerful Query language, and collect data of various criteria: from location, types of objects, tag properties to proximities.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Print (out)</title>
-      <link>//osmlab.github.io/learnoverpass/en/docs/actions/print/</link>
+      <link>http://osmlab.github.io/learnoverpass/en/docs/actions/print/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//osmlab.github.io/learnoverpass/en/docs/actions/print/</guid>
+      <guid>http://osmlab.github.io/learnoverpass/en/docs/actions/print/</guid>
       <description>&lt;p&gt;The out action can be configured with an arbitrary number of parameters that are appended, separated by whitespace, between the word out and the semicolon.&lt;/p&gt;
 
 &lt;p&gt;The out action takes an input set. It doesn&amp;rsquo;t return a result set. The input set can be changed by prepending the variable name.&lt;/p&gt;
@@ -291,10 +307,10 @@ out bb;
     
     <item>
       <title>By area (area)</title>
-      <link>//osmlab.github.io/learnoverpass/en/docs/filters/area/</link>
+      <link>http://osmlab.github.io/learnoverpass/en/docs/filters/area/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//osmlab.github.io/learnoverpass/en/docs/filters/area/</guid>
+      <guid>http://osmlab.github.io/learnoverpass/en/docs/filters/area/</guid>
       <description>&lt;p&gt;The area filter selects all elements of the chosen type that are inside the given area. Please note with regard to attic data that areas always represent current data.&lt;/p&gt;
 
 &lt;p&gt;The input set can be changed with an adapted prefix notation. As for all filters, the result set is specified by the whole statement, not the individual filter.&lt;/p&gt;
@@ -352,10 +368,10 @@ out body qt;
     
     <item>
       <title>Relative to other elements (around)</title>
-      <link>//osmlab.github.io/learnoverpass/en/docs/filters/around/</link>
+      <link>http://osmlab.github.io/learnoverpass/en/docs/filters/around/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//osmlab.github.io/learnoverpass/en/docs/filters/around/</guid>
+      <guid>http://osmlab.github.io/learnoverpass/en/docs/filters/around/</guid>
       <description>&lt;p&gt;The around filter selects all elements within a certain radius around the elements in the input set. If you provide coordinates, then these coordinates are used instead of the input set. The input set can be changed with an adapted prefix notation. As for all filters, the result set is specified by the whole statement, not the individual filter.&lt;/p&gt;
 
 &lt;p&gt;A radius of 0 can be used for a way intersection test on outer/inner points.&lt;/p&gt;
@@ -403,11 +419,95 @@ out body;
     </item>
     
     <item>
-      <title>By Input Set</title>
-      <link>//osmlab.github.io/learnoverpass/en/docs/filters/input-set/</link>
+      <title>Bounding Box</title>
+      <link>http://osmlab.github.io/learnoverpass/en/docs/filters/bbox/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//osmlab.github.io/learnoverpass/en/docs/filters/input-set/</guid>
+      <guid>http://osmlab.github.io/learnoverpass/en/docs/filters/bbox/</guid>
+      <description>&lt;p&gt;The bbox-query filter selects all elements within a certain bounding box.&lt;/p&gt;
+
+&lt;p&gt;It has no input set. As for all filters, the result set is specified by the whole statement, not the individual filter.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(south,west,north,east)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It consists of an opening parenthesis. Then follow four floating point numbers, separated by commas. The filter ends with a closing parenthesis.&lt;/p&gt;
+
+&lt;p&gt;The floating point numbers give the limits of the bounding box: The first is the southern limit or minimum latitude. The second is the western limit, usually the minimum longitude. The third is the northern limit or maximum latitude. The last is the eastern limit, usually the maximum longitude. If the second argument is bigger than the fourth argument, the bounding box crosses the longitude of 180 degrees.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;docs-repl&#34;&gt;  &lt;textarea&gt;
+node
+(47.065,15.425,47.07,15.43); // a bbox-filter
+out;
+&lt;/textarea&gt;&lt;div class=&#34;docs-repl-result&#34;&gt;  &lt;iframe src=&#34;http://overpass-turbo.eu/master/map.html?Q=%0anode%0a%2847.065%2c15.425%2c47.07%2c15.43%29%3b%20%2f%2f%20a%20bbox-filter%0aout%3b%0a&#34;  seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34;&gt;&lt;/iframe&gt;&lt;textarea&gt;&lt;/textarea&gt; &lt;a class=&#34;docs-repl-change-output button&#34; href=&#34;#&#34;&gt;Data&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>By date of change (changed)</title>
+      <link>http://osmlab.github.io/learnoverpass/en/docs/filters/changed/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://osmlab.github.io/learnoverpass/en/docs/filters/changed/</guid>
+      <description>&lt;p&gt;The changed filter selects all elements that have been changed between the two given dates. If only one date is given, then the second is assumed to be the front date of the database. If only one date is given and it is run with the current timestamp, then it behaves exactly like &amp;ldquo;newer&amp;rdquo; with two exceptions: first, it is faster, second, it can also stand as the only filter.&lt;/p&gt;
+
+&lt;p&gt;It has no input set. As for all filters, the result set is specified by the whole statement, not the individual filter.&lt;/p&gt;
+
+&lt;p&gt;It consists of an opening parenthesis. Then follows a date specification. Please note that this date specification cannot be abbreviated and has to be put in single or double quotes. Then can follow a comma and a second date specification. The filter ends with a closing parenthesis.&lt;/p&gt;
+
+&lt;p&gt;Example: All changes since the given date and now&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;node._(changed:&amp;quot;2012-09-14T07:00:00Z&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;div class=&#34;docs-repl&#34;&gt;  &lt;textarea&gt;
+(node(poly:&amp;#34;50.73 7.13 50.73 7.17 50.75 7.15&amp;#34;);&amp;gt;;);
+// This finds all nodes that have changed
+// between the two given dates 
+node._(changed:&amp;#34;2012-09-14T07:00:00Z&amp;#34;,&amp;#34;2012-09-14T07:01:00Z&amp;#34;);
+out;
+&lt;/textarea&gt;&lt;div class=&#34;docs-repl-result&#34;&gt;  &lt;iframe src=&#34;http://overpass-turbo.eu/master/map.html?Q=%0a%28node%28poly%3a%2250.73%207.13%2050.73%207.17%2050.75%207.15%22%29%3b%3e%3b%29%3b%0a%2f%2f%20This%20finds%20all%20nodes%20that%20have%20changed%0a%2f%2f%20between%20the%20two%20given%20dates%20%0anode._%28changed%3a%222012-09-14T07%3a00%3a00Z%22%2c%222012-09-14T07%3a01%3a00Z%22%29%3b%0aout%3b%0a&#34;  seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34;&gt;&lt;/iframe&gt;&lt;textarea&gt;&lt;/textarea&gt; &lt;a class=&#34;docs-repl-change-output button&#34; href=&#34;#&#34;&gt;Data&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>By Element Id</title>
+      <link>http://osmlab.github.io/learnoverpass/en/docs/filters/element-id/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://osmlab.github.io/learnoverpass/en/docs/filters/element-id/</guid>
+      <description>&lt;p&gt;The id-query filter selects the element of given type with given id. It supports beside the OSM datatypes node, way, and relation also the type area.&lt;/p&gt;
+
+&lt;p&gt;It has no input set. As for all filters, the result set is specified by the whole statement, not the individual filter.&lt;/p&gt;
+
+&lt;p&gt;It consists of an opening parenthesis. Then follows a positive integer. The filter is ends with a closing parenthesis.&lt;/p&gt;
+
+&lt;p&gt;Examples:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;node(1);
+way(1);
+rel(1);
+area(1);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note that area ids need to be derived from an existing OSM way by adding 2400000000 to its OSM id or in case of a relation by adding 3600000000 respectively. Note that area creation is subject to some extraction rules, i.e. not all ways/relations have an area counterpart. See &lt;a href=&#34;https://github.com/drolbr/Overpass-API/blob/master/rules/areas.osm3s&#34;&gt;areas.osm3s&lt;/a&gt; for details.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;docs-repl&#34;&gt;  &lt;textarea&gt;
+// get node with id 1170494282
+// put it (implicitly) in the default set
+node(1170494282);
+// print the default set
+out;
+&lt;/textarea&gt;&lt;div class=&#34;docs-repl-result&#34;&gt;  &lt;iframe src=&#34;http://overpass-turbo.eu/master/map.html?Q=%0a%2f%2f%20get%20node%20with%20id%201170494282%0a%2f%2f%20put%20it%20%28implicitly%29%20in%20the%20default%20set%0anode%281170494282%29%3b%0a%2f%2f%20print%20the%20default%20set%0aout%3b%0a&#34;  seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34;&gt;&lt;/iframe&gt;&lt;textarea&gt;&lt;/textarea&gt; &lt;a class=&#34;docs-repl-change-output button&#34; href=&#34;#&#34;&gt;Data&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>By Input Set</title>
+      <link>http://osmlab.github.io/learnoverpass/en/docs/filters/input-set/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://osmlab.github.io/learnoverpass/en/docs/filters/input-set/</guid>
       <description>&lt;p&gt;The &amp;ldquo;item&amp;rdquo; filter selects all elements from its input set.&lt;/p&gt;
 
 &lt;p&gt;As for all filters, the result set is specified by the whole statement, not the individual filter.&lt;/p&gt;
@@ -453,95 +553,11 @@ out skel qt;
     </item>
     
     <item>
-      <title>Bounding Box</title>
-      <link>//osmlab.github.io/learnoverpass/en/docs/filters/bbox/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>//osmlab.github.io/learnoverpass/en/docs/filters/bbox/</guid>
-      <description>&lt;p&gt;The bbox-query filter selects all elements within a certain bounding box.&lt;/p&gt;
-
-&lt;p&gt;It has no input set. As for all filters, the result set is specified by the whole statement, not the individual filter.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(south,west,north,east)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;It consists of an opening parenthesis. Then follow four floating point numbers, separated by commas. The filter ends with a closing parenthesis.&lt;/p&gt;
-
-&lt;p&gt;The floating point numbers give the limits of the bounding box: The first is the southern limit or minimum latitude. The second is the western limit, usually the minimum longitude. The third is the northern limit or maximum latitude. The last is the eastern limit, usually the maximum longitude. If the second argument is bigger than the fourth argument, the bounding box crosses the longitude of 180 degrees.&lt;/p&gt;
-
-&lt;p&gt;&lt;div class=&#34;docs-repl&#34;&gt;  &lt;textarea&gt;
-node
-(47.065,15.425,47.07,15.43); // a bbox-filter
-out;
-&lt;/textarea&gt;&lt;div class=&#34;docs-repl-result&#34;&gt;  &lt;iframe src=&#34;http://overpass-turbo.eu/master/map.html?Q=%0anode%0a%2847.065%2c15.425%2c47.07%2c15.43%29%3b%20%2f%2f%20a%20bbox-filter%0aout%3b%0a&#34;  seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34;&gt;&lt;/iframe&gt;&lt;textarea&gt;&lt;/textarea&gt; &lt;a class=&#34;docs-repl-change-output button&#34; href=&#34;#&#34;&gt;Data&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>By date of change (changed)</title>
-      <link>//osmlab.github.io/learnoverpass/en/docs/filters/changed/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>//osmlab.github.io/learnoverpass/en/docs/filters/changed/</guid>
-      <description>&lt;p&gt;The changed filter selects all elements that have been changed between the two given dates. If only one date is given, then the second is assumed to be the front date of the database. If only one date is given and it is run with the current timestamp, then it behaves exactly like &amp;ldquo;newer&amp;rdquo; with two exceptions: first, it is faster, second, it can also stand as the only filter.&lt;/p&gt;
-
-&lt;p&gt;It has no input set. As for all filters, the result set is specified by the whole statement, not the individual filter.&lt;/p&gt;
-
-&lt;p&gt;It consists of an opening parenthesis. Then follows a date specification. Please note that this date specification cannot be abbreviated and has to be put in single or double quotes. Then can follow a comma and a second date specification. The filter ends with a closing parenthesis.&lt;/p&gt;
-
-&lt;p&gt;Example: All changes since the given date and now&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;node._(changed:&amp;quot;2012-09-14T07:00:00Z&amp;quot;);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;div class=&#34;docs-repl&#34;&gt;  &lt;textarea&gt;
-(node(poly:&amp;#34;50.73 7.13 50.73 7.17 50.75 7.15&amp;#34;);&amp;gt;;);
-// This finds all nodes that have changed
-// between the two given dates 
-node._(changed:&amp;#34;2012-09-14T07:00:00Z&amp;#34;,&amp;#34;2012-09-14T07:01:00Z&amp;#34;);
-out;
-&lt;/textarea&gt;&lt;div class=&#34;docs-repl-result&#34;&gt;  &lt;iframe src=&#34;http://overpass-turbo.eu/master/map.html?Q=%0a%28node%28poly%3a%2250.73%207.13%2050.73%207.17%2050.75%207.15%22%29%3b%3e%3b%29%3b%0a%2f%2f%20This%20finds%20all%20nodes%20that%20have%20changed%0a%2f%2f%20between%20the%20two%20given%20dates%20%0anode._%28changed%3a%222012-09-14T07%3a00%3a00Z%22%2c%222012-09-14T07%3a01%3a00Z%22%29%3b%0aout%3b%0a&#34;  seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34;&gt;&lt;/iframe&gt;&lt;textarea&gt;&lt;/textarea&gt; &lt;a class=&#34;docs-repl-change-output button&#34; href=&#34;#&#34;&gt;Data&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>By Element Id</title>
-      <link>//osmlab.github.io/learnoverpass/en/docs/filters/element-id/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>//osmlab.github.io/learnoverpass/en/docs/filters/element-id/</guid>
-      <description>&lt;p&gt;The id-query filter selects the element of given type with given id. It supports beside the OSM datatypes node, way, and relation also the type area.&lt;/p&gt;
-
-&lt;p&gt;It has no input set. As for all filters, the result set is specified by the whole statement, not the individual filter.&lt;/p&gt;
-
-&lt;p&gt;It consists of an opening parenthesis. Then follows a positive integer. The filter is ends with a closing parenthesis.&lt;/p&gt;
-
-&lt;p&gt;Examples:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;node(1);
-way(1);
-rel(1);
-area(1);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Note that area ids need to be derived from an existing OSM way by adding 2400000000 to its OSM id or in case of a relation by adding 3600000000 respectively. Note that area creation is subject to some extraction rules, i.e. not all ways/relations have an area counterpart. See &lt;a href=&#34;https://github.com/drolbr/Overpass-API/blob/master/rules/areas.osm3s&#34;&gt;areas.osm3s&lt;/a&gt; for details.&lt;/p&gt;
-
-&lt;p&gt;&lt;div class=&#34;docs-repl&#34;&gt;  &lt;textarea&gt;
-// get node with id 1170494282
-// put it (implicitly) in the default set
-node(1170494282);
-// print the default set
-out;
-&lt;/textarea&gt;&lt;div class=&#34;docs-repl-result&#34;&gt;  &lt;iframe src=&#34;http://overpass-turbo.eu/master/map.html?Q=%0a%2f%2f%20get%20node%20with%20id%201170494282%0a%2f%2f%20put%20it%20%28implicitly%29%20in%20the%20default%20set%0anode%281170494282%29%3b%0a%2f%2f%20print%20the%20default%20set%0aout%3b%0a&#34;  seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34;&gt;&lt;/iframe&gt;&lt;textarea&gt;&lt;/textarea&gt; &lt;a class=&#34;docs-repl-change-output button&#34; href=&#34;#&#34;&gt;Data&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Newer</title>
-      <link>//osmlab.github.io/learnoverpass/en/docs/filters/newer/</link>
+      <link>http://osmlab.github.io/learnoverpass/en/docs/filters/newer/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//osmlab.github.io/learnoverpass/en/docs/filters/newer/</guid>
+      <guid>http://osmlab.github.io/learnoverpass/en/docs/filters/newer/</guid>
       <description>&lt;p&gt;The newer filter selects all elements that have been changed since the given date. As opposed to other filters, this filter cannot be used alone. If the underlying database instance supports attic data, then &amp;ldquo;changed&amp;rdquo; is probably a better choice than &amp;ldquo;newer&amp;rdquo;.&lt;/p&gt;
 
 &lt;p&gt;It has no input set. As for all filters, the result set is specified by the whole statement, not the individual filter.&lt;/p&gt;
@@ -555,43 +571,6 @@ out;
 (node._(newer:&amp;#34;2012-09-14T07:00:00Z&amp;#34;);&amp;gt;;);
 out;
 &lt;/textarea&gt;&lt;div class=&#34;docs-repl-result&#34;&gt;  &lt;iframe src=&#34;http://overpass-turbo.eu/master/map.html?Q=%0a%28node%28poly%3a%2250.73%207.13%2050.73%207.17%2050.75%207.15%22%29%3b%3e%3b%29%3b%0a%2f%2f%20This%20finds%20all%20nodes%20that%20have%20changed%0a%2f%2f%20since%2014%20Sep%202012%2c%207%20h%20UTC%2c%20in%20the%20given%20input%20set.%0a%28node._%28newer%3a%222012-09-14T07%3a00%3a00Z%22%29%3b%3e%3b%29%3b%0aout%3b%0a&#34;  seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34;&gt;&lt;/iframe&gt;&lt;textarea&gt;&lt;/textarea&gt; &lt;a class=&#34;docs-repl-change-output button&#34; href=&#34;#&#34;&gt;Data&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Area pivot (pivot)</title>
-      <link>//osmlab.github.io/learnoverpass/en/docs/filters/pivot/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>//osmlab.github.io/learnoverpass/en/docs/filters/pivot/</guid>
-      <description>&lt;p&gt;The &lt;em&gt;pivot&lt;/em&gt; filter selects the element of the chosen type that defines the outline of the given area.&lt;/p&gt;
-
-&lt;p&gt;The input set can be changed with an adapted prefix notation. As for all filters, the result set is specified by the whole statement, not the individual filter.&lt;/p&gt;
-
-&lt;p&gt;It consists of an opening parenthesis. Then follows the keyword &lt;em&gt;pivot&lt;/em&gt;. The filter ends with a closing parenthesis.&lt;/p&gt;
-
-&lt;p&gt;The statement finds for each area in the input set the respective element that the area has been generated from. Which is either a multipolygon relation or a way.&lt;/p&gt;
-
-&lt;p&gt;Examples:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;way(pivot);
-rel(pivot);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The example with modified input set:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;way(pivot.a);
-rel(pivot.a);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;div class=&#34;docs-repl&#34;&gt;  &lt;textarea&gt;
-// determine area for Greater London and store it to .London_area
-area[name=&amp;#34;London&amp;#34;][admin_level=6][boundary=administrative]-&amp;gt;.London_area;
-// convert back to relations using the pivot filter
-rel(pivot.London_area);
-// output the geom
-out geom;
-&lt;/textarea&gt;&lt;div class=&#34;docs-repl-result&#34;&gt;  &lt;iframe src=&#34;http://overpass-turbo.eu/master/map.html?Q=%0a%2f%2f%20determine%20area%20for%20Greater%20London%20and%20store%20it%20to%20.London_area%0aarea%5bname%3d%22London%22%5d%5badmin_level%3d6%5d%5bboundary%3dadministrative%5d-%3e.London_area%3b%0a%2f%2f%20convert%20back%20to%20relations%20using%20the%20pivot%20filter%0arel%28pivot.London_area%29%3b%0a%2f%2f%20output%20the%20geom%0aout%20geom%3b%0a&#34;  seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34;&gt;&lt;/iframe&gt;&lt;textarea&gt;&lt;/textarea&gt; &lt;a class=&#34;docs-repl-change-output button&#34; href=&#34;#&#34;&gt;Data&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/p&gt;
 </description>
     </item>
     

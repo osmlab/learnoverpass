@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Des on LearnOverpass</title>
-    <link>//osmlab.github.io/learnoverpass/de/</link>
+    <link>http://osmlab.github.io/learnoverpass/de/</link>
     <description>Recent content in Des on LearnOverpass</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 06 May 2015 11:09:35 +0000</lastBuildDate>
-    <atom:link href="//osmlab.github.io/learnoverpass/de/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://osmlab.github.io/learnoverpass/de/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Overpass API is a highly optimized, read-only API built for gathering OSM map data.</title>
-      <link>//osmlab.github.io/learnoverpass/de/</link>
+      <link>http://osmlab.github.io/learnoverpass/de/</link>
       <pubDate>Wed, 06 May 2015 11:09:35 +0000</pubDate>
       
-      <guid>//osmlab.github.io/learnoverpass/de/</guid>
+      <guid>http://osmlab.github.io/learnoverpass/de/</guid>
       <description>&lt;p&gt;Currently untranslated&lt;/p&gt;
 </description>
     </item>

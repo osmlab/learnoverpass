@@ -1,0 +1,110 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us"><head><link href="http://gmpg.org/xfn/11" rel="profile"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1"><title>Introduction</title><link rel="stylesheet" href="http://osmlab.github.io/learnoverpass//css/main.css"> <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png"><link href="/favicon.png" rel="icon"><link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'><link href="" rel="alternate" type="application/rss+xml" title="LearnOverpass &middot; " /><meta name="description" content=""><meta name="keywords" content=""> </head><body> <div class="menu-bar"><h1> <a href="http://osmlab.github.io/learnoverpass//">LearnOverpass</a></h1></div><div class="exercise-container"><div class="exercise-lesson"><div class="exercise-lesson-bar"><div class="line">Intro</div></div><div class="exercise-lesson-inner"><div class="exercise-lesson-article"><h2>Introduction</h2> <p>The Overpass API is a powerful, read-only API that lets you query data from OpenStreetMap.</p>
+
+<p>The Overpass Query Language (QL) is the language you use to &lsquo;talk&rsquo; to this API, asking data for your own specific use.</p>
+
+<p>On the right is a text editor where you can type in your QL commands. See the code with the word <code>node</code>? That&rsquo;s a QL statement, which stands for - you guessed it, the humble node.</p>
+
+<p>The world map is a visualization of the data that&rsquo;s received by your statement. Right now it contains nothing, because while we query the node with the first line, the API doesn&rsquo;t know what to do with it! Let&rsquo;s change that!</p>
+</div><div class="exercise-lesson-instruction"><div class="exercise-lesson-label"> <span>Instructions</span></div> <ol>
+<li><code>node</code> queries our node, but what does the number <code>2681940781</code> stand for? It&rsquo;s the unique identifier number (ID) of the node we&rsquo;re looking for.</li>
+<li>The first statement looks (queries) for a specific node. On the second line, type in <code>out;</code>, which would print that node.</li>
+</ol>
+</div></div></div><div class="docs-repl exercise-main"> <textarea>node(2681940781);
+out;
+</textarea><div class="exercise-action-bar"><div class="exercise-action-bar-inner"><div> <a href="#" class="exercise-action-run">Run Query</a> <a href="#" class="exercise-action-reset">Reset Code</a></div></div></div><div class="docs-repl-result output"><iframe src="http://overpass-turbo.eu/master/map.html" seamless="seamless" frameBorder="0"></iframe><textarea></textarea> <a class="docs-repl-change-output button" href="#">Data</a></div></div><div class="exercise-answer">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;
+&lt;osm version=&#34;0.6&#34; generator=&#34;Overpass API&#34;&gt;
+&lt;note&gt;The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.&lt;/note&gt;
+&lt;meta osm_base=&#34;2015-07-06T13:36:01Z&#34;/&gt;
+
+  &lt;node id=&#34;2681940781&#34; lat=&#34;27.9872512&#34; lon=&#34;86.9243860&#34;&gt;
+    &lt;tag k=&#34;alt_name&#34; v=&#34;Chomolungma&#34;/&gt;
+    &lt;tag k=&#34;alt_name:ru&#34; v=&#34;Джомолунгма&#34;/&gt;
+    &lt;tag k=&#34;alt_name:uk&#34; v=&#34;Джомолунгма&#34;/&gt;
+    &lt;tag k=&#34;ele&#34; v=&#34;8848&#34;/&gt;
+    &lt;tag k=&#34;importance&#34; v=&#34;international&#34;/&gt;
+    &lt;tag k=&#34;name&#34; v=&#34;Mount Everest&#34;/&gt;
+    &lt;tag k=&#34;name:am&#34; v=&#34;ኤቨረስት ተራራ&#34;/&gt;
+    &lt;tag k=&#34;name:an&#34; v=&#34;Everest&#34;/&gt;
+    &lt;tag k=&#34;name:ar&#34; v=&#34;جبل إفرست&#34;/&gt;
+    &lt;tag k=&#34;name:ast&#34; v=&#34;Everest&#34;/&gt;
+    &lt;tag k=&#34;name:az&#34; v=&#34;Everest dağı&#34;/&gt;
+    &lt;tag k=&#34;name:ba&#34; v=&#34;Джомолунгма&#34;/&gt;
+    &lt;tag k=&#34;name:be&#34; v=&#34;Гара Джамалунгма&#34;/&gt;
+    &lt;tag k=&#34;name:bg&#34; v=&#34;Еверест&#34;/&gt;
+    &lt;tag k=&#34;name:bh&#34; v=&#34;सगरमाथा&#34;/&gt;
+    &lt;tag k=&#34;name:bn&#34; v=&#34;মাউন্ট এভারেস্ট&#34;/&gt;
+    &lt;tag k=&#34;name:bo&#34; v=&#34;ཇོ་མོ་གླང་མ&#34;/&gt;
+    &lt;tag k=&#34;name:br&#34; v=&#34;Menez Everest&#34;/&gt;
+    &lt;tag k=&#34;name:ca&#34; v=&#34;Everest&#34;/&gt;
+    &lt;tag k=&#34;name:cy&#34; v=&#34;Mynydd Everest&#34;/&gt;
+    &lt;tag k=&#34;name:de&#34; v=&#34;Mount Everest&#34;/&gt;
+    &lt;tag k=&#34;name:dv&#34; v=&#34;އެވަރެސްޓް ފަރުބަދަ&#34;/&gt;
+    &lt;tag k=&#34;name:el&#34; v=&#34;Έβερεστ&#34;/&gt;
+    &lt;tag k=&#34;name:en&#34; v=&#34;Mount Everest&#34;/&gt;
+    &lt;tag k=&#34;name:eo&#34; v=&#34;Ĉomolungmo&#34;/&gt;
+    &lt;tag k=&#34;name:es&#34; v=&#34;Monte Everest&#34;/&gt;
+    &lt;tag k=&#34;name:et&#34; v=&#34;Džomolungma&#34;/&gt;
+    &lt;tag k=&#34;name:eu&#34; v=&#34;Everest&#34;/&gt;
+    &lt;tag k=&#34;name:fa&#34; v=&#34;کوه اورست&#34;/&gt;
+    &lt;tag k=&#34;name:ga&#34; v=&#34;Sliabh Everest (Teomólungma)&#34;/&gt;
+    &lt;tag k=&#34;name:gd&#34; v=&#34;Beinn Everest&#34;/&gt;
+    &lt;tag k=&#34;name:gl&#34; v=&#34;Everest&#34;/&gt;
+    &lt;tag k=&#34;name:gn&#34; v=&#34;Éverest&#34;/&gt;
+    &lt;tag k=&#34;name:gu&#34; v=&#34;માઉન્ટ એવરેસ્ટ&#34;/&gt;
+    &lt;tag k=&#34;name:he&#34; v=&#34;אוורסט&#34;/&gt;
+    &lt;tag k=&#34;name:hi&#34; v=&#34;एवरेस्ट पर्वत&#34;/&gt;
+    &lt;tag k=&#34;name:hu&#34; v=&#34;Csomolungma&#34;/&gt;
+    &lt;tag k=&#34;name:hy&#34; v=&#34;Էվերեստ&#34;/&gt;
+    &lt;tag k=&#34;name:id&#34; v=&#34;Gunung Everest&#34;/&gt;
+    &lt;tag k=&#34;name:io&#34; v=&#34;Monto Everest&#34;/&gt;
+    &lt;tag k=&#34;name:is&#34; v=&#34;Everestfjall&#34;/&gt;
+    &lt;tag k=&#34;name:it&#34; v=&#34;Everest&#34;/&gt;
+    &lt;tag k=&#34;name:ja&#34; v=&#34;エベレスト&#34;/&gt;
+    &lt;tag k=&#34;name:ka&#34; v=&#34;ევერესტი&#34;/&gt;
+    &lt;tag k=&#34;name:kk&#34; v=&#34;Джомолунгма&#34;/&gt;
+    &lt;tag k=&#34;name:kn&#34; v=&#34;ಮೌಂಟ್ ಎವರೆಸ್ಟ್&#34;/&gt;
+    &lt;tag k=&#34;name:ko&#34; v=&#34;에베레스트 산&#34;/&gt;
+    &lt;tag k=&#34;name:ku&#34; v=&#34;Çiyayê Everest&#34;/&gt;
+    &lt;tag k=&#34;name:kw&#34; v=&#34;Menydh Everest&#34;/&gt;
+    &lt;tag k=&#34;name:la&#34; v=&#34;Everestius mons&#34;/&gt;
+    &lt;tag k=&#34;name:lt&#34; v=&#34;Džomolungma&#34;/&gt;
+    &lt;tag k=&#34;name:lv&#34; v=&#34;Everests&#34;/&gt;
+    &lt;tag k=&#34;name:mk&#34; v=&#34;Монт Еверест&#34;/&gt;
+    &lt;tag k=&#34;name:ml&#34; v=&#34;എവറസ്റ്റ്‌ കൊടുമുടി&#34;/&gt;
+    &lt;tag k=&#34;name:mn&#34; v=&#34;Жомолунгма&#34;/&gt;
+    &lt;tag k=&#34;name:mr&#34; v=&#34;एव्हरेस्ट&#34;/&gt;
+    &lt;tag k=&#34;name:ms&#34; v=&#34;Gunung Everest&#34;/&gt;
+    &lt;tag k=&#34;name:my&#34; v=&#34;ဧဝရတ်တောင်&#34;/&gt;
+    &lt;tag k=&#34;name:ne&#34; v=&#34;सगरमाथा&#34;/&gt;
+    &lt;tag k=&#34;name:oc&#34; v=&#34;Mont Everest&#34;/&gt;
+    &lt;tag k=&#34;name:or&#34; v=&#34;ମାଉଣ୍ଟ ଏଭରେଷ୍ଟ&#34;/&gt;
+    &lt;tag k=&#34;name:os&#34; v=&#34;Джомолунгмæ&#34;/&gt;
+    &lt;tag k=&#34;name:pa&#34; v=&#34;ਮਾਊਂਟ ਐਵਰੈਸਟ&#34;/&gt;
+    &lt;tag k=&#34;name:pt&#34; v=&#34;Monte Everest&#34;/&gt;
+    &lt;tag k=&#34;name:qu&#34; v=&#34;Chomolungma&#34;/&gt;
+    &lt;tag k=&#34;name:ro&#34; v=&#34;Everest&#34;/&gt;
+    &lt;tag k=&#34;name:ru&#34; v=&#34;Эверест&#34;/&gt;
+    &lt;tag k=&#34;name:si&#34; v=&#34;එවරස්ට් කන්ද&#34;/&gt;
+    &lt;tag k=&#34;name:sr&#34; v=&#34;Монт Еверест&#34;/&gt;
+    &lt;tag k=&#34;name:sw&#34; v=&#34;Everest (mlima)&#34;/&gt;
+    &lt;tag k=&#34;name:ta&#34; v=&#34;எவரெசுட்டு சிகரம்&#34;/&gt;
+    &lt;tag k=&#34;name:te&#34; v=&#34;ఎవరెస్టు పర్వతం&#34;/&gt;
+    &lt;tag k=&#34;name:th&#34; v=&#34;ยอดเขาเอเวอเรสต์&#34;/&gt;
+    &lt;tag k=&#34;name:tk&#34; v=&#34;Jomolungma&#34;/&gt;
+    &lt;tag k=&#34;name:tl&#34; v=&#34;Bundok Everest&#34;/&gt;
+    &lt;tag k=&#34;name:tr&#34; v=&#34;Everest Dağı&#34;/&gt;
+    &lt;tag k=&#34;name:tt&#34; v=&#34;Джомолунгма&#34;/&gt;
+    &lt;tag k=&#34;name:ug&#34; v=&#34;ئېۋېرېست&#34;/&gt;
+    &lt;tag k=&#34;name:uk&#34; v=&#34;Еверест&#34;/&gt;
+    &lt;tag k=&#34;name:ur&#34; v=&#34;ماؤنٹ ایورسٹ&#34;/&gt;
+    &lt;tag k=&#34;name:vi&#34; v=&#34;Everest&#34;/&gt;
+    &lt;tag k=&#34;name:yi&#34; v=&#34;עווערעסט&#34;/&gt;
+    &lt;tag k=&#34;name:zh&#34; v=&#34;珠穆朗玛峰&#34;/&gt;
+    &lt;tag k=&#34;name:zh_pinyin&#34; v=&#34;Zhūmùlǎngmǎ Fēng&#34;/&gt;
+    &lt;tag k=&#34;natural&#34; v=&#34;peak&#34;/&gt;
+    &lt;tag k=&#34;source&#34; v=&#34;Ev-K2-CNR 2004&#34;/&gt;
+    &lt;tag k=&#34;wikipedia&#34; v=&#34;zh:珠穆朗瑪峰&#34;/&gt;
+  &lt;/node&gt;
+
+&lt;/osm&gt;
+</div></div> <script src="http://osmlab.github.io/learnoverpass//js/vendor.bundle.js"></script> <script src="http://osmlab.github.io/learnoverpass//js/exercise.bundle.js"></script> </body></html>
