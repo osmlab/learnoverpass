@@ -32,6 +32,10 @@ gulp.task('scripts', [], function() {
 
 gulp.task('scripts-deploy', [], function() {
   var config = require('./webpack.config.js');
+  config.plugins.push(
+    new wp.optimize.UglifyJsPlugin({minimize:true})
+  );
+
   return gulp.src('themes/src/scripts/main.js')
     .pipe(webpack(config))
     .pipe(gulp.dest(theme + 'static/js/'));

@@ -12,5 +12,4 @@ module.exports = {
     plugins: [
         new wp.optimize.CommonsChunkPlugin("vendor.bundle.js")
     ],
-    devtool: "inline-source-map"
 };
