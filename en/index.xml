@@ -6,8 +6,26 @@
     <description>Recent content in Ens on LearnOverpass</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Jul 2015 16:35:50 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 02 Jul 2015 16:35:50 +0800</lastBuildDate>
     <atom:link href="//osmlab.github.io/learnoverpass/en/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Set</title>
+      <link>//osmlab.github.io/learnoverpass/en/exercises/intro/2/</link>
+      <pubDate>Thu, 02 Jul 2015 16:35:50 +0800</pubDate>
+      
+      <guid>//osmlab.github.io/learnoverpass/en/exercises/intro/2/</guid>
+      <description>&lt;p&gt;As you saw, the Overpass API is incredibly simple. It took the input statement &lt;code&gt;node(2681940781)&lt;/code&gt;, and &lt;code&gt;out&lt;/code&gt; is used to output it.&lt;/p&gt;
+
+&lt;p&gt;The Overpass API is a powerful, read-only API that lets you query data from OpenStreetMap.&lt;/p&gt;
+
+&lt;p&gt;The Overpass Query Language (QL) is the language you use to &amp;lsquo;talk&amp;rsquo; to this API, asking data for your own specific use.&lt;/p&gt;
+
+&lt;p&gt;On the right is a text editor where you can type in your QL commands. See the code with the word &lt;code&gt;node&lt;/code&gt;? That&amp;rsquo;s a QL statement, which stands for - you guessed it, the humble node.&lt;/p&gt;
+
+&lt;p&gt;The world map is a visualization of the data that&amp;rsquo;s received by your statement. Right now it contains nothing, because while we query the node with the first line, the API doesn&amp;rsquo;t know what to do with it! Let&amp;rsquo;s change that!&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Introduction</title>
@@ -557,30 +575,6 @@ rel(poly:&amp;quot;50.7 7.1 50.7 7.2 50.75 7.15&amp;quot;);
 (node(poly:&amp;#34;50.73 7.13 50.73 7.17 50.75 7.15&amp;#34;);&amp;gt;;);
 out;
 &lt;/textarea&gt;&lt;div class=&#34;docs-repl-result&#34;&gt;  &lt;iframe src=&#34;http://overpass-turbo.eu/master/map.html?Q=%0a%28node%28poly%3a%2250.73%207.13%2050.73%207.17%2050.75%207.15%22%29%3b%3e%3b%29%3b%0aout%3b%0a&#34;  seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34;&gt;&lt;/iframe&gt;&lt;textarea&gt;&lt;/textarea&gt; &lt;a class=&#34;docs-repl-change-output button&#34; href=&#34;#&#34;&gt;Data&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>By user (user, uid)</title>
-      <link>//osmlab.github.io/learnoverpass/en/docs/filters/user/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>//osmlab.github.io/learnoverpass/en/docs/filters/user/</guid>
-      <description>&lt;p&gt;The user filter selects all elements that have been last touched by the specified user.&lt;/p&gt;
-
-&lt;p&gt;It has no input set. As for all filters, the result set is specified by the whole statement, not the individual filter.&lt;/p&gt;
-
-&lt;p&gt;It consists of an opening parenthesis. Then follows either the keyword user, a colon and a string literal denoting the user name to search for. Or the keyword uid followed by the user id of the user to search for. The filter ends with a closing parenthesis.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;node(user:&amp;quot;Steve&amp;quot;);
-node(uid:1);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;div class=&#34;docs-repl&#34;&gt;  &lt;textarea&gt;
-(node(poly:&amp;#34;50.73 7.13 50.73 7.17 50.75 7.15&amp;#34;);&amp;gt;;);
-node._(user:&amp;#34;HeinerSchaefer&amp;#34;);
-out;
-&lt;/textarea&gt;&lt;div class=&#34;docs-repl-result&#34;&gt;  &lt;iframe src=&#34;http://overpass-turbo.eu/master/map.html?Q=%0a%28node%28poly%3a%2250.73%207.13%2050.73%207.17%2050.75%207.15%22%29%3b%3e%3b%29%3b%0anode._%28user%3a%22HeinerSchaefer%22%29%3b%0aout%3b%0a&#34;  seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34;&gt;&lt;/iframe&gt;&lt;textarea&gt;&lt;/textarea&gt; &lt;a class=&#34;docs-repl-change-output button&#34; href=&#34;#&#34;&gt;Data&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/p&gt;
 </description>
     </item>
     

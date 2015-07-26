@@ -3,8 +3,13 @@
   
   <url>
     <loc>//osmlab.github.io/learnoverpass/</loc>
-    <lastmod>2015-07-01T16:35:50+08:00</lastmod>
+    <lastmod>2015-07-02T16:35:50+08:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//osmlab.github.io/learnoverpass/en/exercises/intro/2/</loc>
+    <lastmod>2015-07-02T16:35:50+08:00</lastmod>
   </url>
   
   <url>
@@ -51,11 +56,11 @@
   </url>
   
   <url>
-    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/around/</loc>
+    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/bbox/</loc>
   </url>
   
   <url>
-    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/bbox/</loc>
+    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/around/</loc>
   </url>
   
   <url>
@@ -67,19 +72,19 @@
   </url>
   
   <url>
-    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/input-set/</loc>
-  </url>
-  
-  <url>
     <loc>//osmlab.github.io/learnoverpass/en/docs/filters/newer/</loc>
   </url>
   
   <url>
-    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/polygon/</loc>
+    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/input-set/</loc>
   </url>
   
   <url>
     <loc>//osmlab.github.io/learnoverpass/en/docs/filters/pivot/</loc>
+  </url>
+  
+  <url>
+    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/polygon/</loc>
   </url>
   
   <url>
@@ -95,11 +100,11 @@
   </url>
   
   <url>
-    <loc>//osmlab.github.io/learnoverpass/en/docs/standalone-queries/item/</loc>
+    <loc>//osmlab.github.io/learnoverpass/en/docs/standalone-queries/recurse-up/</loc>
   </url>
   
   <url>
-    <loc>//osmlab.github.io/learnoverpass/en/docs/standalone-queries/recurse-up/</loc>
+    <loc>//osmlab.github.io/learnoverpass/en/docs/standalone-queries/item/</loc>
   </url>
   
 </urlset>
