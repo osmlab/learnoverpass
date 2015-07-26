@@ -6,20 +6,31 @@
 
   var debounce = require('debounce');
   var createDocsRepl = require('./components/docs-repl.js');
+  var classie = require('desandro-classie');
 
   var docsRepl = document.getElementsByClassName("docs-repl");
   var exerciseAnswer = document.getElementsByClassName("exercise-answer")[0].innerHTML;
 
   [].forEach.call(docsRepl, function(elm){
+    var notifTimeout;
     var exercise = createDocsRepl({
       elm: elm,
       onSuccessData: function(data){
+        console.log('success', data);
         if (data.resultType) {
           var result = processAnswer(escapeHTML(data.resultText));
           var answer = processAnswer(exerciseAnswer);
 
           if(result === answer){
-            alert("Correct Answer!");
+            var winBar = document.getElementsByClassName("exercise-action-bar-inner winner-bar")[0];
+            classie.add(winBar, "show");
+          } else {
+            var notif = document.getElementsByClassName("exercise-fail-msg")[0];
+            classie.add(notif, "show");
+            if(notifTimeout) window.clearTimeout(notifTimeout);
+            notifTimeout = window.setTimeout(function(){
+              classie.remove(notif, "show");
+            }, 4500);
           }
         }
       },

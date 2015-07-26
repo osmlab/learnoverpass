@@ -57,12 +57,49 @@ body
     iframe
       width 100%
       height 100%
+  .exercise-fail-msg
+    position fixed
+    right 0px
+    z-index z_notif
+    margin 1em
+    padding 1em
+    color white
+    width 200px
+    background-color rgba(256, 0, 0, 0.5)
+    box-shadow 0px 1px 3px #888888
+    top 0px
+    opacity 0
+    transition opacity .5s ease-in-out, top .5s ease-out;
+    &.show
+      top menu_bar_height
+      opacity 1
+    .message
+      float left
+      .warning
+        font-weight 900
+      span.hint
+        font-weight 400
   .exercise-action-bar
+    position relative
     height action_bar_height_half * 2
     .exercise-action-bar-inner
+      height action_bar_height_half * 2
+      &.winner-bar
+        position absolute
+        width 100%
+        background-color #5bc0de
+        color white
+        opacity 0
+        top action_bar_height_half * 2
+        transition opacity .25s, ease-in-out, top .5s ease-out;
+        span
+          font-weight 600
+       &.show
+        top 0
+        opacity 1
       padding 20px 10px
 
-.exercise-action-run
+.exercise-action-run, .exercise-action-next
   margin 5px
   @extend .button
   color white

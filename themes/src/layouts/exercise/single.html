@@ -22,7 +22,27 @@
    </div>
    <div class="docs-repl exercise-main">
      <textarea>{{ .Params.code }}</textarea>
+     <div class="exercise-fail-msg">
+      <div class="message">
+        <span class="warning">
+        That doesn't seem right!
+        </span>
+        <span class="hint">
+          Make sure to print out your output with `out`
+        </span>
+      </div>
+     </div>
      <div class="exercise-action-bar">
+      <div class="exercise-action-bar-inner winner-bar">
+          <div>
+            <span>
+              Awesome Work!
+            </span>
+            <a href="{{ if .NextInSection}}{{.NextInSection.Permalink }}{{ end }}" class="exercise-action-next">
+              Go to Next Lesson
+            </a>
+          </div>
+       </div>
        <div class="exercise-action-bar-inner">
           <div>
             <a href="#" class="exercise-action-run">
