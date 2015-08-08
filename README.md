@@ -10,7 +10,7 @@ We accept contributions/edits to the site! Feel free to do a pull request if you
 
 Translation to various languages is also an aspect we need contribution towards to.
 
-A detailed contribution guide will be pushed to this repository after GSOC's run, once we have a stable release of the project.
+A detailed contribution guide can be seen [here](CONTRIB.md)
 
 ## Development Guide
 
