@@ -89,55 +89,6 @@ out;
     </item>
     
     <item>
-      <title>Overpass API is a highly optimized, read-only API built for gathering OSM map data.</title>
-      <link>//osmlab.github.io/learnoverpass/de/</link>
-      <pubDate>Wed, 06 May 2015 11:09:35 +0000</pubDate>
-      
-      <guid>//osmlab.github.io/learnoverpass/de/</guid>
-      <description>&lt;p&gt;Currently untranslated&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Difference</title>
-      <link>//osmlab.github.io/learnoverpass/en/docs/block-queries/difference/</link>
-      <pubDate>Wed, 06 May 2015 11:09:35 +0000</pubDate>
-      
-      <guid>//osmlab.github.io/learnoverpass/en/docs/block-queries/difference/</guid>
-      <description>&lt;p&gt;The difference block statement is written as a pair of parentheses. Inside the difference statement, exactly two statements must be placed, and between them a minus sign.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(statement_1; - statement_2;)[-&amp;gt;.result_set];
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;It takes no input set. It produces a result set. Its result set contains all elements that are result of the first sub-statement and not contained in the result of the second sub-statement.&lt;/p&gt;
-
-&lt;p&gt;Example:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(node[name=&amp;quot;Foo&amp;quot;]; - node(50.0,7.0,51.0,8.0););
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This collects all nodes that have a name tag &amp;ldquo;Foo&amp;rdquo; but are not inside the given bounding box.&lt;/p&gt;
-
-&lt;p&gt;The result set of the difference statement can be redirected with the usual postfix notation:&lt;/p&gt;
-
-&lt;p&gt;Example:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(node[name=&amp;quot;Foo&amp;quot;]; - node(50.0,7.0,51.0,8.0);)-&amp;gt;.a;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Same as the preceding example, but the result is written into the variable a.&lt;/p&gt;
-
-&lt;p&gt;&lt;div class=&#34;docs-repl&#34;&gt;  &lt;textarea&gt;
-(
-node[amenity]( 47.06, 15.435,  47.07,  15.44);
--node[amenity](47.064, 15.435, 47.066, 15.44);
-);
-out;
-&lt;/textarea&gt;&lt;div class=&#34;docs-repl-result&#34;&gt;  &lt;iframe src=&#34;http://overpass-turbo.eu/master/map.html?Q=%0a%28%0anode%5bamenity%5d%28%2047.06%2c%2015.435%2c%20%2047.07%2c%20%2015.44%29%3b%0a-node%5bamenity%5d%2847.064%2c%2015.435%2c%2047.066%2c%2015.44%29%3b%0a%29%3b%0aout%3b%0a&#34;  seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34;&gt;&lt;/iframe&gt;&lt;textarea&gt;&lt;/textarea&gt; &lt;a class=&#34;docs-repl-change-output button&#34; href=&#34;#&#34;&gt;Data&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>For-each loop (foreach)</title>
       <link>//osmlab.github.io/learnoverpass/en/docs/block-queries/foreach/</link>
       <pubDate>Wed, 06 May 2015 11:09:35 +0000</pubDate>
@@ -196,6 +147,55 @@ foreach-&amp;gt;.bank_set(
   out meta;
 );
 &lt;/textarea&gt;&lt;div class=&#34;docs-repl-result&#34;&gt;  &lt;iframe src=&#34;http://overpass-turbo.eu/master/map.html?Q=%0a%2f%2f%20get%20all%20bank%20nodes%20in%20coordinates%0a%28%0a%20%20node%5bamenity%3dbank%5d%0a%20%20%2847.0678%2c15.4401658%2c47.069%2c15.4501658%29%3b%0a%20%20%3e%3b%0a%29%3b%0a%2f%2f%20foreach%20bank%20node%2c%20print%20out%20adjacent%20nodes%0aforeach-%3e.bank_set%28%0a%20%20node%28around.bank_set%3a15%29-%3e.adjacent_set%3b%0a%20%20%28.adjacent_set%29%3b%0a%20%20out%20meta%3b%0a%29%3b%0a&#34;  seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34;&gt;&lt;/iframe&gt;&lt;textarea&gt;&lt;/textarea&gt; &lt;a class=&#34;docs-repl-change-output button&#34; href=&#34;#&#34;&gt;Data&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Overpass API is a highly optimized, read-only API built for gathering OSM map data.</title>
+      <link>//osmlab.github.io/learnoverpass/de/</link>
+      <pubDate>Wed, 06 May 2015 11:09:35 +0000</pubDate>
+      
+      <guid>//osmlab.github.io/learnoverpass/de/</guid>
+      <description>&lt;p&gt;Currently untranslated&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Difference</title>
+      <link>//osmlab.github.io/learnoverpass/en/docs/block-queries/difference/</link>
+      <pubDate>Wed, 06 May 2015 11:09:35 +0000</pubDate>
+      
+      <guid>//osmlab.github.io/learnoverpass/en/docs/block-queries/difference/</guid>
+      <description>&lt;p&gt;The difference block statement is written as a pair of parentheses. Inside the difference statement, exactly two statements must be placed, and between them a minus sign.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(statement_1; - statement_2;)[-&amp;gt;.result_set];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It takes no input set. It produces a result set. Its result set contains all elements that are result of the first sub-statement and not contained in the result of the second sub-statement.&lt;/p&gt;
+
+&lt;p&gt;Example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(node[name=&amp;quot;Foo&amp;quot;]; - node(50.0,7.0,51.0,8.0););
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This collects all nodes that have a name tag &amp;ldquo;Foo&amp;rdquo; but are not inside the given bounding box.&lt;/p&gt;
+
+&lt;p&gt;The result set of the difference statement can be redirected with the usual postfix notation:&lt;/p&gt;
+
+&lt;p&gt;Example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(node[name=&amp;quot;Foo&amp;quot;]; - node(50.0,7.0,51.0,8.0);)-&amp;gt;.a;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Same as the preceding example, but the result is written into the variable a.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;docs-repl&#34;&gt;  &lt;textarea&gt;
+(
+node[amenity]( 47.06, 15.435,  47.07,  15.44);
+-node[amenity](47.064, 15.435, 47.066, 15.44);
+);
+out;
+&lt;/textarea&gt;&lt;div class=&#34;docs-repl-result&#34;&gt;  &lt;iframe src=&#34;http://overpass-turbo.eu/master/map.html?Q=%0a%28%0anode%5bamenity%5d%28%2047.06%2c%2015.435%2c%20%2047.07%2c%20%2015.44%29%3b%0a-node%5bamenity%5d%2847.064%2c%2015.435%2c%2047.066%2c%2015.44%29%3b%0a%29%3b%0aout%3b%0a&#34;  seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34;&gt;&lt;/iframe&gt;&lt;textarea&gt;&lt;/textarea&gt; &lt;a class=&#34;docs-repl-change-output button&#34; href=&#34;#&#34;&gt;Data&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -324,6 +324,58 @@ out bb;
     </item>
     
     <item>
+      <title>Relative to other elements (around)</title>
+      <link>//osmlab.github.io/learnoverpass/en/docs/filters/around/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//osmlab.github.io/learnoverpass/en/docs/filters/around/</guid>
+      <description>&lt;p&gt;The around filter selects all elements within a certain radius around the elements in the input set. If you provide coordinates, then these coordinates are used instead of the input set. The input set can be changed with an adapted prefix notation. As for all filters, the result set is specified by the whole statement, not the individual filter.&lt;/p&gt;
+
+&lt;p&gt;A radius of 0 can be used for a way intersection test on outer/inner points.&lt;/p&gt;
+
+&lt;p&gt;Syntax: It consists of an opening parenthesis. Then follows the keyword around. Then follows optionally an input set declaration. Then follows a single floating point number that denotes the radius in meters. The filter either ends with a closing parenthesis or is followed by two comma separated floating point numbers indicating latitude and longitude and then finally a closing parenthesis.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(around[.input_set]:radius)
+(around:radius,latitude,longitude)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Examples:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;node(around:100.0);
+way(around:100.0);
+rel(around:100.0);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Example with modified input set:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;node(around.a:100.0);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Examples with coordinates:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;node(around:100.0,50.7,7.1);
+way(around:100.0,50.7,7.1);
+rel(around:100.0,50.7,7.1);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Example: Find all cinemas in Bonn which are at most 100m away from bus stops&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;area[name=&amp;quot;Bonn&amp;quot;];
+node(area)[highway=bus_stop];
+node(around:100)[amenity=cinema];
+out;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;div class=&#34;docs-repl&#34;&gt;  &lt;textarea&gt;
+// get all ways from a 50m radius from
+// coordinates 51.1788435, -1.826204 (stonehenge)
+(way(around:50, 51.1788435,-1.826204);&amp;gt;;);
+out body;
+&lt;/textarea&gt;&lt;div class=&#34;docs-repl-result&#34;&gt;  &lt;iframe src=&#34;http://overpass-turbo.eu/master/map.html?Q=%0a%2f%2f%20get%20all%20ways%20from%20a%2050m%20radius%20from%0a%2f%2f%20coordinates%2051.1788435%2c%20-1.826204%20%28stonehenge%29%0a%28way%28around%3a50%2c%2051.1788435%2c-1.826204%29%3b%3e%3b%29%3b%0aout%20body%3b%0a&#34;  seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34;&gt;&lt;/iframe&gt;&lt;textarea&gt;&lt;/textarea&gt; &lt;a class=&#34;docs-repl-change-output button&#34; href=&#34;#&#34;&gt;Data&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>By area (area)</title>
       <link>//osmlab.github.io/learnoverpass/en/docs/filters/area/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -410,58 +462,6 @@ out;
     </item>
     
     <item>
-      <title>Relative to other elements (around)</title>
-      <link>//osmlab.github.io/learnoverpass/en/docs/filters/around/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>//osmlab.github.io/learnoverpass/en/docs/filters/around/</guid>
-      <description>&lt;p&gt;The around filter selects all elements within a certain radius around the elements in the input set. If you provide coordinates, then these coordinates are used instead of the input set. The input set can be changed with an adapted prefix notation. As for all filters, the result set is specified by the whole statement, not the individual filter.&lt;/p&gt;
-
-&lt;p&gt;A radius of 0 can be used for a way intersection test on outer/inner points.&lt;/p&gt;
-
-&lt;p&gt;Syntax: It consists of an opening parenthesis. Then follows the keyword around. Then follows optionally an input set declaration. Then follows a single floating point number that denotes the radius in meters. The filter either ends with a closing parenthesis or is followed by two comma separated floating point numbers indicating latitude and longitude and then finally a closing parenthesis.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(around[.input_set]:radius)
-(around:radius,latitude,longitude)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Examples:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;node(around:100.0);
-way(around:100.0);
-rel(around:100.0);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Example with modified input set:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;node(around.a:100.0);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Examples with coordinates:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;node(around:100.0,50.7,7.1);
-way(around:100.0,50.7,7.1);
-rel(around:100.0,50.7,7.1);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Example: Find all cinemas in Bonn which are at most 100m away from bus stops&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;area[name=&amp;quot;Bonn&amp;quot;];
-node(area)[highway=bus_stop];
-node(around:100)[amenity=cinema];
-out;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;div class=&#34;docs-repl&#34;&gt;  &lt;textarea&gt;
-// get all ways from a 50m radius from
-// coordinates 51.1788435, -1.826204 (stonehenge)
-(way(around:50, 51.1788435,-1.826204);&amp;gt;;);
-out body;
-&lt;/textarea&gt;&lt;div class=&#34;docs-repl-result&#34;&gt;  &lt;iframe src=&#34;http://overpass-turbo.eu/master/map.html?Q=%0a%2f%2f%20get%20all%20ways%20from%20a%2050m%20radius%20from%0a%2f%2f%20coordinates%2051.1788435%2c%20-1.826204%20%28stonehenge%29%0a%28way%28around%3a50%2c%2051.1788435%2c-1.826204%29%3b%3e%3b%29%3b%0aout%20body%3b%0a&#34;  seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34;&gt;&lt;/iframe&gt;&lt;textarea&gt;&lt;/textarea&gt; &lt;a class=&#34;docs-repl-change-output button&#34; href=&#34;#&#34;&gt;Data&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>By date of change (changed)</title>
       <link>//osmlab.github.io/learnoverpass/en/docs/filters/changed/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -521,24 +521,52 @@ out;
     </item>
     
     <item>
-      <title>Newer</title>
-      <link>//osmlab.github.io/learnoverpass/en/docs/filters/newer/</link>
+      <title>By Input Set</title>
+      <link>//osmlab.github.io/learnoverpass/en/docs/filters/input-set/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//osmlab.github.io/learnoverpass/en/docs/filters/newer/</guid>
-      <description>&lt;p&gt;The newer filter selects all elements that have been changed since the given date. As opposed to other filters, this filter cannot be used alone. If the underlying database instance supports attic data, then &amp;ldquo;changed&amp;rdquo; is probably a better choice than &amp;ldquo;newer&amp;rdquo;.&lt;/p&gt;
+      <guid>//osmlab.github.io/learnoverpass/en/docs/filters/input-set/</guid>
+      <description>&lt;p&gt;The &amp;ldquo;item&amp;rdquo; filter selects all elements from its input set.&lt;/p&gt;
 
-&lt;p&gt;It has no input set. As for all filters, the result set is specified by the whole statement, not the individual filter.&lt;/p&gt;
+&lt;p&gt;As for all filters, the result set is specified by the whole statement, not the individual filter.&lt;/p&gt;
 
-&lt;p&gt;It consists of an opening parenthesis. Then follows a date specification. Please note that this date specification cannot be abbreviated and has to be put in single or double quotes. The filter ends with a closing parenthesis.&lt;/p&gt;
+&lt;p&gt;It consists of a dot, followed by the name of the input set.&lt;/p&gt;
+
+&lt;p&gt;Examples: The default set&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;node._;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and a named set&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;node.a;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It is also possible to specify several input sets:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;node.a.b;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;div class=&#34;docs-repl&#34;&gt;  &lt;textarea&gt;
-(node(poly:&amp;#34;50.73 7.13 50.73 7.17 50.75 7.15&amp;#34;);&amp;gt;;);
-// This finds all nodes that have changed
-// since 14 Sep 2012, 7 h UTC, in the given input set.
-(node._(newer:&amp;#34;2012-09-14T07:00:00Z&amp;#34;);&amp;gt;;);
-out;
-&lt;/textarea&gt;&lt;div class=&#34;docs-repl-result&#34;&gt;  &lt;iframe src=&#34;http://overpass-turbo.eu/master/map.html?Q=%0a%28node%28poly%3a%2250.73%207.13%2050.73%207.17%2050.75%207.15%22%29%3b%3e%3b%29%3b%0a%2f%2f%20This%20finds%20all%20nodes%20that%20have%20changed%0a%2f%2f%20since%2014%20Sep%202012%2c%207%20h%20UTC%2c%20in%20the%20given%20input%20set.%0a%28node._%28newer%3a%222012-09-14T07%3a00%3a00Z%22%29%3b%3e%3b%29%3b%0aout%3b%0a&#34;  seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34;&gt;&lt;/iframe&gt;&lt;textarea&gt;&lt;/textarea&gt; &lt;a class=&#34;docs-repl-change-output button&#34; href=&#34;#&#34;&gt;Data&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/p&gt;
+// get area Alpe and Cividale
+(area[name=&amp;#34;Cividale del Friuli&amp;#34;])-&amp;gt;.Cividale;
+(area[name=&amp;#34;Julijske Alpe&amp;#34;])-&amp;gt;.Alpe;
+
+(node[power=pole](area.Cividale))-&amp;gt;.Cividale_nodes;
+(node[power=pole](area.Alpe))-&amp;gt;.Alpe_nodes;
+
+// print out nodes that are present in both areas (intersection)
+node.Alpe_nodes.Cividale_nodes;
+out body qt;
+
+(relation[name=&amp;#34;Cividale del Friuli&amp;#34;];&amp;gt;;);
+out body;
+out skel qt;
+
+(relation[name=&amp;#34;Julijske Alpe&amp;#34;];&amp;gt;;);
+out body;
+out skel qt;
+&lt;/textarea&gt;&lt;div class=&#34;docs-repl-result&#34;&gt;  &lt;iframe src=&#34;http://overpass-turbo.eu/master/map.html?Q=%0a%2f%2f%20get%20area%20Alpe%20and%20Cividale%0a%28area%5bname%3d%22Cividale%20del%20Friuli%22%5d%29-%3e.Cividale%3b%0a%28area%5bname%3d%22Julijske%20Alpe%22%5d%29-%3e.Alpe%3b%0a%0a%28node%5bpower%3dpole%5d%28area.Cividale%29%29-%3e.Cividale_nodes%3b%0a%28node%5bpower%3dpole%5d%28area.Alpe%29%29-%3e.Alpe_nodes%3b%0a%0a%2f%2f%20print%20out%20nodes%20that%20are%20present%20in%20both%20areas%20%28intersection%29%0anode.Alpe_nodes.Cividale_nodes%3b%0aout%20body%20qt%3b%0a%0a%28relation%5bname%3d%22Cividale%20del%20Friuli%22%5d%3b%3e%3b%29%3b%0aout%20body%3b%0aout%20skel%20qt%3b%0a%0a%28relation%5bname%3d%22Julijske%20Alpe%22%5d%3b%3e%3b%29%3b%0aout%20body%3b%0aout%20skel%20qt%3b%0a&#34;  seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34;&gt;&lt;/iframe&gt;&lt;textarea&gt;&lt;/textarea&gt; &lt;a class=&#34;docs-repl-change-output button&#34; href=&#34;#&#34;&gt;Data&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/p&gt;
 </description>
     </item>
     
