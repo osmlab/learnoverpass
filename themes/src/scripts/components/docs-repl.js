@@ -22,6 +22,8 @@ module.exports = function(opts) {
       mode: "xml"
   });
 
+  var pending_query = false;
+
   window.addEventListener("message", function(e){
     var data = JSON.parse(e.data);
     if (data.resultType) {
@@ -31,8 +33,10 @@ module.exports = function(opts) {
       //errors
       console.log(data.handler, data.msg);
     }
-    if(opts.onSuccessData)
+    if(opts.onSuccessData) {
+      pending_query = false;
       opts.onSuccessData(data);
+    }
   });
 
   change_output_btn.onclick = function() {
@@ -81,6 +85,7 @@ module.exports = function(opts) {
 
     //cache queries
     iframe.onload = function() {
+      if(typeof(opts.onload) === "function") opts.onload();
       window.setTimeout(function(){
         postTo(iframe, 'catch_alert');
       }, 100);
@@ -95,6 +100,7 @@ module.exports = function(opts) {
     };
   } else {
     iframe.onload = function(){
+      if(typeof(opts.onload) === "function") opts.onload();
       window.setTimeout(function(){
         postTo(iframe, 'catch_alert');
       }, 1000);
@@ -104,7 +110,10 @@ module.exports = function(opts) {
   return {
     iframe: iframe,
     updateMap: function(){
-      postTo(iframe, 'update_map', [cm.getValue()]);
+      if(!pending_query) {
+        pending_query = true;
+        postTo(iframe, 'update_map', [cm.getValue()]);
+      }
     },
     getValue: function() {
       return cm.getValue();
@@ -114,6 +123,15 @@ module.exports = function(opts) {
     },
     onChange: function(listener){
       cm.on("change", listener);
+    },
+    query: function(query){
+      if(!pending_query) {
+        pending_query = true;
+        postTo(iframe, 'cache', [query]);
+      }
+    },
+    pending_query: function(){
+      return pending_query;
     }
   };
 };

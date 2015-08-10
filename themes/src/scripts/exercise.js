@@ -9,17 +9,28 @@
   var classie = require('desandro-classie');
 
   var docsRepl = document.getElementsByClassName("docs-repl");
-  var exerciseAnswer = document.getElementsByClassName("exercise-answer")[0].innerHTML;
+  var exerciseAnswer = htmlDecode(document.getElementsByClassName("exercise-answer")[0].innerHTML);
+  var answer = null;
 
   [].forEach.call(docsRepl, function(elm){
     var notifTimeout;
     var exercise = createDocsRepl({
       elm: elm,
+      onload: function() {
+        exercise.query(exerciseAnswer);
+      },
       onSuccessData: function(data){
-        console.log('success', data);
+        if(answer === null) {
+          if( data.query === exerciseAnswer )
+            answer = processAnswer(escapeHTML(data.resultText));
+            console.log('bull');
+          return;
+        }
+
         if (data.resultType) {
           var result = processAnswer(escapeHTML(data.resultText));
-          var answer = processAnswer(exerciseAnswer);
+            console.log(result[0]);
+            console.log('ans', answer[0]);
 
           if(result === answer){
             var winBar = document.getElementsByClassName("exercise-action-bar-inner winner-bar")[0];
@@ -69,7 +80,13 @@ var entityMap = {
 };
 
 function escapeHTML(string) {
-    return String(string).replace(/[&<>']/g, function (s) {
-      return entityMap[s];
-    });
-  }
+  return String(string).replace(/[&<>']/g, function (s) {
+    return entityMap[s];
+  });
+}
+
+function htmlDecode(input){
+  var e = document.createElement('div');
+  e.innerHTML = input;
+  return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+}
