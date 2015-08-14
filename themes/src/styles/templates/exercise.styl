@@ -106,6 +106,8 @@ body
   background-color bg_accent
   &:hover
     background-color text_accent
+  &.disabled
+    background-color lighten(bg_accent, 30)
 
 .exercise-action-reset
   margin 5px
@@ -114,6 +116,8 @@ body
   background-color bg_title 
   &:hover
     background-color lighten(bg_title, 30%)
+  &.disabled
+    background-color lighten(bg_title, 20)
 
 .exercise-answer
   display none

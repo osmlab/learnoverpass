@@ -23,14 +23,14 @@
         if(answer === null) {
           if( data.query === exerciseAnswer )
             answer = processAnswer(escapeHTML(data.resultText));
-            console.log('bull');
+
+            classie.remove(runBtn, "disabled");
+            classie.remove(resetBtn, "disabled");
           return;
         }
 
         if (data.resultType) {
           var result = processAnswer(escapeHTML(data.resultText));
-            console.log(result[0]);
-            console.log('ans', answer[0]);
 
           if(result === answer){
             var winBar = document.getElementsByClassName("exercise-action-bar-inner winner-bar")[0];
@@ -56,10 +56,14 @@
     var runBtn = elm.getElementsByClassName('exercise-action-run')[0];
     var resetBtn = elm.getElementsByClassName('exercise-action-reset')[0];
 
+    classie.add(runBtn, "disabled");
+    classie.add(resetBtn, "disabled");
     runBtn.onclick = function(){
+      if(classie.has(runBtn, 'disabled')) return;
       exercise.updateMap();
     };
     resetBtn.onclick = function(){
+      if(classie.has(runBtn, 'disabled')) return;
       exercise.setValue(initValue);
     };
   });
