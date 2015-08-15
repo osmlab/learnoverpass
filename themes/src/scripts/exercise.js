@@ -35,6 +35,7 @@
         if(firstRun) {
           firstRun = false;
 
+          classie.add(editorCover, "hide");
           classie.remove(runBtn, "disabled");
           classie.remove(resetBtn, "disabled");
 
