@@ -10,7 +10,9 @@
 
   var docsRepl = document.getElementsByClassName("docs-repl");
   var exerciseAnswer = htmlDecode(document.getElementsByClassName("exercise-answer")[0].innerHTML);
+    var exerciseRegex = new RegExp(htmlDecode(document.getElementsByClassName("exercise-regex")[0].innerHTML).trim());
   var answer = null;
+  var firstRun = true;
 
   [].forEach.call(docsRepl, function(elm){
     var notifTimeout;
@@ -21,18 +23,29 @@
       },
       onSuccessData: function(data){
         if(answer === null) {
-          if( data.query === exerciseAnswer )
-            answer = processAnswer(escapeHTML(data.resultText));
+          if( data.query === exerciseAnswer ) {
+              answer = processAnswer(escapeHTML(data.resultText));
 
-            classie.remove(runBtn, "disabled");
-            classie.remove(resetBtn, "disabled");
+              exercise.updateMap();
+          }
+          return;
+        }
+
+        // (sample query code)
+        if(firstRun) {
+          firstRun = false;
+
+          classie.remove(runBtn, "disabled");
+          classie.remove(resetBtn, "disabled");
+
+          // firstRun should not produce errors
           return;
         }
 
         if (data.resultType) {
           var result = processAnswer(escapeHTML(data.resultText));
 
-          if(result === answer){
+            if(isCorrectAnswer(result)){
             var winBar = document.getElementsByClassName("exercise-action-bar-inner winner-bar")[0];
             classie.add(winBar, "show");
           } else {
@@ -53,6 +66,7 @@
     });
     var initValue = exercise.getValue();
 
+    var editorCover = elm.getElementsByClassName('editor-cover')[0];
     var runBtn = elm.getElementsByClassName('exercise-action-run')[0];
     var resetBtn = elm.getElementsByClassName('exercise-action-reset')[0];
 
@@ -65,6 +79,16 @@
     resetBtn.onclick = function(){
       if(classie.has(runBtn, 'disabled')) return;
       exercise.setValue(initValue);
+    };
+
+    function isCorrectAnswer(result) {
+      if(result === answer) {
+        if (exerciseRegex) {
+            return exerciseRegex.test(exercise.getValue());
+        }
+        return true;
+      }
+      return false;
     };
   });
 })();

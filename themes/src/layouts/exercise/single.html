@@ -21,6 +21,7 @@
      </div>
    </div>
    <div class="docs-repl exercise-main">
+     <div class="editor-cover"></div>
      <textarea>{{ .Params.code }}</textarea>
      <div class="exercise-fail-msg">
       <div class="message">
@@ -28,7 +29,7 @@
         That doesn't seem right!
         </span>
         <span class="hint">
-          Make sure to print out your output with `out`
+          {{ .Params.hint | markdownify }}
         </span>
       </div>
      </div>
@@ -62,6 +63,7 @@
      </div>
    </div>
    <div class="exercise-answer">{{ .Params.answer | html }}</div>
+   <div class="exercise-regex">{{ .Params.regex | html }}</div>
 </div>
 {{ partial "shared.js.html" . }}
 {{ partial "exercise.js.html" . }}

@@ -32,6 +32,7 @@ module.exports = function(opts) {
     } else {
       //errors
       console.log(data.handler, data.msg);
+      return;
     }
     if(opts.onSuccessData) {
       pending_query = false;

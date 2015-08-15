@@ -47,9 +47,16 @@ body
 .exercise-main
   column(1/2, cycle: 2, gutter: 0)
   background-color #e0e0e0
-  .CodeMirror
+  .CodeMirror, .editor-cover
     border-width 0px
     height "calc(50vh - %s)" % (menu_bar_height_half + action_bar_height_half)
+  .editor-cover
+    z-index 9001
+    position absolute
+    width 100%
+    background-color rgba(255, 255, 255, 0.5)
+    &.hide
+      display none
   .output
     overflow auto
     width 100%
