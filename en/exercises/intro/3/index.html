@@ -1,0 +1,23 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us"><head><link href="http://gmpg.org/xfn/11" rel="profile"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1"><title>Filter By Tag II</title><link rel="stylesheet" href="//osmlab.github.io/learnoverpass//css/main.css"> <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png"><link href="/favicon.png" rel="icon"><link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'><link href="" rel="alternate" type="application/rss+xml" title="LearnOverpass &middot; " /><meta name="description" content=""><meta name="keywords" content=""> </head><body> <div class="menu-bar"><h1> <a href="//osmlab.github.io/learnoverpass//">LearnOverpass</a></h1></div><div class="exercise-container"><div class="exercise-lesson"><div class="exercise-lesson-bar"><div class="line">Intro</div></div><div class="exercise-lesson-inner"><div class="exercise-lesson-article"><h2>Filter By Tag II</h2> <p>Awesome! We’ve filtered our data to only show trees!</p>
+
+<p>If you notice on the text editor on the right, [natural=tree] is placed on the 2nd line. Overpass Turbo allows you to add indentation and extra lines as you see fit, so feel free to make ample use of them to make your queries more readable! Note however, that the semicolon is also placed in the second line to tell Overpass that statement is finished. Think of it as Overpass’ period.</p>
+
+<p>Anyway, we successfully filtered the data to only request for trees. However, we still have a problem. While “Bob” told us he is at a tree, there are THREE trees in the area!</p>
+
+<p>“Hello! Hello! Query Writer” says Bob.</p>
+
+<p>Bob: “It seems that we are in quite a predicament here. I’m not sure how I can help, but I do know that I’m next to the tallest tree in the area.”</p>
+
+<p>Woah, Bob just talked to us, and he mentions being next to the tallest tree! If you notice from the tree nodes, they are also tagged by their height! You can use these to further filter your data!</p>
+</div><div class="exercise-lesson-instruction"><div class="exercise-lesson-label"> <span>Instructions</span></div> <ol>
+<li>Seems that we weren’t specific enough! However, we do know that Bob is next to the tallest tree in the area, let’s use that info to search for him! Click on the nodes on the map view and find the tallest tree!</li>
+<li>You can combine filters by just typing them in next to the query statement just like what we did with <code>[natural=tree</code>]. Remember to put the second filter before the semicolon!</li>
+</ol>
+</div></div></div><div class="docs-repl exercise-main"><div class="editor-cover"></div> <textarea>node(48.5657094, 13.4490548, 48.5662416, 13.4501676)
+    [natural=tree];
+out;
+</textarea><div class="exercise-fail-msg"><div class="message"> <span class="warning">That doesn't seem right!</span> <span class="hint">Combine the filters by putting them next to each other.</span></div></div><div class="exercise-action-bar"><div class="exercise-action-bar-inner winner-bar"><div> <span>Awesome Work!</span> <a href="//osmlab.github.io/learnoverpass/en/exercises/intro/4/" class="exercise-action-next">Go to Next Lesson</a></div></div><div class="exercise-action-bar-inner"><div> <a href="#" class="exercise-action-run">Run Query</a> <a href="#" class="exercise-action-reset">Reset Code</a></div></div></div><div class="docs-repl-result output"><iframe src="http://overpass-turbo.eu/master/map.html" seamless="seamless" frameBorder="0"></iframe><textarea></textarea> <a class="docs-repl-change-output button" href="#">Data</a></div></div><div class="exercise-answer">node(48.5657094, 13.4490548, 48.5662416, 13.4501676)
+    [natural=tree]
+    [height=20];
+out;
+</div><div class="exercise-regex"></div></div> <script src="//osmlab.github.io/learnoverpass//js/vendor.bundle.js"></script> <script src="//osmlab.github.io/learnoverpass//js/exercise.bundle.js"></script> </body></html>

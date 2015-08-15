@@ -6,24 +6,88 @@
     <description>Recent content in Ens on LearnOverpass</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Jul 2015 16:35:50 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 06 Jul 2015 16:35:50 +0800</lastBuildDate>
     <atom:link href="//osmlab.github.io/learnoverpass/en/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Set</title>
+      <title>Filter by Tag III</title>
+      <link>//osmlab.github.io/learnoverpass/en/exercises/intro/6/</link>
+      <pubDate>Mon, 06 Jul 2015 16:35:50 +0800</pubDate>
+      
+      <guid>//osmlab.github.io/learnoverpass/en/exercises/intro/6/</guid>
+      <description>&lt;p&gt;“Woah, great! I see a lot of nodes around me, but there are too many, and I’m not sure which are the restaurants!&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;We used the &lt;code&gt;around&lt;/code&gt; filter on our previous example to query for nodes around our particular node, and it worked! As you can see on the map viewer, we see the OSM data around our first statement.&lt;/p&gt;
+
+&lt;p&gt;However, it’s quite problematic - we haven’t actually found any restaurants, and there are too many nodes!&lt;/p&gt;
+
+&lt;p&gt;Again, we will use the concept that we learned earlier to further filter our data. &lt;code&gt;around&lt;/code&gt; gave us a bunch of nodes, so we need to use &lt;em&gt;filter by tag ([k=v])&lt;/em&gt; to filter it to only restaurants.&lt;/p&gt;
+
+&lt;p&gt;Go ahead and combine our &lt;code&gt;around&lt;/code&gt; filter with our &lt;code&gt;by tag&lt;/code&gt; filter!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Around Filter</title>
+      <link>//osmlab.github.io/learnoverpass/en/exercises/intro/5/</link>
+      <pubDate>Sun, 05 Jul 2015 16:35:50 +0800</pubDate>
+      
+      <guid>//osmlab.github.io/learnoverpass/en/exercises/intro/5/</guid>
+      <description>&lt;p&gt;&amp;ldquo;Woah, it’s empty! Could it be that there are no restaurants near me?” asks Bob.&lt;/p&gt;
+
+&lt;p&gt;Not really. See, our first statement &lt;code&gt;node(2190458950)&lt;/code&gt; is &lt;em&gt;already&lt;/em&gt; a node, so filtering it further wouldn’t do anything! And since we added a new filter (restaurants) to a statement that we &lt;strong&gt;know&lt;/strong&gt; gives us a tree, we basically asked OSM to further filter our result set (a tree node) to only show restaurants, which obviously results in OSM nothing (since a tree is not a restaurant)!&lt;/p&gt;
+
+&lt;p&gt;Our previous examples worked because we filtered for nodes with tags present in an &lt;em&gt;area&lt;/em&gt; (the &lt;code&gt;bounding box&lt;/code&gt; with lat/lon points). We essentially queried for nodes in an area, then used filters to filter it down to a tree.&lt;/p&gt;
+
+&lt;p&gt;Right now, since our node is already a node, we can’t just use a filter to get a restaurant from it. We have to get a new &lt;em&gt;area&lt;/em&gt; from the node.&lt;/p&gt;
+
+&lt;p&gt;To do this, we can make great use of another filter, named &lt;code&gt;around&lt;/code&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Filter by Tag III?</title>
+      <link>//osmlab.github.io/learnoverpass/en/exercises/intro/4/</link>
+      <pubDate>Sat, 04 Jul 2015 16:35:50 +0800</pubDate>
+      
+      <guid>//osmlab.github.io/learnoverpass/en/exercises/intro/4/</guid>
+      <description>&lt;p&gt;“Well isn’t that better? Shorter and easier to work with.”&lt;/p&gt;
+
+&lt;p&gt;“You know, I’ve been waiting for you for quite a while, I’m hungry! Since my GPS doesn’t really seem to be all that reliable, would you mind looking for a place near me where I can eat?&amp;rdquo;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Filter By Tag II</title>
+      <link>//osmlab.github.io/learnoverpass/en/exercises/intro/3/</link>
+      <pubDate>Fri, 03 Jul 2015 16:35:50 +0800</pubDate>
+      
+      <guid>//osmlab.github.io/learnoverpass/en/exercises/intro/3/</guid>
+      <description>&lt;p&gt;Awesome! We’ve filtered our data to only show trees!&lt;/p&gt;
+
+&lt;p&gt;If you notice on the text editor on the right, [natural=tree] is placed on the 2nd line. Overpass Turbo allows you to add indentation and extra lines as you see fit, so feel free to make ample use of them to make your queries more readable! Note however, that the semicolon is also placed in the second line to tell Overpass that statement is finished. Think of it as Overpass’ period.&lt;/p&gt;
+
+&lt;p&gt;Anyway, we successfully filtered the data to only request for trees. However, we still have a problem. While “Bob” told us he is at a tree, there are THREE trees in the area!&lt;/p&gt;
+
+&lt;p&gt;“Hello! Hello! Query Writer” says Bob.&lt;/p&gt;
+
+&lt;p&gt;Bob: “It seems that we are in quite a predicament here. I’m not sure how I can help, but I do know that I’m next to the tallest tree in the area.”&lt;/p&gt;
+
+&lt;p&gt;Woah, Bob just talked to us, and he mentions being next to the tallest tree! If you notice from the tree nodes, they are also tagged by their height! You can use these to further filter your data!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Filter By Tag</title>
       <link>//osmlab.github.io/learnoverpass/en/exercises/intro/2/</link>
       <pubDate>Thu, 02 Jul 2015 16:35:50 +0800</pubDate>
       
       <guid>//osmlab.github.io/learnoverpass/en/exercises/intro/2/</guid>
-      <description>&lt;p&gt;As you saw, the Overpass API is incredibly simple. It took the input statement &lt;code&gt;node(2681940781)&lt;/code&gt;, and &lt;code&gt;out&lt;/code&gt; is used to output it.&lt;/p&gt;
+      <description>&lt;p&gt;Nice! As you can see the Query Language might look cryptic at first, but it’s actually quite straightforward!&lt;/p&gt;
 
-&lt;p&gt;The Overpass API is a powerful, read-only API that lets you query data from OpenStreetMap.&lt;/p&gt;
+&lt;p&gt;Those circles you see in the map view are &amp;ldquo;points of interest&amp;rdquo; called “nodes”. Try clicking on them - some just contain their own positions (lat/lon) but some of them are tagged and contain other data, such as names, type of node, etc, etc.&lt;/p&gt;
 
-&lt;p&gt;The Overpass Query Language (QL) is the language you use to &amp;lsquo;talk&amp;rsquo; to this API, asking data for your own specific use.&lt;/p&gt;
-
-&lt;p&gt;On the right is a text editor where you can type in your QL commands. See the code with the word &lt;code&gt;node&lt;/code&gt;? That&amp;rsquo;s a QL statement, which stands for - you guessed it, the humble node.&lt;/p&gt;
-
-&lt;p&gt;The world map is a visualization of the data that&amp;rsquo;s received by your statement. Right now it contains nothing, because while we query the node with the first line, the API doesn&amp;rsquo;t know what to do with it! Let&amp;rsquo;s change that!&lt;/p&gt;
+&lt;p&gt;Since our friend “Bob” has a pretty inaccurate GPS, he only managed to give us rough coordinates. He DID say that he would be by a tree, however, so why don’t we try searching for a node that’s a tree? He’s bound to be there!&lt;/p&gt;
 </description>
     </item>
     
@@ -33,13 +97,15 @@
       <pubDate>Wed, 01 Jul 2015 16:35:50 +0800</pubDate>
       
       <guid>//osmlab.github.io/learnoverpass/en/exercises/intro/1/</guid>
-      <description>&lt;p&gt;The Overpass API is a powerful, read-only API that lets you query data from OpenStreetMap.&lt;/p&gt;
+      <description>&lt;p&gt;Hello and welcome to LearnOverpass!&lt;/p&gt;
 
-&lt;p&gt;The Overpass Query Language (QL) is the language you use to &amp;lsquo;talk&amp;rsquo; to this API, asking data for your own specific use.&lt;/p&gt;
+&lt;p&gt;The Overpass API is a powerful API that lets you query data from OpenStreetMap. You can find different places, routes to locations, and everything under the sun, quite literally! You can ‘talk’ to it and request data for your own specific use, using its own language, the “Overpass Query Language” (QL).&lt;/p&gt;
 
-&lt;p&gt;On the right is a text editor where you can type in your QL commands. See the code with the word &lt;code&gt;node&lt;/code&gt;? That&amp;rsquo;s a QL statement, which stands for - you guessed it, the humble node.&lt;/p&gt;
+&lt;p&gt;What you see on the right is a text editor where you can type in your QL commands. See the statement with the word &lt;code&gt;node&lt;/code&gt;? That&amp;rsquo;s a QL statement which asks (queries) the API for a single point of interest (a node) in OpenStreetMap.&lt;/p&gt;
 
-&lt;p&gt;The world map is a visualization of the data that&amp;rsquo;s received by your statement. Right now it contains nothing, because while we query the node with the first line, the API doesn&amp;rsquo;t know what to do with it! Let&amp;rsquo;s change that!&lt;/p&gt;
+&lt;p&gt;The world map below the editor is a visualization of the data that&amp;rsquo;s received by your statement. Right now it contains nothing, because our statement is incomplete - while we &lt;em&gt;query a node&lt;/em&gt; with the first line, it doesn’t know what or which node we’re interested in, so the API doesn&amp;rsquo;t know what to do with it!&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s change that!&lt;/p&gt;
 </description>
     </item>
     
@@ -359,222 +425,6 @@ out skel qt;
 out body;
 out skel qt;
 &lt;/textarea&gt;&lt;div class=&#34;docs-repl-result&#34;&gt;  &lt;iframe src=&#34;http://overpass-turbo.eu/master/map.html?Q=%0a%2f%2f%20get%20area%20Alpe%20and%20Cividale%0a%28area%5bname%3d%22Cividale%20del%20Friuli%22%5d%29-%3e.Cividale%3b%0a%28area%5bname%3d%22Julijske%20Alpe%22%5d%29-%3e.Alpe%3b%0a%0a%28node%5bpower%3dpole%5d%28area.Cividale%29%29-%3e.Cividale_nodes%3b%0a%28node%5bpower%3dpole%5d%28area.Alpe%29%29-%3e.Alpe_nodes%3b%0a%0a%2f%2f%20print%20out%20nodes%20that%20are%20present%20in%20both%20areas%20%28intersection%29%0anode.Alpe_nodes.Cividale_nodes%3b%0aout%20body%20qt%3b%0a%0a%28relation%5bname%3d%22Cividale%20del%20Friuli%22%5d%3b%3e%3b%29%3b%0aout%20body%3b%0aout%20skel%20qt%3b%0a%0a%28relation%5bname%3d%22Julijske%20Alpe%22%5d%3b%3e%3b%29%3b%0aout%20body%3b%0aout%20skel%20qt%3b%0a&#34;  seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34;&gt;&lt;/iframe&gt;&lt;textarea&gt;&lt;/textarea&gt; &lt;a class=&#34;docs-repl-change-output button&#34; href=&#34;#&#34;&gt;Data&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>By Tag</title>
-      <link>//osmlab.github.io/learnoverpass/en/docs/filters/tag/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>//osmlab.github.io/learnoverpass/en/docs/filters/tag/</guid>
-      <description>
-
-&lt;p&gt;The has-kv filter selects all elements that have or have not a tag with a certain value. It supports the basic OSM types node, way, and relation as well as the extended type area.&lt;/p&gt;
-
-&lt;p&gt;It has no input set. As for all filters, the result set is specified by the whole statement, not the individual filter.&lt;/p&gt;
-
-&lt;p&gt;All variants consist of an opening bracket, then a string literal in single or double quotes. Then the variants differ. All variants end with a closing bracket. If the string literal consists only of letters, the quotes can be omitted.&lt;/p&gt;
-
-&lt;h3 id=&#34;equals:d47b870d8e90a2c386554be504052770&#34;&gt;Equals (=, !=)&lt;/h3&gt;
-
-&lt;p&gt;The most common variant selects all elements where the tag with the given key has a specific value. This variant contains after the key literal an equal sign and a further literal containing the value. Examples, all equivalent:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;node[&amp;quot;name&amp;quot;=&amp;quot;Foo&amp;quot;];
-node[name=Foo];
-node[&#39;name&#39;=&amp;quot;Foo&amp;quot;];
-node[name=&amp;quot;Foo&amp;quot;];
-node[&amp;quot;name&amp;quot;=&#39;Foo&#39;];
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;If you have a digit, whitespace or whatever in the value, you do need single or double quotes:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;node[&amp;quot;name&amp;quot;=&amp;quot;Foo Street&amp;quot;];
-node[&amp;quot;name&amp;quot;=&#39;Foo Street&#39;];
-node[name=&amp;quot;Foo Street&amp;quot;];
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Querying for empty values is not possible using the equals value operator. This can only be achieved by using a regular expression:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;node[power=&amp;quot;&amp;quot;];          // not supported
-node[power~&amp;quot;^$&amp;quot;];        // use regular expression instead
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Likewise, querying empty key values is also not possible using this kind of key-value query and needs to be expressed via regular expressions.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;node[~&amp;quot;^$&amp;quot;~&amp;quot;.&amp;quot;];         // find nodes with empty key (&amp;quot;&amp;quot;) and any value
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;NB: Overpass Turbo Wizard already has some logic in place to automatically convert &amp;ldquo;&amp;rdquo;=&amp;ldquo;&amp;rdquo; accordingly.&lt;/p&gt;
-
-&lt;h3 id=&#34;exists:d47b870d8e90a2c386554be504052770&#34;&gt;Exists&lt;/h3&gt;
-
-&lt;p&gt;The second variant selects all elements that have a tag with a certain key and an arbitrary value. It contains nothing between the key literal and the closing bracket:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;node[&amp;quot;name&amp;quot;];
-node[&#39;name&#39;];
-node[name];
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;value-matches-regular-expression:d47b870d8e90a2c386554be504052770&#34;&gt;Value matches regular expression (~, !~)&lt;/h3&gt;
-
-&lt;p&gt;The third variant selects all elements that have a tag with a certain key and a value that matches some regular expression. It contains after the key literal a tilde, then a second literal for the regular expression to search for:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;node[&amp;quot;name&amp;quot;~&amp;quot;^Foo$&amp;quot;];    /* finds exactly &amp;quot;Foo&amp;quot; */
-node[&amp;quot;name&amp;quot;~&amp;quot;^Foo&amp;quot;];     /* finds anything that starts with &amp;quot;Foo&amp;quot; */
-node[&amp;quot;name&amp;quot;~&amp;quot;Foo$&amp;quot;];     /* finds anything that ends with &amp;quot;Foo&amp;quot; */
-node[&amp;quot;name&amp;quot;~&amp;quot;Foo&amp;quot;];      /* finds anything that contains the substring &amp;quot;Foo&amp;quot; */
-node[&amp;quot;name&amp;quot;~&amp;quot;.&amp;quot;];        /* finds anything, equal to the previous variant */
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Please note that in QL you need to escape backslashes: [&amp;ldquo;name&amp;rdquo;~&amp;ldquo;^St.&amp;rdquo;] results in the regular expression ^St. (which finds every name starting with &amp;ldquo;St&amp;rdquo;), while [&amp;ldquo;name&amp;rdquo;~&amp;ldquo;^St\.&amp;ldquo;] produces the most likely meant regular expression St. (which finds every name starting with &amp;ldquo;St.&amp;rdquo;). This is due to the C escaping rules and doesn&amp;rsquo;t apply to the XML syntax.&lt;/p&gt;
-
-&lt;p&gt;You can also search case insensitively:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;node[&amp;quot;name&amp;quot;~&amp;quot;^Foo$&amp;quot;,i];    /* finds &amp;quot;foo&amp;quot;, &amp;quot;FOO&amp;quot;, &amp;quot;fOo&amp;quot;, &amp;quot;Foo&amp;quot; etc. */
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Both the key and value variants with and without regular expressions can be negated. They then select exactly the elements which have a tag with the given key, but no matching value and the elements that don&amp;rsquo;t have a tag with the given key:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;node[&amp;quot;name&amp;quot;!=&amp;quot;Foo&amp;quot;];
-node[&amp;quot;name&amp;quot;!~&amp;quot;Foo&amp;quot;];
-node[&amp;quot;name&amp;quot;!~&amp;quot;Foo&amp;quot;,i];
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Key/value matches regular expression (~&amp;ldquo;key regex&amp;rdquo;~&amp;ldquo;value regex&amp;rdquo;)
-The forth variant selects all elements where both key and value match a regular expression. After an initial tilde (~) the regular expression for the key needs to be provided, followed by another tilde character and eventually the regular expression for the value.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;node[~&amp;quot;^addr:.*$&amp;quot;~&amp;quot;^Foo$&amp;quot;];    /* finds addr:* tags with value exactly &amp;quot;Foo&amp;quot; */
-node[~&amp;quot;^addr:.*$&amp;quot;~&amp;quot;^Foo&amp;quot;];     /* finds addr:* tags with value starting with &amp;quot;Foo&amp;quot; */
-node[~&amp;quot;^addr:.*$&amp;quot;~&amp;quot;Foo$&amp;quot;];     /* finds addr:* tags with value ending with &amp;quot;Foo&amp;quot; */
-node[~&amp;quot;^addr:.*$&amp;quot;~&amp;quot;Foo&amp;quot;];      /* finds addr:* tags with value containing the substring &amp;quot;Foo&amp;quot; */
-node[~&amp;quot;^addr:.*$&amp;quot;~&amp;quot;.&amp;quot;];        /* finds addr:* tags with any value */
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Regular expressions for values cannot be negated in this variant.
-&lt;div class=&#34;docs-repl&#34;&gt;  &lt;textarea&gt;
-// Filter and only get nodes that are banks.
-node[amenity=bank]
-(47.06,15.42,47.09,15.48); // a bbox-filter
-out;
-&lt;/textarea&gt;&lt;div class=&#34;docs-repl-result&#34;&gt;  &lt;iframe src=&#34;http://overpass-turbo.eu/master/map.html?Q=%0a%2f%2f%20Filter%20and%20only%20get%20nodes%20that%20are%20banks.%0anode%5bamenity%3dbank%5d%0a%2847.06%2c15.42%2c47.09%2c15.48%29%3b%20%2f%2f%20a%20bbox-filter%0aout%3b%0a&#34;  seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34;&gt;&lt;/iframe&gt;&lt;textarea&gt;&lt;/textarea&gt; &lt;a class=&#34;docs-repl-change-output button&#34; href=&#34;#&#34;&gt;Data&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>By area (area)</title>
-      <link>//osmlab.github.io/learnoverpass/en/docs/filters/area/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>//osmlab.github.io/learnoverpass/en/docs/filters/area/</guid>
-      <description>&lt;p&gt;The area filter selects all elements of the chosen type that are inside the given area. Please note with regard to attic data that areas always represent current data.&lt;/p&gt;
-
-&lt;p&gt;The input set can be changed with an adapted prefix notation. As for all filters, the result set is specified by the whole statement, not the individual filter.&lt;/p&gt;
-
-&lt;p&gt;Syntax: It consists of an opening parenthesis. Then follows the keyword area. Then can follow a colon and a non-negative integer. The filter ends with a closing parenthesis.&lt;/p&gt;
-
-&lt;p&gt;Nodes are found if they are properly inside or on the border of the area. Ways are found if at least one point (also points on the segment) is properly inside the area. A way ending on the border and not otherwise crossing the area is not found. Relations are found if one of its members is properly inside the area.&lt;/p&gt;
-
-&lt;p&gt;If the area statement is provided without integer, the areas from the input set are used. An Example:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;node(area);
-way(area);
-rel(area);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The example with modified input set:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;node(area.a);
-way(area.a);
-rel(area.a);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;If an integer is added, the input set is ignored and instead the area that has the given integer as id is taken.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;node(area:2400000001);
-way(area:2400000001);
-rel(area:2400000001);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Because areas in OSM are not native elements but are only infered from the OSM database using its closed ways or relations; this facility allows grouping their various representation in a coherent set which can store their geometry, independantly of their complexity and representation in the OSM database, as if they were a single distinctive element, without using complex filtering rules in your query. However associating these objects with an OSM id attribute requires some adjusment because the same id value could be used for unrelated elements with different type (way or relation). For this reason, areas returned by the Overpass API only have a &amp;ldquo;virtual&amp;rdquo; id specific to the Overpass API, but not found directly in the OSM database.&lt;/p&gt;
-
-&lt;p&gt;By convention the area id can be calculated from an existing OSM way by adding 2400000000 to its OSM id, or in case of a relation by adding 3600000000 respectively. Note that area creation is subject to some extraction rules, i.e. not all ways/relations have an area counterpart (notably those that are tagged with &lt;code&gt;area=no&lt;/code&gt;, and most multipolygons and that don&amp;rsquo;t have a defined &lt;code&gt;name=*&lt;/code&gt; will not be part of areas).
-Areas are created by a regular job on the Overpass API server and usually have a lag of several hours compared to the OSM main database. The exact timestamp can be determined by checking the &lt;code&gt;timestamp_areas_base&lt;/code&gt; value in the Overpass json or xml result.&lt;/p&gt;
-
-&lt;p&gt;If you want more immediate results (not depending on the delayed batch processing), you can also write your own filters without using this facility in your Overpass query: use standard OSM element types and ids and filter them by specific tags of your choice.&lt;/p&gt;
-
-&lt;p&gt;See &lt;a href=&#34;https://github.com/drolbr/Overpass-API/blob/master/rules/areas.osm3s&#34;&gt;areas.osm3s&lt;/a&gt; for details of the filters (written using the XML variant of the Overpass query language) currently by Overpass used to generate the areas that can be queried with this facility. Those areas are defined using the &amp;ldquo;pivot&amp;rdquo; query feature.&lt;/p&gt;
-
-&lt;p&gt;&lt;div class=&#34;docs-repl&#34;&gt;  &lt;textarea&gt;
-// search the area of the Dolmites
-area
-  [place=region]
-  [&amp;#34;region:type&amp;#34;=&amp;#34;mountain_area&amp;#34;]
-  [&amp;#34;name:en&amp;#34;=&amp;#34;Dolomites&amp;#34;];
-out body;
-
-// get all peaks in the area
-node
-  [natural=peak]
-  (area);
-out body qt;
-&lt;/textarea&gt;&lt;div class=&#34;docs-repl-result&#34;&gt;  &lt;iframe src=&#34;http://overpass-turbo.eu/master/map.html?Q=%0a%2f%2f%20search%20the%20area%20of%20the%20Dolmites%0aarea%0a%20%20%5bplace%3dregion%5d%0a%20%20%5b%22region%3atype%22%3d%22mountain_area%22%5d%0a%20%20%5b%22name%3aen%22%3d%22Dolomites%22%5d%3b%0aout%20body%3b%0a%0a%2f%2f%20get%20all%20peaks%20in%20the%20area%0anode%0a%20%20%5bnatural%3dpeak%5d%0a%20%20%28area%29%3b%0aout%20body%20qt%3b%0a&#34;  seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34;&gt;&lt;/iframe&gt;&lt;textarea&gt;&lt;/textarea&gt; &lt;a class=&#34;docs-repl-change-output button&#34; href=&#34;#&#34;&gt;Data&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>By date of change (changed)</title>
-      <link>//osmlab.github.io/learnoverpass/en/docs/filters/changed/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>//osmlab.github.io/learnoverpass/en/docs/filters/changed/</guid>
-      <description>&lt;p&gt;The changed filter selects all elements that have been changed between the two given dates. If only one date is given, then the second is assumed to be the front date of the database. If only one date is given and it is run with the current timestamp, then it behaves exactly like &amp;ldquo;newer&amp;rdquo; with two exceptions: first, it is faster, second, it can also stand as the only filter.&lt;/p&gt;
-
-&lt;p&gt;It has no input set. As for all filters, the result set is specified by the whole statement, not the individual filter.&lt;/p&gt;
-
-&lt;p&gt;It consists of an opening parenthesis. Then follows a date specification. Please note that this date specification cannot be abbreviated and has to be put in single or double quotes. Then can follow a comma and a second date specification. The filter ends with a closing parenthesis.&lt;/p&gt;
-
-&lt;p&gt;Example: All changes since the given date and now&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;node._(changed:&amp;quot;2012-09-14T07:00:00Z&amp;quot;);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;div class=&#34;docs-repl&#34;&gt;  &lt;textarea&gt;
-(node(poly:&amp;#34;50.73 7.13 50.73 7.17 50.75 7.15&amp;#34;);&amp;gt;;);
-// This finds all nodes that have changed
-// between the two given dates 
-node._(changed:&amp;#34;2012-09-14T07:00:00Z&amp;#34;,&amp;#34;2012-09-14T07:01:00Z&amp;#34;);
-out;
-&lt;/textarea&gt;&lt;div class=&#34;docs-repl-result&#34;&gt;  &lt;iframe src=&#34;http://overpass-turbo.eu/master/map.html?Q=%0a%28node%28poly%3a%2250.73%207.13%2050.73%207.17%2050.75%207.15%22%29%3b%3e%3b%29%3b%0a%2f%2f%20This%20finds%20all%20nodes%20that%20have%20changed%0a%2f%2f%20between%20the%20two%20given%20dates%20%0anode._%28changed%3a%222012-09-14T07%3a00%3a00Z%22%2c%222012-09-14T07%3a01%3a00Z%22%29%3b%0aout%3b%0a&#34;  seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34;&gt;&lt;/iframe&gt;&lt;textarea&gt;&lt;/textarea&gt; &lt;a class=&#34;docs-repl-change-output button&#34; href=&#34;#&#34;&gt;Data&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>By polygon (poly)</title>
-      <link>//osmlab.github.io/learnoverpass/en/docs/filters/polygon/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>//osmlab.github.io/learnoverpass/en/docs/filters/polygon/</guid>
-      <description>&lt;p&gt;The &lt;em&gt;polygon&lt;/em&gt; filter selects all elements of the chosen type inside the given bounding box.&lt;/p&gt;
-
-&lt;p&gt;It has no input set. As for all filters, the result set is specified by the whole statement, not the individual filter.&lt;/p&gt;
-
-&lt;p&gt;It consists of an opening parenthesis. Then follows the keyword poly. Then follows a string containing an even number of floating point numbers, divided only by whitespace. Each pair of floating point numbers represents a coordinate, in order latitude, then longitude. The filter ends with a closing parenthesis.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(poly:&amp;quot;latitude_1 longitude_1 latitude_2 longitude_2 latitude_3 longitude_3 …&amp;quot;);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;An example (a triangle near Bonn, Germany):&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;node(poly:&amp;quot;50.7 7.1 50.7 7.2 50.75 7.15&amp;quot;);
-way(poly:&amp;quot;50.7 7.1 50.7 7.2 50.75 7.15&amp;quot;);
-rel(poly:&amp;quot;50.7 7.1 50.7 7.2 50.75 7.15&amp;quot;);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;div class=&#34;docs-repl&#34;&gt;  &lt;textarea&gt;
-(node(poly:&amp;#34;50.73 7.13 50.73 7.17 50.75 7.15&amp;#34;);&amp;gt;;);
-out;
-&lt;/textarea&gt;&lt;div class=&#34;docs-repl-result&#34;&gt;  &lt;iframe src=&#34;http://overpass-turbo.eu/master/map.html?Q=%0a%28node%28poly%3a%2250.73%207.13%2050.73%207.17%2050.75%207.15%22%29%3b%3e%3b%29%3b%0aout%3b%0a&#34;  seamless=&#34;seamless&#34; frameBorder=&#34;0&#34; width=&#34;100%;&#34;&gt;&lt;/iframe&gt;&lt;textarea&gt;&lt;/textarea&gt; &lt;a class=&#34;docs-repl-change-output button&#34; href=&#34;#&#34;&gt;Data&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/p&gt;
 </description>
     </item>
     
