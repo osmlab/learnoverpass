@@ -76,11 +76,11 @@
   </url>
   
   <url>
-    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/around/</loc>
+    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/bbox/</loc>
   </url>
   
   <url>
-    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/bbox/</loc>
+    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/around/</loc>
   </url>
   
   <url>
@@ -100,11 +100,11 @@
   </url>
   
   <url>
-    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/polygon/</loc>
+    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/pivot/</loc>
   </url>
   
   <url>
-    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/pivot/</loc>
+    <loc>//osmlab.github.io/learnoverpass/en/docs/filters/polygon/</loc>
   </url>
   
   <url>
