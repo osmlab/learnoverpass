@@ -89,7 +89,7 @@
         return true;
       }
       return false;
-    };
+    }
   });
 })();
 function processAnswer(str){
