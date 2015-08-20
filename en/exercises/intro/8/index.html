@@ -1,0 +1,29 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us"><head><link href="http://gmpg.org/xfn/11" rel="profile"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1"><title>Around By Area</title><link rel="stylesheet" href="//osmlab.github.io/learnoverpass//css/main.css"> <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png"><link href="/favicon.png" rel="icon"><link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'><link href="" rel="alternate" type="application/rss+xml" title="LearnOverpass &middot; " /><meta name="description" content=""><meta name="keywords" content=""> </head><body> <div class="menu-bar"><h1> <a href="//osmlab.github.io/learnoverpass//">LearnOverpass</a></h1></div><div class="exercise-container"><div class="exercise-lesson"><div class="exercise-lesson-bar"><div class="line">Intro</div></div><div class="exercise-lesson-inner"><div class="exercise-lesson-article"><h2> Around By Area  <a class="docs-improve" href="https://github.com/osmlab/learnoverpass/edit/master/content/en/exercises/intro/8.md">Improve page</a></h2> <p>“Wooh, At least I know now where the observatory is!” says Bob.</p>
+
+<p>Seeing the distance between them though, Bob is quite flustered. That’s quite a long way!</p>
+
+<p>Luckily, Bob remembers leaving his bicycle in the nearest parking space. Let’s go ahead and query for Bob’s bike!</p>
+</div><div class="exercise-lesson-instruction"><div class="exercise-lesson-label"> <span>Instructions</span></div> <ol>
+<li>We need to find Bob’s bicycle, which he knows is about 100 meters away from the restaurant. We will have to use the <code>around</code> statement again.</li>
+<li>Bicycle parking areas are tagged as <code>[amenity=bicycle_parking]</code>. You should now be comfortable knowing what statement we need to use.</li>
+<li>Note that our statement uses <code>around</code>, so make sure to place the statement properly so that it finds the parking space around <em>the restaurant</em> instead of <em>the tower</em>. Remember that Overpass has the concept of ‘flow’. Where do you think you should put our <em>around</em> statement?</li>
+<li>Once you’ve added it, make sure to also add <code>out;</code> after your statement to print the bicycle parking node.</li>
+</ol>
+</div></div></div><div class="docs-repl exercise-main"><div class="editor-cover"></div> <textarea>node(48.5657094, 13.4490548, 48.5662416, 13.4501676)[natural=tree][height=20];
+node(around:150)[amenity=restaurant];
+out;
+
+area[name=Inn];
+node(area)[&#34;tower:type&#34;=observation];
+out;
+</textarea><div class="exercise-fail-msg"><div class="message"> <span class="warning">That doesn't seem right!</span> <span class="hint">The around query relies on the result set (in this case the result of the query above it)</span></div></div><div class="exercise-action-bar"><div class="exercise-action-bar-inner winner-bar"><div> <span>Awesome Work!</span> <a href="//osmlab.github.io/learnoverpass/en/exercises/intro/9/" class="exercise-action-next">Go to Next Lesson</a></div></div><div class="exercise-action-bar-inner"><div> <a href="#" class="exercise-action-run">Run Query</a> <a href="#" class="exercise-action-reset">Reset Code</a></div></div></div><div class="docs-repl-result output"><iframe src="http://overpass-turbo.eu/master/map.html" seamless="seamless" frameBorder="0"></iframe><textarea></textarea> <a class="docs-repl-change-output button" href="#">Data</a></div></div><div class="exercise-answer">node(48.5657094, 13.4490548, 48.5662416, 13.4501676)[natural=tree][height=20];
+node(around:150)[amenity=restaurant];
+out;
+
+node(around:100)[amenity=bicycle_parking];
+out;
+
+area[name=Inn];
+node(area)[&#34;tower:type&#34;=observation];
+out;
+</div><div class="exercise-regex"></div></div> <script src="//osmlab.github.io/learnoverpass//js/vendor.bundle.js"></script> <script src="//osmlab.github.io/learnoverpass//js/exercise.bundle.js"></script> </body></html>

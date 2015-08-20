@@ -1,0 +1,26 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us"><head><link href="http://gmpg.org/xfn/11" rel="profile"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1"><title>Way Query</title><link rel="stylesheet" href="//osmlab.github.io/learnoverpass//css/main.css"> <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png"><link href="/favicon.png" rel="icon"><link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'><link href="" rel="alternate" type="application/rss+xml" title="LearnOverpass &middot; " /><meta name="description" content=""><meta name="keywords" content=""> </head><body> <div class="menu-bar"><h1> <a href="//osmlab.github.io/learnoverpass//">LearnOverpass</a></h1></div><div class="exercise-container"><div class="exercise-lesson"><div class="exercise-lesson-bar"><div class="line">Intro</div></div><div class="exercise-lesson-inner"><div class="exercise-lesson-article"><h2> Way Query  <a class="docs-improve" href="https://github.com/osmlab/learnoverpass/edit/master/content/en/exercises/intro/9.md">Improve page</a></h2> <p>Bob carefully examines the bike in the parking space, trying to find his bike. “Aha!&rdquo; exclaims Bob, as he grabs the red bike we can only assume is his.</p>
+
+<p>Now that Bob is on his bike, he now needs to go the observatory to find his wallet. Since we already know Bob has a bad sense of direction (I mean, he did get lost!) it’d be best to show Bob the main road he needs to take to reach the observatory.</p>
+
+<p>If you look at the map viewer closely, you will see that between the bicycle parking spot and the observatory tower is the main road &ldquo;Innstraße&rdquo;. as the main road Bob needs to take in order to reach the observatory. How can we possibly show this? By using <code>node</code>, and having <code>[name=&quot;Innstraße&quot;]</code> as a filter perhaps?</p>
+
+<p>Not quite. Remember that <code>node</code>s are <strong>strictly</strong> for <em>points</em> of interest. They can’t map roads, as that doesn’t really exist as a single point.</p>
+</div><div class="exercise-lesson-instruction"><div class="exercise-lesson-label"> <span>Instructions</span></div> <ol>
+<li>Delete all the lines in the editor for now, we won&rsquo;t be needing the nodes.</li>
+<li>Like <code>area</code> we can use another OSM element type here to query for the road. Namely, we can use the <code>way</code> statement.</li>
+<li>Create a <code>way</code> statement filtered to &ldquo;Innstraße&rdquo;. You can follow the same form that <code>node</code> and <code>area</code> statements take. Keep in mind that you would have to surround the filter key &ldquo;Innstraße&rdquo; with quotes, as it contains the special character “ß&rdquo;.</li>
+<li>Lastly, you would need to show the way. However, instead of just using <code>out</code>, you would have to use the custom modificator <code>geom</code>, so that the statement reads <code>out geom;</code></li>
+</ol>
+</div></div></div><div class="docs-repl exercise-main"><div class="editor-cover"></div> <textarea>node(48.5657094, 13.4490548, 48.5662416, 13.4501676)[natural=tree][height=20];
+node(around:150)[amenity=restaurant];
+out;
+
+node(around:100)[amenity=bicycle_parking];
+out;
+
+area[name=Inn];
+node(area)[&#34;tower:type&#34;=observation];
+out;
+</textarea><div class="exercise-fail-msg"><div class="message"> <span class="warning">That doesn't seem right!</span> <span class="hint">The way element can be filtered just like nodes.</span></div></div><div class="exercise-action-bar"><div class="exercise-action-bar-inner winner-bar"><div> <span>Awesome Work!</span> <a href="//osmlab.github.io/learnoverpass/en/exercises/intro/10/" class="exercise-action-next">Go to Next Lesson</a></div></div><div class="exercise-action-bar-inner"><div> <a href="#" class="exercise-action-run">Run Query</a> <a href="#" class="exercise-action-reset">Reset Code</a></div></div></div><div class="docs-repl-result output"><iframe src="http://overpass-turbo.eu/master/map.html" seamless="seamless" frameBorder="0"></iframe><textarea></textarea> <a class="docs-repl-change-output button" href="#">Data</a></div></div><div class="exercise-answer">way[name=&#34;Innstraße&#34;];
+out geom;
+</div><div class="exercise-regex"></div></div> <script src="//osmlab.github.io/learnoverpass//js/vendor.bundle.js"></script> <script src="//osmlab.github.io/learnoverpass//js/exercise.bundle.js"></script> </body></html>

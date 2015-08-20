@@ -1,0 +1,27 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us"><head><link href="http://gmpg.org/xfn/11" rel="profile"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1"><title>Out Modificators</title><link rel="stylesheet" href="//osmlab.github.io/learnoverpass//css/main.css"> <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png"><link href="/favicon.png" rel="icon"><link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'><link href="" rel="alternate" type="application/rss+xml" title="LearnOverpass &middot; " /><meta name="description" content=""><meta name="keywords" content=""> </head><body> <div class="menu-bar"><h1> <a href="//osmlab.github.io/learnoverpass//">LearnOverpass</a></h1></div><div class="exercise-container"><div class="exercise-lesson"><div class="exercise-lesson-bar"><div class="line">Intro</div></div><div class="exercise-lesson-inner"><div class="exercise-lesson-article"><h2> Out Modificators  <a class="docs-improve" href="https://github.com/osmlab/learnoverpass/edit/master/content/en/exercises/intro/11.md">Improve page</a></h2> <p>Incredibly good work!</p>
+
+<p>“Thanks!” Bob said as he hopped on his bike. “I’ll be following this road to the observatory then!&rdquo;
+ 
+The last couple of exercises introduced quite a few things, namely, <code>way</code> and the <code>out geom</code> modificator.</p>
+
+<p>A <code>Way</code> is another OSM element (like <code>node</code>) that describes a linear feature or area. Just accept that a <code>way</code> can also define areas for now. The relevant info that we need to learn is that a <code>way</code> is usually used to define roads, streams and highways, among other things. If you need to query for a route, or something that you think can’t be defined as a single ‘point’, it’s most likely a <code>way</code> element!</p>
+
+<p>In OSM, Ways are represented just as a set of points. If you think about it, we can use a couple of points to define a line (which can be used to define routes). </p>
+
+<p>Since ways are represented internally as just a set of points, a <code>way</code> is actually just <em>an ordered list of nodes</em>! Awesome right? Because of this, we can actually query for the individual nodes in a way, though that’s not something we will do for now. </p>
+
+<p>You might have noticed that we used <code>out geom;</code> instead of our usual <code>out</code> statement in our latest query. What’s up with that?</p>
+
+<p>To understand that, let’s talk about <code>out</code> first. The <code>out</code> statement is an called <em>action</em>, the only <em>action</em> in the Overpass QL. What it does is to take the input set (the result set/data that preceeds it) and <code>print</code> it, so we can use the data (which we see in the map viewer).</p>
+
+<p>So far, we have only used the bare <code>out</code> statement. What happens if we used <code>out</code> instead of <code>out geom</code> in our last query? Let’s try that!</p>
+</div><div class="exercise-lesson-instruction"><div class="exercise-lesson-label"> <span>Instructions</span></div> <ol>
+<li>Modify our existing query to use a bare <code>out</code> statement by removing the <code>geom</code> modificator. Be careful not to remove the semicolon!</li>
+</ol>
+</div></div></div><div class="docs-repl exercise-main"><div class="editor-cover"></div> <textarea>area[name=Passau];
+way(area)[name=&#34;Innstraße&#34;];
+out geom;
+</textarea><div class="exercise-fail-msg"><div class="message"> <span class="warning">That doesn't seem right!</span> <span class="hint">Remove geom from the sample code.</span></div></div><div class="exercise-action-bar"><div class="exercise-action-bar-inner winner-bar"><div> <span>Awesome Work!</span> <a href="//osmlab.github.io/learnoverpass/en/exercises/intro/12/" class="exercise-action-next">Go to Next Lesson</a></div></div><div class="exercise-action-bar-inner"><div> <a href="#" class="exercise-action-run">Run Query</a> <a href="#" class="exercise-action-reset">Reset Code</a></div></div></div><div class="docs-repl-result output"><iframe src="http://overpass-turbo.eu/master/map.html" seamless="seamless" frameBorder="0"></iframe><textarea></textarea> <a class="docs-repl-change-output button" href="#">Data</a></div></div><div class="exercise-answer">area[name=Passau];
+way(area)[name=&#34;Innstraße&#34;];
+out;
+</div><div class="exercise-regex"></div></div> <script src="//osmlab.github.io/learnoverpass//js/vendor.bundle.js"></script> <script src="//osmlab.github.io/learnoverpass//js/exercise.bundle.js"></script> </body></html>
