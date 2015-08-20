@@ -7,7 +7,11 @@
      </div>
      <div class="exercise-lesson-inner">
        <div class="exercise-lesson-article">
-         <h2>{{ .Title }}</h2>
+          <h2>
+            {{ .Title }}
+            {{ $cur_path := trim (substr .Permalink (len .Site.BaseURL) (len .Permalink)) "/" }}
+            <a class="docs-improve" href="https://github.com/osmlab/learnoverpass/edit/master/content/{{ $cur_path }}.md">Improve page</a>
+          </h2>
          {{ .Content }}
        </div>
        <div class="exercise-lesson-instruction">
