@@ -1,3 +1,46 @@
 .front
   font-size 13px
   line-height 3em
+  .links
+    cf()
+    border 1px solid rgba(0,0,0,0.05)
+    .link-container
+      span(1/1)
+      a.main-module
+        display block
+        text-align center
+        font-size 1.5em
+        font-weight bold
+        color white
+        border-radius 0px
+        background-color bg_accent
+        &:hover
+          background-color text_accent
+      .module-container
+        color black
+        &>span
+          line-height 1.5em
+          display block
+          padding-top 1em
+          padding-left 1em
+          font-size 1.2em
+          font-weight bold
+          color text_color
+        li
+          line-height 2em
+          span
+            margin-left 10px
+            padding 1px
+            color white
+            background-color orange 
+  .github-contrib
+    padding 1em
+    text-align center
+    div
+      margin 0 auto
+
+@media (min-width md_size)
+  .front
+    .links
+      .link-container
+        span(1/2)

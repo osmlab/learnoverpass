@@ -3,9 +3,38 @@
 <div class="front container content">
   <h1 id="post-title">{{ .Title }}</h1>
   <p>{{ .Content }}</p>
-  <div>
-    <a href="docs" class="button">{{ .Params.ref }}</a>
-    <a href="exercises/intro/1" class="button">{{ .Params.learn }}</a>
+  <div class="links">
+    <div class="link-container">
+      <div class="module-container">
+        <a href="exercises/intro/1" class="main-module button">{{ .Params.learn }}</a>
+        <span>{{ .Params.learnsub }}</span>
+        <ul>
+          <li>
+            <a href="exercises/intro/1">Introduction</a>
+          </li>
+          <li>
+            <a href="">Recursion</a><span>Coming Soon!</span>
+          </li>
+          <li>
+            <a href="">MapCSS</a><span>Coming Soon!</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="link-container">
+      <div class="module-container">
+        <a href="docs" class="main-module button">{{ .Params.ref }}</a>
+        {{ range .Site.Menus.doctype }}
+          <ul>
+            <li>
+              <a href="">{{ .Name }}</a>
+            </li>
+          </ul>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+  <div class="github-contrib">
     <a href="https://github.com/osmlab/learnoverpass/tree/gh-pages" class="button">{{ .Params.github }}</a>
     <iframe class="github-star" src="https://ghbtns.com/github-btn.html?user=osmlab&repo=learnoverpass&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
   </div>
