@@ -20,6 +20,7 @@ If you are experienced with git, view option B.
 This particular option works for translators unfamiliar with git, and does not require any installation of tools. This should be the easiest way to contribute.
 
 **Workflow**
+
 1. In case you don't have already, create a [Github account](http://github.com)!
 2. Open an issue [here](https://github.com/osmlab/learnoverpass/issues/new) on Github. On the title, type in "[LANGUAGE-CODE] translation" where [LANGUAGE-CODE] is the language you are translating to, and type in details (such as the specific section file to be translated) on the "Leave a comment" box.
 3. Wait for me or any github experienced fellow to contact you back. (We will create a copy of the original document in the new language folder for you).
@@ -30,6 +31,7 @@ This particular option works for translators unfamiliar with git, and does not r
 This particular option is a little bit more involved, but does not require you to wait for us to copy the original document.
 
 **Workflow**
+
 1. Fork the [LearnOverpass repository](https://help.github.com/articles/fork-a-repo/).
 2. Improve content*
 3. Issue a [pull request](https://help.github.com/articles/using-pull-requests/).
@@ -38,7 +40,11 @@ This particular option is a little bit more involved, but does not require you t
 
 # Exercises Contributing
 
-Whilst the exercises contain logic to work, creating new ones is easy and does not require any programming knowledge (apart from using the Overpass QL of course).
+Whilst the exercises contain logic to work, creating new ones is easy and does not require any programming knowledge (apart from using the Overpass QL of course) or any special development tools
+
+If you wish to edit existing exercises, feel free to click the 'Improve Page' buttons present in every exercise page.
+
+If you instead wish to create a new exercise module:
 
 1. Create a new exercise category in the `exercises/` folder.
 2. Define your exercises, where every new problem is a unique markdown file. List them in numerical format (`1.md`, `2.md`) for simplicity
@@ -56,11 +62,8 @@ Each exercise file contains a front matter. Example:
       hint: |
           Make sure to print out your output with `out`
       answer: |
-          <?xml version="1.0" encoding="UTF-8"?>
-          <osm version="0.6" generator="Overpass API">
-          <note>The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.</note>
-          <meta osm_base="2015-07-06T13:36:01Z"/>
-          ...
+          node(2681940781);
+          out;
 
 Notes:
   - `date` is of the format `YYYY-MD-DD`, separated by `T` time, and `HH:MM:SS:+Timezone`. The date decides how the exercises will be arranged.
@@ -68,7 +71,7 @@ Notes:
   - `code` is the initial boiler plate code that shows up in the exercise code editor.
   - `instructions` is the styled, step-by-step instructions for the exercise viewable in the sidebar.
   - `hint` is what appears whenever a wrong answer is submitted.
-  - `answer` this is the resulting overpass data query that should appear if the correct query is submitted.
+  - `answer` this is the answer query whose result data is matched with the user input
 
 # Contributing to site functionality
 
