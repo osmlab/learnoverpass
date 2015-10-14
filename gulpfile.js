@@ -99,7 +99,7 @@ gulp.task('build', ['jshint', 'html', 'partials'], function () {
 });
 
 gulp.task('deploy', ['clean', 'build', 'scripts-deploy'], function(){
-    gulp.src('').pipe($.shell(['node_modules/.bin/hugo --theme=overpass_doc']));
+    gulp.src('').pipe($.shell(['node_modules/.bin/hugo --theme=overpass_doc --baseUrl=//osmlab.github.io/learnoverpass/']));
 });
 
 gulp.task('default', ['clean', 'build'], function () {
