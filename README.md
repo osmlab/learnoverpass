@@ -24,6 +24,16 @@ The project is/will be built using (mainly) the following dependencies/framework
 
 ### Setup
 
+#### TL;DR
+
+1. Install [NodeJS](https://nodejs.org/en/), [npm](https://www.npmjs.com/)
+2. Install gulp: `npm install -g gulp`
+3. Run `npm install`
+4. Run `gulp`
+5. Open http://localhost:1313/
+
+#### Detailed Setup Instructions
+
 If this is the first time you're working with the node ecosystem, install [node](https://nodejs.org) first. This will add a binary named `npm` in your path.
 
 Then, run `npm install` on the root directory of this project, as well as `npm install -g gulp`.
