@@ -63,4 +63,4 @@ This project is made possible through Google's Summer of Code (GSOC) 2015 Progra
 
 The mentor for this project is none other than Martin Raifer (@tyr_asd), responsible for the excellent [Overpass Turbo](http://overpass-turbo.eu).
 
-Weekly writeups on the project will be posted every wednesday on Arian's [blog](http://arianv.com/series/gsoc-2015/). Arian (@secretmapper) is the GSOC student for this project.
+Weekly writeups on the project were posted on Arian's [blog](http://arianv.com/series/gsoc-2015/). Arian (@secretmapper) is the GSOC student for this project.
