@@ -2,6 +2,7 @@
 date = 2015-05-06T11:09:35Z
 title = "Overpass API Documentation"
 type = "docs"
+layout = "single"
 +++
 
 Overpass QL is the second query language for the Overpass API and was designed as an alternative to Overpass XML. It has a C style syntax: The whole query source code is divided in statements, and every statement ends with a semicolon. It has imperative semantics: The statements are processed one after another and change the execution state according to their semantics.
