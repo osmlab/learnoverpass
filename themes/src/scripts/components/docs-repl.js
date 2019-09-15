@@ -87,9 +87,6 @@ module.exports = function(opts) {
     //cache queries
     iframe.onload = function() {
       if(typeof(opts.onload) === "function") opts.onload();
-      window.setTimeout(function(){
-        postTo(iframe, 'catch_alert');
-      }, 100);
 
       // set codemirror to default text
       cm.setValue(code_sample['default']);
@@ -102,9 +99,6 @@ module.exports = function(opts) {
   } else {
     iframe.onload = function(){
       if(typeof(opts.onload) === "function") opts.onload();
-      window.setTimeout(function(){
-        postTo(iframe, 'catch_alert');
-      }, 1000);
     };
   }
 
