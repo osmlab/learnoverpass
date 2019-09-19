@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Ens on LearnOverpass</title>
+    <title>Overpass API is a highly optimized, read-only API built for gathering OSM map data. on LearnOverpass</title>
     <link>//osmlab.github.io/learnoverpass/en/</link>
-    <description>Recent content in Ens on LearnOverpass</description>
+    <description>Recent content in Overpass API is a highly optimized, read-only API built for gathering OSM map data. on LearnOverpass</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 15 Jul 2015 16:35:50 +0800</lastBuildDate>
-    <atom:link href="//osmlab.github.io/learnoverpass/en/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 06 May 2015 11:09:35 +0000</lastBuildDate>
+    
+	<atom:link href="//osmlab.github.io/learnoverpass/en/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Way Node Recursion</title>
@@ -15,16 +17,10 @@
       <pubDate>Wed, 15 Jul 2015 16:35:50 +0800</pubDate>
       
       <guid>//osmlab.github.io/learnoverpass/en/exercises/intro/15/</guid>
-      <description>&lt;p&gt;“Oh! I see that building!” Bob exclaims. “So the ATM is just on the other side, yes?”&lt;/p&gt;
-
-&lt;p&gt;As Bob walked to the building, he realized one important thing - he didn’t know where the entrance is! Looks like we need to write another query for him!&lt;/p&gt;
-
-&lt;p&gt;With the existing query, we’ve successfully found the building, but we need to further locate a specific point - the building’s entrance.&lt;/p&gt;
-
-&lt;p&gt;A building, since it’s generally a polygon when viewed from the map, is defined as a &lt;code&gt;way&lt;/code&gt;. However, an entrance is usually just one point in the map - a point with a specific location. So how do you think they are represented in Overpass? If you’ve guessed by &lt;code&gt;node&lt;/code&gt;s, then you’ve guessed right!&lt;/p&gt;
-
-&lt;p&gt;Remember when I told you that &lt;code&gt;way&lt;/code&gt;s are just defined as an ordered list of nodes? Some of these nodes can be further tagged, taking different values such as entrances. In the next query, we’ll learn how to query for a specific node (an entrance) that is part of a &lt;code&gt;way&lt;/code&gt;.&lt;/p&gt;
-</description>
+      <description>“Oh! I see that building!” Bob exclaims. “So the ATM is just on the other side, yes?”
+As Bob walked to the building, he realized one important thing - he didn’t know where the entrance is! Looks like we need to write another query for him!
+With the existing query, we’ve successfully found the building, but we need to further locate a specific point - the building’s entrance.
+A building, since it’s generally a polygon when viewed from the map, is defined as a way.</description>
     </item>
     
     <item>
@@ -33,10 +29,8 @@
       <pubDate>Tue, 14 Jul 2015 16:35:50 +0800</pubDate>
       
       <guid>//osmlab.github.io/learnoverpass/en/exercises/intro/14/</guid>
-      <description>&lt;p&gt;“Hmm, I don’t see it from the observatory, but I do see it from the overpass query map.” says Bob. Indeed, the ATM is on the opposite side of a building (the brownish polygon in the map viewer).&lt;/p&gt;
-
-&lt;p&gt;Let’s go ahead and query for both ATM and the building, so that Bob can have a better idea as to where the ATM is.&lt;/p&gt;
-</description>
+      <description>“Hmm, I don’t see it from the observatory, but I do see it from the overpass query map.” says Bob. Indeed, the ATM is on the opposite side of a building (the brownish polygon in the map viewer).
+Let’s go ahead and query for both ATM and the building, so that Bob can have a better idea as to where the ATM is.</description>
     </item>
     
     <item>
@@ -45,18 +39,9 @@
       <pubDate>Mon, 13 Jul 2015 16:35:50 +0800</pubDate>
       
       <guid>//osmlab.github.io/learnoverpass/en/exercises/intro/13/</guid>
-      <description>&lt;p&gt;“Thanks man!” Bob says as we query for the route back again. He follows it to reach the observatory tower. Once he reached the river bank, he decides to leave his bike and &lt;em&gt;swim&lt;/em&gt; to the observatory!&lt;/p&gt;
-
-&lt;p&gt;After a few minutes, Bob comes back, shivering and wet.&lt;/p&gt;
-
-&lt;p&gt;“Brrrr… water’s cold!” Bob exclaims, when, out of nowhere, the waiter from the restaurant, all in white attire, appareas. He actually followed Bob all this way!&lt;/p&gt;
-
-&lt;p&gt;“Sir” the waiter says, panting “I still need that 25 euroes!”. “Yeah, surely” Bob says as he grabbed his wet wallet from his pocket.&lt;/p&gt;
-
-&lt;p&gt;“Oh” a deadpan expression comes from him. “Sorry, it seemed that I lost all my money swimming back here!”&lt;/p&gt;
-
-&lt;p&gt;Waiter: &lt;em&gt;Facepalm&lt;/em&gt;&lt;/p&gt;
-</description>
+      <description>“Thanks man!” Bob says as we query for the route back again. He follows it to reach the observatory tower. Once he reached the river bank, he decides to leave his bike and swim to the observatory!
+After a few minutes, Bob comes back, shivering and wet.
+“Brrrr… water’s cold!” Bob exclaims, when, out of nowhere, the waiter from the restaurant, all in white attire, appareas. He actually followed Bob all this way!</description>
     </item>
     
     <item>
@@ -65,16 +50,9 @@
       <pubDate>Sun, 12 Jul 2015 16:35:50 +0800</pubDate>
       
       <guid>//osmlab.github.io/learnoverpass/en/exercises/intro/12/</guid>
-      <description>&lt;p&gt;“Uaaghhh! What happened to my map!” Bob exclaims as he saw the now empty map view.&lt;/p&gt;
-
-&lt;p&gt;So you see, using a bare &lt;code&gt;out&lt;/code&gt; statement produced an empty map.&lt;/p&gt;
-
-&lt;p&gt;See, our &lt;code&gt;out&lt;/code&gt; statement &lt;code&gt;print&lt;/code&gt;s out the data that it receives, that is, if it can. A way only carries a reference to the list of nodes that make up for it - try clicking the ‘data’ button on the top right of the map view. This will show you the raw ‘data’ that overpass returns. Go ahead, try it.&lt;/p&gt;
-
-&lt;p&gt;Ack! It might look a bit complicated, but the basic thing that we have to look into here is that the way, has a list of nodes (nd). So you see, we actually just queried for the &lt;code&gt;way&lt;/code&gt;, specifically, the list of nodes that make it up.&lt;/p&gt;
-
-&lt;p&gt;Let’s change our query back again to see the route.&lt;/p&gt;
-</description>
+      <description>“Uaaghhh! What happened to my map!” Bob exclaims as he saw the now empty map view.
+So you see, using a bare out statement produced an empty map.
+See, our out statement prints out the data that it receives, that is, if it can. A way only carries a reference to the list of nodes that make up for it - try clicking the ‘data’ button on the top right of the map view.</description>
     </item>
     
     <item>
@@ -83,24 +61,9 @@
       <pubDate>Sat, 11 Jul 2015 16:35:50 +0800</pubDate>
       
       <guid>//osmlab.github.io/learnoverpass/en/exercises/intro/11/</guid>
-      <description>&lt;p&gt;Incredibly good work!&lt;/p&gt;
-
-&lt;p&gt;“Thanks!” Bob said as he hopped on his bike. “I’ll be following this road to the observatory then!&amp;rdquo;
- 
-The last couple of exercises introduced quite a few things, namely, &lt;code&gt;way&lt;/code&gt; and the &lt;code&gt;out geom&lt;/code&gt; modificator.&lt;/p&gt;
-
-&lt;p&gt;A &lt;code&gt;Way&lt;/code&gt; is another OSM element (like &lt;code&gt;node&lt;/code&gt;) that describes a linear feature or area. Just accept that a &lt;code&gt;way&lt;/code&gt; can also define areas for now. The relevant info that we need to learn is that a &lt;code&gt;way&lt;/code&gt; is usually used to define roads, streams and highways, among other things. If you need to query for a route, or something that you think can’t be defined as a single ‘point’, it’s most likely a &lt;code&gt;way&lt;/code&gt; element!&lt;/p&gt;
-
-&lt;p&gt;In OSM, Ways are represented just as a set of points. If you think about it, we can use a couple of points to define a line (which can be used to define routes). &lt;/p&gt;
-
-&lt;p&gt;Since ways are represented internally as just a set of points, a &lt;code&gt;way&lt;/code&gt; is actually just &lt;em&gt;an ordered list of nodes&lt;/em&gt;! Awesome right? Because of this, we can actually query for the individual nodes in a way, though that’s not something we will do for now. &lt;/p&gt;
-
-&lt;p&gt;You might have noticed that we used &lt;code&gt;out geom;&lt;/code&gt; instead of our usual &lt;code&gt;out&lt;/code&gt; statement in our latest query. What’s up with that?&lt;/p&gt;
-
-&lt;p&gt;To understand that, let’s talk about &lt;code&gt;out&lt;/code&gt; first. The &lt;code&gt;out&lt;/code&gt; statement is an called &lt;em&gt;action&lt;/em&gt;, the only &lt;em&gt;action&lt;/em&gt; in the Overpass QL. What it does is to take the input set (the result set/data that preceeds it) and &lt;code&gt;print&lt;/code&gt; it, so we can use the data (which we see in the map viewer).&lt;/p&gt;
-
-&lt;p&gt;So far, we have only used the bare &lt;code&gt;out&lt;/code&gt; statement. What happens if we used &lt;code&gt;out&lt;/code&gt; instead of &lt;code&gt;out geom&lt;/code&gt; in our last query? Let’s try that!&lt;/p&gt;
-</description>
+      <description>Incredibly good work!
+“Thanks!” Bob said as he hopped on his bike. “I’ll be following this road to the observatory then!&amp;rdquo; The last couple of exercises introduced quite a few things, namely, way and the out geom modificator.
+A Way is another OSM element (like node) that describes a linear feature or area. Just accept that a way can also define areas for now. The relevant info that we need to learn is that a way is usually used to define roads, streams and highways, among other things.</description>
     </item>
     
     <item>
@@ -109,14 +72,9 @@ The last couple of exercises introduced quite a few things, namely, &lt;code&gt;
       <pubDate>Fri, 10 Jul 2015 16:35:50 +0800</pubDate>
       
       <guid>//osmlab.github.io/learnoverpass/en/exercises/intro/10/</guid>
-      <description>&lt;p&gt;“Ahm, Are you sure this is right?” Bob says as he sees the different ways. Uh oh!&lt;/p&gt;
-
-&lt;p&gt;We’ve managed to successfully query for ways of the name “Innstraße”, but unfortunately, it seems that there are actually quite a few ways that are named the same!&lt;/p&gt;
-
-&lt;p&gt;This is obviously unacceptable - Overpass showed us all the ways named “Innstraße” around the world, but we’re only interested in the “Innstraße” near Bob.&lt;/p&gt;
-
-&lt;p&gt;Since we know we Bob is in &lt;em&gt;Passau&lt;/em&gt;, what we can do is to query for the ways that is only in &lt;em&gt;Passau&lt;/em&gt;. Again, we use the &lt;code&gt;area&lt;/code&gt; query to do this.&lt;/p&gt;
-</description>
+      <description>“Ahm, Are you sure this is right?” Bob says as he sees the different ways. Uh oh!
+We’ve managed to successfully query for ways of the name “Innstraße”, but unfortunately, it seems that there are actually quite a few ways that are named the same!
+This is obviously unacceptable - Overpass showed us all the ways named “Innstraße” around the world, but we’re only interested in the “Innstraße” near Bob.</description>
     </item>
     
     <item>
@@ -125,14 +83,8 @@ The last couple of exercises introduced quite a few things, namely, &lt;code&gt;
       <pubDate>Thu, 09 Jul 2015 16:35:50 +0800</pubDate>
       
       <guid>//osmlab.github.io/learnoverpass/en/exercises/intro/9/</guid>
-      <description>&lt;p&gt;Bob carefully examines the bike in the parking space, trying to find his bike. “Aha!&amp;rdquo; exclaims Bob, as he grabs the red bike we can only assume is his.&lt;/p&gt;
-
-&lt;p&gt;Now that Bob is on his bike, he now needs to go the observatory to find his wallet. Since we already know Bob has a bad sense of direction (I mean, he did get lost!) it’d be best to show Bob the main road he needs to take to reach the observatory.&lt;/p&gt;
-
-&lt;p&gt;If you look at the map viewer closely, you will see that between the bicycle parking spot and the observatory tower is the main road &amp;ldquo;Innstraße&amp;rdquo;. as the main road Bob needs to take in order to reach the observatory. How can we possibly show this? By using &lt;code&gt;node&lt;/code&gt;, and having &lt;code&gt;[name=&amp;quot;Innstraße&amp;quot;]&lt;/code&gt; as a filter perhaps?&lt;/p&gt;
-
-&lt;p&gt;Not quite. Remember that &lt;code&gt;node&lt;/code&gt;s are &lt;strong&gt;strictly&lt;/strong&gt; for &lt;em&gt;points&lt;/em&gt; of interest. They can’t map roads, as that doesn’t really exist as a single point.&lt;/p&gt;
-</description>
+      <description>Bob carefully examines the bike in the parking space, trying to find his bike. “Aha!&amp;rdquo; exclaims Bob, as he grabs the red bike we can only assume is his.
+Now that Bob is on his bike, he now needs to go the observatory to find his wallet. Since we already know Bob has a bad sense of direction (I mean, he did get lost!) it’d be best to show Bob the main road he needs to take to reach the observatory.</description>
     </item>
     
     <item>
@@ -141,12 +93,9 @@ The last couple of exercises introduced quite a few things, namely, &lt;code&gt;
       <pubDate>Wed, 08 Jul 2015 16:35:50 +0800</pubDate>
       
       <guid>//osmlab.github.io/learnoverpass/en/exercises/intro/8/</guid>
-      <description>&lt;p&gt;“Wooh, At least I know now where the observatory is!” says Bob.&lt;/p&gt;
-
-&lt;p&gt;Seeing the distance between them though, Bob is quite flustered. That’s quite a long way!&lt;/p&gt;
-
-&lt;p&gt;Luckily, Bob remembers leaving his bicycle in the nearest parking space. Let’s go ahead and query for Bob’s bike!&lt;/p&gt;
-</description>
+      <description>“Wooh, At least I know now where the observatory is!” says Bob.
+Seeing the distance between them though, Bob is quite flustered. That’s quite a long way!
+Luckily, Bob remembers leaving his bicycle in the nearest parking space. Let’s go ahead and query for Bob’s bike!</description>
     </item>
     
     <item>
@@ -155,26 +104,9 @@ The last couple of exercises introduced quite a few things, namely, &lt;code&gt;
       <pubDate>Tue, 07 Jul 2015 16:35:50 +0800</pubDate>
       
       <guid>//osmlab.github.io/learnoverpass/en/exercises/intro/7/</guid>
-      <description>&lt;p&gt;“Bingo!” Bob says as he walks towards the restaurant.&lt;/p&gt;
-
-&lt;p&gt;See how powerful the Overpass QL is in querying OSM data? It has a plethora of different filters and statements, and combining them with each other can create even more specific queries for your use cases.&lt;/p&gt;
-
-&lt;p&gt;Our previous example introduces a very important metaphor in the Overpass Query Language, which is ‘flow’. A good way to think of the Overpass API is that it allows OSM data (nodes, etc.) to be generated and modified as it ‘flows’ from one statement to another. &lt;/p&gt;
-
-&lt;p&gt;As a concrete example, our bounding box query (the lat/lon points) finds the nodes in that area. The resulting data will then ‘flow’ and get filtered &lt;code&gt;[natural=tree]&lt;/code&gt;, &lt;code&gt;[height=20]&lt;/code&gt;, etc.&lt;/p&gt;
-
-&lt;p&gt;If you notice, &lt;code&gt;(around:n)&lt;/code&gt; works the same way, in that our initial data flows in it, and gets modified to show the nodes around the initial data that is produced by our first line.&lt;/p&gt;
-
-&lt;p&gt;“Wow!” Bob exclaims, “That was a very good meal!”&lt;/p&gt;
-
-&lt;p&gt;“That would be 25 Euros sir” says the waiter, dressed in an all white attire.&lt;/p&gt;
-
-&lt;p&gt;“Coming right up!” Bob says proudly, when&amp;hellip;&lt;/p&gt;
-
-&lt;p&gt;“Uh oh! I seem to have left my wallet at the observatory!”&lt;/p&gt;
-
-&lt;p&gt;Flustered, Bob ran outside the restaurant, hoping to get back to his wallet.&lt;/p&gt;
-</description>
+      <description>“Bingo!” Bob says as he walks towards the restaurant.
+See how powerful the Overpass QL is in querying OSM data? It has a plethora of different filters and statements, and combining them with each other can create even more specific queries for your use cases.
+Our previous example introduces a very important metaphor in the Overpass Query Language, which is ‘flow’. A good way to think of the Overpass API is that it allows OSM data (nodes, etc.</description>
     </item>
     
     <item>
@@ -183,16 +115,9 @@ The last couple of exercises introduced quite a few things, namely, &lt;code&gt;
       <pubDate>Mon, 06 Jul 2015 16:35:50 +0800</pubDate>
       
       <guid>//osmlab.github.io/learnoverpass/en/exercises/intro/6/</guid>
-      <description>&lt;p&gt;“Woah, great! I see a lot of nodes around me, but there are too many, and I’m not sure which are the restaurants!&amp;rdquo;&lt;/p&gt;
-
-&lt;p&gt;We used the &lt;code&gt;around&lt;/code&gt; filter on our previous example to query for nodes around our particular node, and it worked! As you can see on the map viewer, we see the OSM data around our first statement.&lt;/p&gt;
-
-&lt;p&gt;However, it’s quite problematic - we haven’t actually found any restaurants, and there are too many nodes!&lt;/p&gt;
-
-&lt;p&gt;Again, we will use the concept that we learned earlier to further filter our data. &lt;code&gt;around&lt;/code&gt; gave us a bunch of nodes, so we need to use &lt;em&gt;filter by tag ([k=v])&lt;/em&gt; to filter it to only restaurants.&lt;/p&gt;
-
-&lt;p&gt;Go ahead and combine our &lt;code&gt;around&lt;/code&gt; filter with our &lt;code&gt;by tag&lt;/code&gt; filter!&lt;/p&gt;
-</description>
+      <description>“Woah, great! I see a lot of nodes around me, but there are too many, and I’m not sure which are the restaurants!&amp;rdquo;
+We used the around filter on our previous example to query for nodes around our particular node, and it worked! As you can see on the map viewer, we see the OSM data around our first statement.
+However, it’s quite problematic - we haven’t actually found any restaurants, and there are too many nodes!</description>
     </item>
     
     <item>
@@ -201,16 +126,8 @@ The last couple of exercises introduced quite a few things, namely, &lt;code&gt;
       <pubDate>Sun, 05 Jul 2015 16:35:50 +0800</pubDate>
       
       <guid>//osmlab.github.io/learnoverpass/en/exercises/intro/5/</guid>
-      <description>&lt;p&gt;&amp;ldquo;Woah, it’s empty! Could it be that there are no restaurants near me?” asks Bob.&lt;/p&gt;
-
-&lt;p&gt;Not really. See, our first statement &lt;code&gt;node(2190458950)&lt;/code&gt; is &lt;em&gt;already&lt;/em&gt; a node, so filtering it further wouldn’t do anything! And since we added a new filter (restaurants) to a statement that we &lt;strong&gt;know&lt;/strong&gt; gives us a tree, we basically asked OSM to further filter our result set (a tree node) to only show restaurants, which obviously results in OSM nothing (since a tree is not a restaurant)!&lt;/p&gt;
-
-&lt;p&gt;Our previous examples worked because we filtered for nodes with tags present in an &lt;em&gt;area&lt;/em&gt; (the &lt;code&gt;bounding box&lt;/code&gt; with lat/lon points). We essentially queried for nodes in an area, then used filters to filter it down to a tree.&lt;/p&gt;
-
-&lt;p&gt;Right now, since our node is already a node, we can’t just use a filter to get a restaurant from it. We have to get a new &lt;em&gt;area&lt;/em&gt; from the node.&lt;/p&gt;
-
-&lt;p&gt;To do this, we can make great use of another filter, named &lt;code&gt;around&lt;/code&gt;.&lt;/p&gt;
-</description>
+      <description>&amp;ldquo;Woah, it’s empty! Could it be that there are no restaurants near me?” asks Bob.
+Not really. See, our first statement node(2190458950) is already a node, so filtering it further wouldn’t do anything! And since we added a new filter (restaurants) to a statement that we know gives us a tree, we basically asked OSM to further filter our result set (a tree node) to only show restaurants, which obviously results in OSM nothing (since a tree is not a restaurant)!</description>
     </item>
     
     <item>
@@ -219,10 +136,8 @@ The last couple of exercises introduced quite a few things, namely, &lt;code&gt;
       <pubDate>Sat, 04 Jul 2015 16:35:50 +0800</pubDate>
       
       <guid>//osmlab.github.io/learnoverpass/en/exercises/intro/4/</guid>
-      <description>&lt;p&gt;“Well isn’t that better? Shorter and easier to work with.”&lt;/p&gt;
-
-&lt;p&gt;“You know, I’ve been waiting for you for quite a while, I’m hungry! Since my GPS doesn’t really seem to be all that reliable, would you mind looking for a place near me where I can eat?&amp;rdquo;&lt;/p&gt;
-</description>
+      <description>“Well isn’t that better? Shorter and easier to work with.”
+“You know, I’ve been waiting for you for quite a while, I’m hungry! Since my GPS doesn’t really seem to be all that reliable, would you mind looking for a place near me where I can eat?&amp;rdquo;</description>
     </item>
     
     <item>
@@ -231,18 +146,8 @@ The last couple of exercises introduced quite a few things, namely, &lt;code&gt;
       <pubDate>Fri, 03 Jul 2015 16:35:50 +0800</pubDate>
       
       <guid>//osmlab.github.io/learnoverpass/en/exercises/intro/3/</guid>
-      <description>&lt;p&gt;Awesome! We’ve filtered our data to only show trees!&lt;/p&gt;
-
-&lt;p&gt;If you notice on the text editor on the right, [natural=tree] is placed on the 2nd line. Overpass Turbo allows you to add indentation and extra lines as you see fit, so feel free to make ample use of them to make your queries more readable! Note however, that the semicolon is also placed in the second line to tell Overpass that statement is finished. Think of it as Overpass’ period.&lt;/p&gt;
-
-&lt;p&gt;Anyway, we successfully filtered the data to only request for trees. However, we still have a problem. While “Bob” told us he is at a tree, there are THREE trees in the area!&lt;/p&gt;
-
-&lt;p&gt;“Hello! Hello! Query Writer” says Bob.&lt;/p&gt;
-
-&lt;p&gt;Bob: “It seems that we are in quite a predicament here. I’m not sure how I can help, but I do know that I’m next to the tallest tree in the area.”&lt;/p&gt;
-
-&lt;p&gt;Woah, Bob just talked to us, and he mentions being next to the tallest tree! If you notice from the tree nodes, they are also tagged by their height! You can use these to further filter your data!&lt;/p&gt;
-</description>
+      <description>Awesome! We’ve filtered our data to only show trees!
+If you notice on the text editor on the right, [natural=tree] is placed on the 2nd line. Overpass Turbo allows you to add indentation and extra lines as you see fit, so feel free to make ample use of them to make your queries more readable! Note however, that the semicolon is also placed in the second line to tell Overpass that statement is finished.</description>
     </item>
     
     <item>
@@ -251,12 +156,9 @@ The last couple of exercises introduced quite a few things, namely, &lt;code&gt;
       <pubDate>Thu, 02 Jul 2015 16:35:50 +0800</pubDate>
       
       <guid>//osmlab.github.io/learnoverpass/en/exercises/intro/2/</guid>
-      <description>&lt;p&gt;Nice! As you can see the Query Language might look cryptic at first, but it’s actually quite straightforward!&lt;/p&gt;
-
-&lt;p&gt;Those circles you see in the map view are &amp;ldquo;points of interest&amp;rdquo; called “nodes”. Try clicking on them - some just contain their own positions (lat/lon) but some of them are tagged and contain other data, such as names, type of node, etc, etc.&lt;/p&gt;
-
-&lt;p&gt;Since our friend “Bob” has a pretty inaccurate GPS, he only managed to give us rough coordinates. He DID say that he would be by a tree, however, so why don’t we try searching for a node that’s a tree? He’s bound to be there!&lt;/p&gt;
-</description>
+      <description>Nice! As you can see the Query Language might look cryptic at first, but it’s actually quite straightforward!
+Those circles you see in the map view are &amp;ldquo;points of interest&amp;rdquo; called “nodes”. Try clicking on them - some just contain their own positions (lat/lon) but some of them are tagged and contain other data, such as names, type of node, etc, etc.
+Since our friend “Bob” has a pretty inaccurate GPS, he only managed to give us rough coordinates.</description>
     </item>
     
     <item>
@@ -265,16 +167,9 @@ The last couple of exercises introduced quite a few things, namely, &lt;code&gt;
       <pubDate>Wed, 01 Jul 2015 16:35:50 +0800</pubDate>
       
       <guid>//osmlab.github.io/learnoverpass/en/exercises/intro/1/</guid>
-      <description>&lt;p&gt;Hello and welcome to LearnOverpass!&lt;/p&gt;
-
-&lt;p&gt;The Overpass API is a powerful API that lets you query data from OpenStreetMap. You can find different places, routes to locations, and everything under the sun, quite literally! You can ‘talk’ to it and request data for your own specific use, using its own language, the “Overpass Query Language” (QL).&lt;/p&gt;
-
-&lt;p&gt;What you see on the right is a text editor where you can type in your QL commands. See the statement with the word &lt;code&gt;node&lt;/code&gt;? That&amp;rsquo;s a QL statement which asks (queries) the API for a single point of interest (a node) in OpenStreetMap.&lt;/p&gt;
-
-&lt;p&gt;The world map below the editor is a visualization of the data that&amp;rsquo;s received by your statement. Right now it contains nothing, because our statement is incomplete - while we &lt;em&gt;query a node&lt;/em&gt; with the first line, it doesn’t know what or which node we’re interested in, so the API doesn&amp;rsquo;t know what to do with it!&lt;/p&gt;
-
-&lt;p&gt;Let&amp;rsquo;s change that!&lt;/p&gt;
-</description>
+      <description>Hello and welcome to LearnOverpass!
+The Overpass API is a powerful API that lets you query data from OpenStreetMap. You can find different places, routes to locations, and everything under the sun, quite literally! You can ‘talk’ to it and request data for your own specific use, using its own language, the “Overpass Query Language” (QL).
+What you see on the right is a text editor where you can type in your QL commands.</description>
     </item>
     
   </channel>
