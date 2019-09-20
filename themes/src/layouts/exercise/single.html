@@ -66,8 +66,8 @@
        <a class="docs-repl-change-output button" href="#">Data</a>
      </div>
    </div>
-   <div class="exercise-answer">{{ .Params.answer | html }}</div>
-   <div class="exercise-regex">{{ .Params.regex | html }}</div>
+   <div class="exercise-answer">{{ .Params.answer }}</div>
+   <div class="exercise-regex">{{ .Params.regex }}</div>
 </div>
 {{ partial "shared.js.html" . }}
 {{ partial "exercise.js.html" . }}
