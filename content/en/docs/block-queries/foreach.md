@@ -52,7 +52,7 @@ This puts the element to loop over into the variable b. Without it, the foreach 
 // foreach bank node, print out adjacent nodes
 foreach->.bank_set(
   node(around.bank_set:15)->.adjacent_set;
-  (.adjacent_set);
+  (.adjacent_set;);
   out meta;
 );
 {{< /docs_repl >}}
