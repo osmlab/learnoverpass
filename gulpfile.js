@@ -25,8 +25,7 @@ gulp.task('scripts', function() {
   var config = require('./webpack.config.js');
   config.devtool = "inline-source-map";
 
-  return gulp.src('themes/src/scripts/main.js')
-    .pipe(webpack(config))
+  return webpack(config)
     .pipe(gulp.dest(theme + 'static/js/'));
 });
 
@@ -36,8 +35,7 @@ gulp.task('scripts-deploy', function() {
     new wp.optimize.UglifyJsPlugin({minimize:true})
   );
 
-  return gulp.src('themes/src/scripts/main.js')
-    .pipe(webpack(config))
+  return webpack(config)
     .pipe(gulp.dest(theme + 'static/js/'));
 });
 
@@ -84,10 +82,10 @@ gulp.task('watch', function () {
     'scripts/**/*.js',
   ]).on('change', $.livereload.changed);
 
-  gulp.watch('themes/src/styles/**/*.styl', ['styles']);
-  gulp.watch('themes/src/scripts/**/*.js', ['scripts']);
-  gulp.watch('themes/src/**/*.html', ['html']);
-  gulp.watch('themes/src/**/*.html', ['partials']);
+  gulp.watch('themes/src/styles/**/*.styl', gulp.parallel('styles'));
+  gulp.watch('themes/src/scripts/**/*.js', gulp.parallel('scripts'));
+  gulp.watch('themes/src/**/*.html', gulp.parallel('html'));
+  gulp.watch('themes/src/**/*.html', gulp.parallel('partials'));
 });
 
 gulp.task('clearcache', function() {
@@ -98,12 +96,18 @@ gulp.task('build', gulp.series('jshint', 'html', 'partials', function () {
   return gulp.src(theme + '**/*').pipe($.size({title: 'build', gzip: true}));
 }));
 
-gulp.task('deploy', gulp.series('clean', 'build', 'scripts-deploy', function(){
-    gulp.src('').pipe($.shell(['node_modules/.bin/hugo --theme=overpass_doc --baseUrl=//osmlab.github.io/learnoverpass/']));
-}));
+gulp.task('deploy', gulp.series(
+  'clean', 
+  'build', 
+  'scripts-deploy', 
+  $.shell.task('node_modules/.bin/hugo --theme=overpass_doc --baseUrl=//osmlab.github.io/learnoverpass/'),
+));
 
-gulp.task('default', gulp.series('clean', 'build', function () {
-  gulp.start('scripts');
-  gulp.start('watch');
-  gulp.src('').pipe($.shell(['node_modules/.bin/hugo server --watch --theme=overpass_doc --buildDrafts']));
-}));
+gulp.task('default', gulp.series(
+  gulp.series('clean', 'build'), 
+  gulp.parallel(
+    'scripts', 
+    'watch',
+    $.shell.task('node_modules/.bin/hugo server --watch --theme=overpass_doc --buildDrafts'),
+  ),
+));
