@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
+
+set -x
 set -o errexit #abort if any command fails
 
 deploy_directory=public
 deploy_branch=gh-pages
 
 rm -rf "$deploy_directory"
-gulp deploy
+npx gulp deploy
 
 #if no user identity is already set in the current git environment, use this:
 default_username=deploy.sh

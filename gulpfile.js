@@ -21,23 +21,21 @@ gulp.task('styles', function () {
     .pipe(gulp.dest(theme + 'static/css'));
 });
 
-gulp.task('scripts', [], function() {
+gulp.task('scripts', function() {
   var config = require('./webpack.config.js');
   config.devtool = "inline-source-map";
 
-  return gulp.src('themes/src/scripts/main.js')
-    .pipe(webpack(config))
+  return webpack(config)
     .pipe(gulp.dest(theme + 'static/js/'));
 });
 
-gulp.task('scripts-deploy', [], function() {
+gulp.task('scripts-deploy', function() {
   var config = require('./webpack.config.js');
   config.plugins.push(
     new wp.optimize.UglifyJsPlugin({minimize:true})
   );
 
-  return gulp.src('themes/src/scripts/main.js')
-    .pipe(webpack(config))
+  return webpack(config)
     .pipe(gulp.dest(theme + 'static/js/'));
 });
 
@@ -48,7 +46,7 @@ gulp.task('jshint', function () {
     .pipe($.jshint.reporter('fail'));
 });
 
-gulp.task('html', ['styles'], function () {
+gulp.task('html', gulp.series('styles', function () {
   var assets = $.useref.assets({searchPath: '{.tmp,themes/src}'});
 
   return gulp.src('themes/src/layouts/*.html')
@@ -59,9 +57,9 @@ gulp.task('html', ['styles'], function () {
     .pipe($.useref())
     .pipe($.if('*.html', $.htmlclean()))
     .pipe(gulp.dest(theme + 'layouts'));
-});
+}));
 
-gulp.task('partials', ['styles'], function () {
+gulp.task('partials', gulp.series('styles', function () {
   var assets = $.useref.assets({searchPath: '{.tmp,themes/src}'});
 
   return gulp.src('themes/src/layouts/**/*.html')
@@ -72,7 +70,7 @@ gulp.task('partials', ['styles'], function () {
     .pipe($.useref())
     .pipe($.if('*.html', $.htmlclean()))
     .pipe(gulp.dest(theme + 'layouts/'));
-});
+}));
 
 gulp.task('clean', require('del').bind(null, [theme + 'layouts', theme + 'static/assets/css/*.css', theme + 'static/assets/*.js']));
 
@@ -84,26 +82,32 @@ gulp.task('watch', function () {
     'scripts/**/*.js',
   ]).on('change', $.livereload.changed);
 
-  gulp.watch('themes/src/styles/**/*.styl', ['styles']);
-  gulp.watch('themes/src/scripts/**/*.js', ['scripts']);
-  gulp.watch('themes/src/**/*.html', ['html']);
-  gulp.watch('themes/src/**/*.html', ['partials']);
+  gulp.watch('themes/src/styles/**/*.styl', gulp.parallel('styles'));
+  gulp.watch('themes/src/scripts/**/*.js', gulp.parallel('scripts'));
+  gulp.watch('themes/src/**/*.html', gulp.parallel('html'));
+  gulp.watch('themes/src/**/*.html', gulp.parallel('partials'));
 });
 
 gulp.task('clearcache', function() {
   $.cache.clearAll();
 });
 
-gulp.task('build', ['jshint', 'html', 'partials'], function () {
+gulp.task('build', gulp.series('jshint', 'html', 'partials', function () {
   return gulp.src(theme + '**/*').pipe($.size({title: 'build', gzip: true}));
-});
+}));
 
-gulp.task('deploy', ['clean', 'build', 'scripts-deploy'], function(){
-    gulp.src('').pipe($.shell(['node_modules/.bin/hugo --theme=overpass_doc --baseUrl=//osmlab.github.io/learnoverpass/']));
-});
+gulp.task('deploy', gulp.series(
+  'clean', 
+  'build', 
+  'scripts-deploy', 
+  $.shell.task('node_modules/.bin/hugo --theme=overpass_doc --baseUrl=//osmlab.github.io/learnoverpass/'),
+));
 
-gulp.task('default', ['clean', 'build'], function () {
-  gulp.start('scripts');
-  gulp.start('watch');
-  gulp.src('').pipe($.shell(['node_modules/.bin/hugo server --watch --theme=overpass_doc --buildDrafts']));
-});
+gulp.task('default', gulp.series(
+  gulp.series('clean', 'build'), 
+  gulp.parallel(
+    'scripts', 
+    'watch',
+    $.shell.task('node_modules/.bin/hugo server --watch --theme=overpass_doc --buildDrafts'),
+  ),
+));
