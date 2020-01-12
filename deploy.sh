@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+
+set -x
 set -o errexit #abort if any command fails
 
 deploy_directory=public
