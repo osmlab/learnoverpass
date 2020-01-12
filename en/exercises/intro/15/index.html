@@ -13,7 +13,7 @@
 <li>The very important metaphor of ‘flowing’ data still holds for this query. Because of this, we need to ensure our <code>way</code> set is already available when we query for its nodes. So we need to place the query statement <code>node(w)</code> after the way is set, but before the <code>out;</code> statement.</li>
 <li>If you try running the query now (seriously, go ahead!), you’ll see a bunch of nodes that define the look of our polygon. As told before, <code>way</code>s are just a bunch of <code>node</code>s, and with the <code>recurse</code> filter, we showed these nodes instead of the actual way.</li>
 <li>While the <code>recurse</code> filter <em>recursed</em> through the <code>way</code> and returned the <code>node</code>s that make it up, we still need to further filter the <code>node</code>s to only show entrances. Luckily, we can use the filter <code>[entrance=yes]</code> for that.</li>
-<li>Since we changed our output result set from a way to entrances (with <code>node(w)</code>), a bare <code>out</code> statement will work fine - make sure to remove the <code>geom</code> modificator!</li>
+<li>Since we changed our output result set from a way to entrances (with <code>node(w)</code>), a bare <code>out</code> statement will work fine - make sure to reemove the <code>geom</code> modificator!</li>
 </ol>
 </div></div></div><div class="docs-repl exercise-main"><div class="editor-cover"></div> <textarea>way[&#34;addr:city&#34;=Passau][name=&#34;Wirtschaftswissenschaften (WIWI)&#34;];
 out geom;
