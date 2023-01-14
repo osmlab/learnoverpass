@@ -6,9 +6,9 @@
 
   <div class="docs-repl-result">
     {{ if eq "=" (substr .Inner 0 1) }}
-    <iframe src="https://overpass-turbo.eu/master/map.html?silent"
+    <iframe src="https://overpass-turbo.eu/map.html?silent"
     {{ else }}
-    <iframe src="https://overpass-turbo.eu/master/map.html?silent&Q={{ .Inner }}"
+    <iframe src="https://overpass-turbo.eu/map.html?silent&Q={{ .Inner }}"
     {{ end }}
           seamless="seamless"
           frameBorder="0" 
