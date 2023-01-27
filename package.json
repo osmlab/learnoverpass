@@ -34,5 +34,7 @@
     "pngquant": "^0.4.0",
     "webpack": "^1.8.9",
     "webpack-stream": "^2.0.0"
-  }
+  },
+  "overrides": {
+  "graceful-fs": "^4.2.10"  }
 }
