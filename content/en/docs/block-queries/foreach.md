@@ -22,7 +22,7 @@ Example:
       out;
     );
 
-For each way that has a name tag with value "Foo", this prints the nodes that belong to this way immediately followed by the way itself. In detail, the result set of way[name="Foo"] is taken as input set. Then, for each element in this input set the loop body is executed once. Inside the loop body the union of the element and its nodes is taken. Then this union is printed. Note that during execution, each printed subset in an iteration is independant of subsets printed in other iterations, possibly resulting in duplicate objects in the global output (no union is computed by the out statement within the loop).
+For each way that has a name tag with value "Foo", this prints the nodes that belong to this way immediately followed by the way itself. In detail, the result set of way[name="Foo"] is taken as input set. Then, for each element in this input set the loop body is executed once. Inside the loop body the union of the element and its nodes is taken. Then this union is printed. Note that during execution, each printed subset in an iteration is independent of subsets printed in other iterations, possibly resulting in duplicate objects in the global output (no union is computed by the out statement within the loop).
 
 The input set of the foreach statement can be taken from a variable with the usual postfix notation:
 
